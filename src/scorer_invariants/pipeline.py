@@ -102,16 +102,16 @@ def resolve_metrics(
 def to_task_state(case: Case, index: int) -> TaskState:
     """Adapt a Case into the TaskState a scorer reads.
 
-    Deliberately minimal, and this is V1's scope limit: the scorer sees the completion, the
-    metadata and the messages the Case supplies, and nothing invented on its behalf. A scorer that
-    reads anything else off TaskState -- the store, `output.choices`, tool calls, a sandbox -- is
-    outside what a Case can represent, and therefore outside V1.
+    Deliberately minimal, and this is V1's scope limit: the scorer sees the input, completion,
+    metadata and messages the Case supplies, and nothing invented on its behalf. A scorer that
+    reads anything else off TaskState -- the store, `output.choices`, a sandbox -- is outside what
+    a Case can represent, and therefore outside V1.
     """
     return TaskState(
         model=ModelName(PROBE_MODEL),
         sample_id=index + 1,
         epoch=1,
-        input="",
+        input=case.input,
         messages=list(case.messages or []),
         metadata=dict(case.metadata or {}),
         output=ModelOutput.from_content(PROBE_MODEL, case.completion),

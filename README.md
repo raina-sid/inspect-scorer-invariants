@@ -76,6 +76,22 @@ report = await probe_async(...)      # and observe_async(...) at the lower level
 holds — which manufactures false positives on any task whose prompt rules one out — or assert nothing
 at all.
 
+### The one exclusion you almost certainly need
+
+**If your prompt mandates an output format, exclude `MARKUP`.** Phrases to look for in your own
+prompt: *"the entire content of your response"*, *"no other text"*, *"only respond with"*,
+*"Return EXACTLY"*. In a blind sweep of real evals this single omission caused **4 of the 5 false
+positives** — it is the modal user error by a wide margin.
+
+Two related cases worth recognising, because they look like defects and are not:
+
+- a scorer whose **purpose** is to check formatting (`personality` scores format compliance), where
+  markup-sensitivity is the measurement, not a bug
+- a scorer that **correctly tags** malformed input as unscored rather than mislabelling it
+  (`stereoset` sets `unscored_reason='invalid_response_format'`). This probe compares `Score.value`
+  and does not read `unscored_reason`, so it still reports a change. That is a limitation here, not
+  a defect there.
+
 ## What a finding looks like
 
 ```
@@ -112,6 +128,12 @@ keyed by the metric. Its own tests use uppercase answer literals throughout.
 | `MARKUP` | markdown emphasis around the cue or the answer |
 | `CODE_FORMATTING` | reindentation, blank lines, hoisted imports, fence-tag case |
 | `WRONG_STAYS_INCORRECT` | *(a relation, not equality)* a wrong answer stays wrong when replaced by a differently-wrong answer of the same shape |
+
+Transformations come in two families. **Cue-anchored** ones look for a known answer cue
+(`ANSWER:`, `VERDICT:`) — precise when the convention matches, useless when it does not.
+**Target-anchored** ones locate the target's own occurrence in the completion and perturb that, which
+works whatever cue the scorer uses. The second family exists because of the measurement above: before
+it, only 2 of the 8 observable scorers had any transformation apply; after it, all 8 did.
 
 `WRONG_STAYS_INCORRECT` ships with **no built-in transformation**, on purpose: "a differently-wrong
 answer of the same surface shape" is domain knowledge, and a generic guess would be the library
@@ -225,7 +247,43 @@ Fixtures are vendored minimal reductions with provenance recorded in `scorecard/
 into `inspect_evals`. These defects should be reported upstream, and if they are fixed a scorecard
 calling the real scorers would turn red — doing the right thing would destroy the evidence.
 
-## Coverage: half of the evals attempted could not be probed at all
+## Reach: measured against 62 real scorers, and it is limited
+
+Pointed **blindly** at every bespoke, offline-constructible scorer in `inspect_evals` — 62 of them —
+with six guessed completion formats and no declared exclusions:
+
+| | |
+|---|---|
+| outside what a `Case` can represent | **20** |
+| in scope, but the guessed format was wrong | **30** |
+| observed, and every probe exercised | **8** |
+| FAIL cells produced | 6 |
+| **genuinely defective** | **1** |
+
+The 20 break down as: needs a sandbox (10), reads the store (4), reads `state.input` (3 — which is
+why `Case.input` now exists), reads `output.choices` (2), other `TaskState` (1).
+
+**Two honest readings of that.**
+
+Blind, it is close to useless: 1 true finding in 6 FAILs, and 30 of 62 scorers unreachable simply
+because a generic guess at their input format is not good enough. **The package cannot be pointed; it
+has to be aimed.** Someone probing their *own* scorer knows its format and its metadata keys, and
+knows what their prompt permits — that is the difference between the 17% above and the three real
+defects this package was built on.
+
+The one true finding is instructive: `docvqa` captures its answer with `match.groups()[0]` and **no
+`.strip()`** (`docvqa.py:136`), while `vqa_rad` does `match.groups()[0].strip().lower()` in the same
+repo. Trailing whitespace corrupts the comparison. A cue-anchored transformation missed it; a
+target-anchored one found it.
+
+Method and limits: the in-scope/out-of-scope split is static analysis of what each scorer reads off
+`TaskState`, so a scorer delegating to a module-level helper hides its accesses — 5 of the 54
+verdicts came from a wider module scan and are weaker, and 4 were undetermined.
+
+Separately, a pre-registered run over 18 evals gives the applicability census, whose blockers are
+structural rather than a to-do list: a grader model is not repeatable, a container is not offline, an
+upstream grading package (`livebench`, `kernelbench`) is not present to probe, and a scorer reading
+its answer from a file (`scbench`) has no text cue.
 
 ```
 Applicability census: 18 evals attempted (pre-registered run, 2026-09-21)
@@ -236,12 +294,6 @@ Applicability census: 18 evals attempted (pre-registered run, 2026-09-21)
   blocked_upstream    2
   no_surface          2
 ```
-
-The reasons are structural, not a to-do list. A scorer that calls a grader model is not repeatable. A
-scorer that needs a container cannot run offline. A scorer whose grading logic lives in an upstream pip
-package (`livebench`, `kernelbench`) is not present to probe. A scorer that reads its answer from a
-file rather than from model prose (`scbench`) has no text cue to perturb. And a structural tool-call
-matcher (`bfcl`) has no cue either.
 
 If your scorer is model-graded, this package is the wrong tool — and it will **not** reliably tell
 you so. See the precondition below.

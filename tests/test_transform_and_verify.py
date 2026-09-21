@@ -17,6 +17,9 @@ from scorer_invariants.transform import (
     BUILTIN_TRANSFORMS,
     CUE_CASE_FLIP,
     CUE_SPACE_REMOVED,
+    TARGET_BOLDED,
+    TARGET_CASE_FLIP,
+    TARGET_SPACE_PADDED,
     Transform,
     transform,
     transforms_for,
@@ -225,3 +228,107 @@ class TestBadTransformations:
     def test_returns_none_rather_than_an_unchanged_case(self):
         # None means NOT_APPLICABLE; returning the input would be a guaranteed PASS
         assert CUE_CASE_FLIP.apply(case(completion="no caps here")) is None
+
+
+class TestTargetAnchoredRewrites:
+    """Target-anchored transformations exist because cue-anchored ones reach too little.
+
+    Measured: of 62 real inspect_evals scorers, 8 could be observed at all, and only 2 had any
+    cue-anchored transformation apply. Every scorer has a target; not every scorer uses a cue word
+    this library can guess. After adding these, all 8 were exercised.
+    """
+
+    def test_word_boundary_protects_the_cue(self):
+        # THE trap: target "A" must not rewrite the A inside "ANSWER"
+        out = TARGET_BOLDED.apply(case("ANSWER: A", target="A"))
+        assert out is not None
+        assert out.completion == "ANSWER: **A**"
+
+    def test_bolds_a_multiword_target(self):
+        out = TARGET_BOLDED.apply(case("The answer is Paris.", target="Paris"))
+        assert out is not None
+        assert out.completion == "The answer is **Paris**."
+
+    def test_flips_case_both_directions(self):
+        up = TARGET_CASE_FLIP.apply(case("TRUE", target="TRUE"))
+        down = TARGET_CASE_FLIP.apply(case("Reasoning.\nFINAL: true", target="true"))
+        assert up is not None and up.completion == "True"
+        assert down is not None and down.completion == "Reasoning.\nFINAL: TRUE"
+
+    def test_pads_whitespace_around_the_target(self):
+        out = TARGET_SPACE_PADDED.apply(case("ANSWER:B", target="B"))
+        assert out is not None
+        assert out.completion == "ANSWER: B "
+
+    def test_every_target_of_a_list_is_rewritten(self):
+        out = TARGET_BOLDED.apply(case("A and B both", target=["A", "B"]))
+        assert out is not None
+        assert out.completion == "**A** and **B** both"
+
+    def test_repeated_occurrences_all_rewritten(self):
+        out = TARGET_BOLDED.apply(case("B then B again", target="B"))
+        assert out is not None
+        assert out.completion == "**B** then **B** again"
+
+    @pytest.mark.parametrize(
+        ("t", "completion", "target"),
+        [
+            (TARGET_BOLDED, "ANSWER: **A**", "A"),        # already bold
+            (TARGET_BOLDED, "no target here", "Zebra"),   # target absent
+            (TARGET_CASE_FLIP, "the answer is 42", "42"), # nothing to case-flip
+            (TARGET_BOLDED, "x", ""),                     # empty target
+        ],
+    )
+    def test_returns_none_rather_than_an_unchanged_case(self, t, completion, target):
+        # None means NOT_APPLICABLE; returning the input would be a guaranteed PASS
+        assert t.apply(case(completion, target=target)) is None
+
+    def test_only_the_completion_is_mutated(self):
+        before = case("ANSWER: A", target="A", metadata={"k": 1})
+        after = TARGET_BOLDED.apply(before)
+        assert after is not None
+        assert changed_fields(before, after) == {"completion"}
+
+    def test_each_declares_the_invariant_it_tests(self):
+        assert TARGET_CASE_FLIP.valid_for(CUE_CASE)
+        assert TARGET_BOLDED.valid_for(MARKUP)
+        assert TARGET_SPACE_PADDED.valid_for(CUE_WHITESPACE)
+        assert not TARGET_BOLDED.valid_for(CUE_CASE)
+
+
+class TestCaseInput:
+    """Case.input exists because three measured scorers were unreachable without it."""
+
+    def test_defaults_to_empty_and_is_a_declarable_field(self):
+        assert case().input == ""
+        assert "input" in FIELDS
+
+    def test_reaches_a_scorer_that_reads_state_input(self):
+        from inspect_ai.scorer import CORRECT, INCORRECT, Score, accuracy, scorer
+
+        from scorer_invariants.pipeline import observe, resolve_metrics
+
+        @scorer(metrics=[accuracy()])
+        def input_reading_scorer():
+            async def score(state, target):
+                return Score(value=CORRECT if target.text in state.input else INCORRECT)
+
+            return score
+
+        cases = [Case(completion="x", target="Paris", input="Where? Paris.")]
+        obs = observe(input_reading_scorer(), resolve_metrics([accuracy()]), cases)
+        assert obs.metrics["accuracy"] == 1.0
+
+    def test_an_undeclared_input_mutation_is_caught(self):
+        from scorer_invariants.verify import ViolationKind, verify_transformation
+
+        bad = transform(
+            "input_mutator", [CUE_CASE], ["completion"],
+            lambda c: Case(completion=c.completion.title(), target=c.target, input="TAMPERED"),
+        )
+        before = [case("ANSWER: TRUE", target="TRUE")]
+        after = [bad.apply(before[0])]
+        v = verify_transformation(bad, before, after)
+        assert v is not None
+        assert v.kind is ViolationKind.UNDECLARED_MUTATION
+        assert "input" in v.detail

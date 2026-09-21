@@ -114,11 +114,15 @@ def transform(
 
 
 # --------------------------------------------------------------------------------------
-# Concrete rewrites.
+# Concrete rewrites, in two families.
 #
-# Only the completion-side rewrites needed to exercise the machinery land here. The full set
-# arrives with the pipeline, so that each one is added against a real comparison rather than
-# guessed at in advance.
+# CUE-ANCHORED rewrites look for a known answer cue ("ANSWER:", "VERDICT:"). They are precise when
+# the convention matches and useless when it does not.
+#
+# TARGET-ANCHORED rewrites locate the target's own occurrence in the completion and perturb that.
+# They exist because a measured sweep of 62 real inspect_evals scorers found that of the 8 the
+# package could observe at all, only 2 had any cue-anchored transformation apply. Every scorer has
+# a target; not every scorer uses a cue word this library can guess.
 # --------------------------------------------------------------------------------------
 
 _CUE = re.compile(r"(?i)\b(ANSWER|VERDICT|GRADE|FINAL ANSWER)(\s*):(\s*)")
@@ -185,10 +189,72 @@ ANSWER_BOLDED = transform(
     apply=lambda c: _map_completion(c, _wrap_answer_in_bold),
 )
 
+# ---- target-anchored ----------------------------------------------------------------
+
+
+def _targets_of(case: Case) -> list[str]:
+    raw = case.target if isinstance(case.target, list) else [case.target]
+    return [t for t in raw if t and t.strip()]
+
+
+def _sub_target(case: Case, rewrite: Callable[[str], str | None]) -> Case | None:
+    """Apply `rewrite` to each whole-word occurrence of the target inside the completion.
+
+    Word-boundary anchored, which matters: a target of "A" against a completion of "ANSWER: A"
+    must not rewrite the "A" inside "ANSWER". Returns None when nothing changed, so the framework
+    reads it as NOT_APPLICABLE rather than as a pass.
+    """
+    text = case.completion
+    for target in _targets_of(case):
+        replacement = rewrite(target)
+        if replacement is None or replacement == target:
+            continue
+        pattern = re.compile(rf"(?<![\w*`]){re.escape(target)}(?![\w*`])")
+        text = pattern.sub(lambda _m, r=replacement: r, text)  # type: ignore[misc]
+    if text == case.completion:
+        return None
+    return case.with_completion(text)
+
+
+def _flip_case(token: str) -> str | None:
+    """'TRUE' -> 'True'; 'true' -> 'TRUE'. None when the token has no case to flip."""
+    if not any(c.isalpha() for c in token):
+        return None
+    flipped = token.title() if token.isupper() else token.upper()
+    return None if flipped == token else flipped
+
+
+TARGET_CASE_FLIP = transform(
+    name="target_case_flip",
+    tests=[CUE_CASE],
+    mutates=["completion"],
+    apply=lambda c: _sub_target(c, _flip_case),
+)
+
+TARGET_BOLDED = transform(
+    name="target_bolded",
+    tests=[MARKUP],
+    mutates=["completion"],
+    apply=lambda c: _sub_target(c, lambda t: f"**{t}**"),
+)
+
+TARGET_SPACE_PADDED = transform(
+    name="target_space_padded",
+    tests=[CUE_WHITESPACE],
+    mutates=["completion"],
+    apply=lambda c: _sub_target(c, lambda t: f" {t} "),
+)
+
+
 BUILTIN_TRANSFORMS: tuple[Transform, ...] = (
+    # cue-anchored
     CUE_CASE_FLIP,
     CUE_SPACE_REMOVED,
     ANSWER_BOLDED,
+    # target-anchored
+    TARGET_CASE_FLIP,
+    TARGET_BOLDED,
+    TARGET_SPACE_PADDED,
 )
 
 

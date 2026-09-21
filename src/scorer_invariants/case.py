@@ -5,6 +5,7 @@ shapes need and nothing more:
 
     worldsense     several cases, so the metric layer has something to aggregate
     tau2           a scorer reading state.metadata                -> metadata
+    simpleqa       a scorer reading state.input                   -> input
     novelty_bench  k generations, which that eval keeps in
                    state.metadata["all_completions"]              -> metadata
 
@@ -24,7 +25,7 @@ from typing import Any
 
 #: The Case fields a transformation may declare that it changes. `case_count` is not a field --
 #: it is a property of the case *list*, and lives in Transform.holds_fixed.
-FIELDS: frozenset[str] = frozenset({"completion", "target", "metadata", "messages"})
+FIELDS: frozenset[str] = frozenset({"completion", "target", "metadata", "messages", "input"})
 
 
 @dataclass(frozen=True)
@@ -40,6 +41,11 @@ class Case:
     target: str | list[str]
     metadata: dict[str, Any] | None = None
     messages: list[Any] | None = None
+    #: The sample's input. Added because a measured sweep of 62 real inspect_evals scorers found
+    #: three (`simpleqa`, `cti_realm` x2) that were unreachable for the sole reason that they read
+    #: `state.input`. It is the same class of thing as the fields above -- a plain value the caller
+    #: supplies -- unlike the store, a sandbox or `output.choices`, which a Case cannot represent.
+    input: str = ""
 
     def field(self, name: str) -> Any:
         if name not in FIELDS:
