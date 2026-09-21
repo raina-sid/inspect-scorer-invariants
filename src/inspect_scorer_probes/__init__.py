@@ -10,11 +10,11 @@ from .case import Case
 from .contract import Contract, Invariant, Outcome, Relation, Tolerance
 from .invariants import (
     ALL_INVARIANTS,
-    WITHOUT_BUILTIN_TRANSFORMATION,
     CODE_FORMATTING,
     CUE_CASE,
     CUE_WHITESPACE,
     MARKUP,
+    WITHOUT_BUILTIN_TRANSFORMATION,
     WRONG_STAYS_INCORRECT,
     by_name,
 )
@@ -30,11 +30,11 @@ from .transform import Transform, transform
 
 __all__ = [
     "ALL_INVARIANTS",
-    "WITHOUT_BUILTIN_TRANSFORMATION",
     "CODE_FORMATTING",
     "CUE_CASE",
     "CUE_WHITESPACE",
     "MARKUP",
+    "WITHOUT_BUILTIN_TRANSFORMATION",
     "WRONG_STAYS_INCORRECT",
     "Case",
     "Contract",
