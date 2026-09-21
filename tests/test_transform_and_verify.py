@@ -10,9 +10,9 @@ from dataclasses import FrozenInstanceError
 
 import pytest
 
-from scorer_invariants.case import FIELDS, Case, changed_fields
-from scorer_invariants.invariants import CUE_CASE, CUE_WHITESPACE, MARKUP
-from scorer_invariants.transform import (
+from inspect_eval_probes.case import FIELDS, Case, changed_fields
+from inspect_eval_probes.invariants import CUE_CASE, CUE_WHITESPACE, MARKUP
+from inspect_eval_probes.transform import (
     ANSWER_BOLDED,
     BUILTIN_TRANSFORMS,
     CUE_CASE_FLIP,
@@ -24,7 +24,7 @@ from scorer_invariants.transform import (
     transform,
     transforms_for,
 )
-from scorer_invariants.verify import ViolationKind, verify_transformation
+from inspect_eval_probes.verify import ViolationKind, verify_transformation
 
 
 def case(completion="ANSWER: TRUE", target="TRUE", **kw):
@@ -306,7 +306,7 @@ class TestCaseInput:
     def test_reaches_a_scorer_that_reads_state_input(self):
         from inspect_ai.scorer import CORRECT, INCORRECT, Score, accuracy, scorer
 
-        from scorer_invariants.pipeline import observe, resolve_metrics
+        from inspect_eval_probes.pipeline import observe, resolve_metrics
 
         @scorer(metrics=[accuracy()])
         def input_reading_scorer():
@@ -320,7 +320,7 @@ class TestCaseInput:
         assert obs.metrics["accuracy"] == 1.0
 
     def test_an_undeclared_input_mutation_is_caught(self):
-        from scorer_invariants.verify import ViolationKind, verify_transformation
+        from inspect_eval_probes.verify import ViolationKind, verify_transformation
 
         bad = transform(
             "input_mutator", [CUE_CASE], ["completion"],

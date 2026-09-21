@@ -5,7 +5,7 @@ import math
 import pytest
 from inspect_ai.scorer import CORRECT, INCORRECT
 
-from scorer_invariants.compare import (
+from inspect_eval_probes.compare import (
     MetricChange,
     VerdictChange,
     compare_metric,
@@ -15,7 +15,7 @@ from scorer_invariants.compare import (
     in_negative_class,
     is_scalar,
 )
-from scorer_invariants.contract import Relation, Tolerance
+from inspect_eval_probes.contract import Relation, Tolerance
 
 NAN = float("nan")
 

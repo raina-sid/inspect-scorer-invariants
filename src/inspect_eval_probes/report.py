@@ -77,8 +77,8 @@ class ReproductionScaffold:
             f"""\
             # {self.invariant} / {self.transformation}
             # cases changed: {list(self.changed_case_indices)} of {len(self.baseline_cases)}
-            from scorer_invariants import Case
-            from scorer_invariants.pipeline import observe, resolve_metrics
+            from inspect_eval_probes import Case
+            from inspect_eval_probes.pipeline import observe, resolve_metrics
 
             scorer = {self.scorer_source}
             # supply the metrics this pipeline reports, named: {metric_names}

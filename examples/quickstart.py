@@ -18,7 +18,7 @@ from inspect_ai.scorer import (
     scorer,
 )
 
-from scorer_invariants import (
+from inspect_eval_probes import (
     CUE_CASE,
     Case,
     Contract,

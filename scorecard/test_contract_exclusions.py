@@ -15,8 +15,8 @@ from __future__ import annotations
 
 from inspect_ai.scorer import accuracy, answer
 
-from scorer_invariants import Case, Contract, Outcome, probe
-from scorer_invariants.invariants import CUE_CASE, CUE_WHITESPACE, MARKUP
+from inspect_eval_probes import Case, Contract, Outcome, probe
+from inspect_eval_probes.invariants import CUE_CASE, CUE_WHITESPACE, MARKUP
 
 from .fixtures import (
     FRONTIERSCIENCE_CASES,
