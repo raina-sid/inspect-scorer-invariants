@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from dataclasses import FrozenInstanceError
+
 import pytest
 
 from scorer_invariants.contract import (
@@ -45,7 +47,7 @@ class TestContractValidation:
 
     def test_is_immutable(self):
         c = Contract(invariants=(CUE_CASE,))
-        with pytest.raises(Exception):
+        with pytest.raises(FrozenInstanceError):
             c.invariants = ()  # type: ignore[misc]
 
 
