@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "inspect-scorer-invariants"
+version = "0.0.1"
+description = "Metamorphic invariance probes for Inspect AI scoring pipelines"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Siddharth Raina" }]
+dependencies = ["inspect-ai"]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio", "ruff", "mypy"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/scorer_invariants"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "scorecard"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.mypy]
+strict = true
