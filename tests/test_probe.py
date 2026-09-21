@@ -12,6 +12,7 @@ from scorer_invariants import (
     Contract,
     InvariantViolation,
     Outcome,
+    Tolerance,
     assert_invariants,
     probe,
     transform,
@@ -321,15 +322,16 @@ class TestReproduction:
             assert repr(c) in code
         assert "'accuracy'" in code, "the metric names must be stated"
 
-    def test_as_dict_is_serialisable(self):
+    def test_is_a_plain_dataclass_so_it_serialises_without_a_helper(self):
+        from dataclasses import asdict
+
         report = probe(
             case_sensitive_scorer(), [accuracy()], CASES, Contract(invariants=(CUE_CASE,))
         )
-        d = report.failures[0].reproduction.as_dict()
+        d = asdict(report.failures[0].reproduction)
         assert d["invariant"] == "CUE_CASE"
-        assert d["relation"] == "equal"
         assert len(d["baseline_cases"]) == len(CASES)
-        assert d["changed_case_indices"] == [0, 1]
+        assert d["changed_case_indices"] == (0, 1)
 
 
 class TestReportRendering:
@@ -383,3 +385,31 @@ class TestGuards:
         assert report.errors
         with pytest.warns(UserWarning, match="could not be observed"):
             assert_invariants(report)
+
+
+class TestToleranceEndToEnd:
+    """Tolerance had unit tests but no end-to-end cell, which is an untested path in a detector."""
+
+    def _report(self, tolerances):
+        return probe(
+            case_insensitive_scorer(),
+            {"accuracy": accuracy(), "weighted": upper_keyed_accuracy()},
+            CASES,
+            Contract(invariants=(CUE_CASE,), tolerances=tolerances),
+        )
+
+    def test_a_tolerance_wide_enough_absorbs_the_failure(self):
+        # 1.0 -> 0.0 is a move of 1.0, so an absolute tolerance of 1.0 permits it
+        assert self._report({"weighted": Tolerance(absolute=1.0)}).failures == ()
+
+    def test_a_narrow_tolerance_does_not(self):
+        assert self._report({"weighted": Tolerance(absolute=0.1)}).failures
+
+    def test_a_tolerance_on_a_different_metric_does_not_absorb_it(self):
+        # tolerances are per-metric, never global
+        assert self._report({"accuracy": Tolerance(absolute=1.0)}).failures
+
+    def test_loosening_a_tolerance_changes_the_recorded_contract_hash(self):
+        strict = self._report({}).contract_hash
+        loose = self._report({"weighted": Tolerance(absolute=1.0)}).contract_hash
+        assert strict != loose, "silencing a FAIL with tolerance must be visible in the record"

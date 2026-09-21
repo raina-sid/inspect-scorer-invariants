@@ -10,7 +10,6 @@ from scorer_invariants.contract import (
     Outcome,
     Relation,
     Tolerance,
-    contract,
 )
 from scorer_invariants.invariants import (
     ALL_INVARIANTS,
@@ -176,12 +175,6 @@ class TestOutcome:
             "ERROR",
             "EXCLUDED",
         }
-
-
-def test_convenience_constructor_matches_the_class():
-    assert contract([CUE_CASE], [MARKUP]).hash() == Contract(
-        invariants=(CUE_CASE,), exclusions=(MARKUP,)
-    ).hash()
 
 
 def test_custom_invariant_is_allowed_but_not_in_the_registry():

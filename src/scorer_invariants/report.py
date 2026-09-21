@@ -11,6 +11,7 @@ cannot, and the report does not pretend otherwise:
 from __future__ import annotations
 
 import textwrap
+import warnings
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -83,21 +84,6 @@ class Reproduction:
             """
         )
 
-    def as_dict(self) -> dict[str, Any]:
-        return {
-            "invariant": self.invariant,
-            "transformation": self.transformation,
-            "relation": self.relation.value,
-            "baseline_cases": [repr(c) for c in self.baseline_cases],
-            "transformed_cases": [repr(c) for c in self.transformed_cases],
-            "verdicts_before": list(self.verdicts_before),
-            "verdicts_after": list(self.verdicts_after),
-            "metrics_before": self.metrics_before,
-            "metrics_after": self.metrics_after,
-            "changed_case_indices": list(self.changed_case_indices),
-            "scorer_source": self.scorer_source,
-        }
-
 
 @dataclass(frozen=True)
 class ProbeResult:
@@ -107,7 +93,9 @@ class ProbeResult:
     #: which layer(s) the violation was found at: "scorer", "metric", or both
     layers: tuple[str, ...] = ()
     cases_total: int = 0
-    cases_applicable: int = 0
+    #: how many cases the transformation actually rewrote. There is deliberately no separate
+    #: "applicable" count: a case is applicable exactly when `apply` returned a new Case, so a
+    #: second field would be the same number under a different name.
     cases_transformed: int = 0
     verdicts: tuple[VerdictComparison, ...] = ()
     metrics: tuple[MetricComparison, ...] = ()
@@ -124,9 +112,6 @@ class ProbeResult:
         if self.outcome is Outcome.FAIL and self.layers:
             return f"FAIL [{'+'.join(layer.upper() for layer in self.layers)}]"
         return self.outcome.name
-
-    def __str__(self) -> str:
-        return f"{self.invariant} / {self.transformation}: {self.label}"
 
 
 @dataclass(frozen=True)
@@ -181,12 +166,10 @@ class ProbeReport:
         width_i = max((len(r.invariant) for r in self.results), default=9)
         width_t = max((len(r.transformation) for r in self.results), default=14)
         for r in self.results:
-            cases = (
-                f"  {r.cases_transformed}/{r.cases_total} transformed"
-                if r.executed
-                else ""
+            cases = f"  {r.cases_transformed}/{r.cases_total} transformed" if r.executed else ""
+            lines.append(
+                f"  {r.invariant:<{width_i}}  {r.transformation:<{width_t}}  {r.label}{cases}"
             )
-            lines.append(f"  {r.invariant:<{width_i}}  {r.transformation:<{width_t}}  {r.label}{cases}")
 
         counts = self.outcome_counts()
         lines.append("")
@@ -195,31 +178,26 @@ class ProbeReport:
             + " | ".join(f"{name} {counts[name]}" for name in ("PASS", "FAIL", "ERROR", "NOT_APPLICABLE", "EXCLUDED"))
         )
 
-        for r in self.failures:
+        # one loop covers both: an ERROR result carries no verdicts or metrics, so those
+        # sections skip themselves rather than needing a second near-identical loop
+        for r in self.failures + self.errors:
             lines.append("")
             lines.append(f"  --- {r.invariant} / {r.transformation}  {r.label}")
-            moved_verdicts = [v for v in r.verdicts if v.is_violation]
-            if moved_verdicts:
+            moved = [v for v in r.verdicts if v.is_violation]
+            if moved:
                 lines.append("      Score:")
-                for v in moved_verdicts[:5]:
-                    lines.append(
-                        f"        case {v.case_index}: {v.before!r} -> {v.after!r}  [{v.change.value}]"
-                    )
-                if len(moved_verdicts) > 5:
-                    lines.append(f"        ... and {len(moved_verdicts) - 5} more")
+                lines += [
+                    f"        case {v.case_index}: {v.before!r} -> {v.after!r}  [{v.change.value}]"
+                    for v in moved[:5]
+                ]
+                if len(moved) > 5:
+                    lines.append(f"        ... and {len(moved) - 5} more")
             if r.metrics:
                 lines.append("      Metrics:")
-                for m in r.metrics:
-                    flag = "FAIL" if m.is_violation else "ok"
-                    lines.append(f"        {m}  {flag}")
-            for detail in r.details:
-                lines.append(f"      {detail}")
-
-        for r in self.errors:
-            lines.append("")
-            lines.append(f"  --- {r.invariant} / {r.transformation}  ERROR")
-            for detail in r.details:
-                lines.append(f"      {detail}")
+                lines += [
+                    f"        {m}  {'FAIL' if m.is_violation else 'ok'}" for m in r.metrics
+                ]
+            lines += [f"      {detail}" for detail in r.details]
 
         return "\n".join(lines)
 
@@ -249,8 +227,6 @@ def assert_invariants(report: ProbeReport, *, warn_on_error: bool = True) -> Non
         )
 
     if warn_on_error and report.errors:
-        import warnings
-
         names = ", ".join(f"{r.invariant}/{r.transformation}" for r in report.errors)
         warnings.warn(
             f"{len(report.errors)} probe(s) could not be observed and are NOT passes: {names}",

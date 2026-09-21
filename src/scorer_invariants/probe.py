@@ -189,7 +189,6 @@ def _run_one(
     if not changed_indices:
         return result(
             Outcome.NOT_APPLICABLE,
-            cases_applicable=0,
             details=("the transformation could not be expressed for any case",),
         )
 
@@ -199,7 +198,6 @@ def _run_one(
         prefix = "TRANSFORM_CONTRACT_VIOLATED" if violation.is_error else violation.kind.value.upper()
         return result(
             outcome,
-            cases_applicable=len(changed_indices),
             details=(f"{prefix}: {violation}",),
         )
 
@@ -208,7 +206,6 @@ def _run_one(
     except Exception as exc:  # noqa: BLE001 - an unobservable pipeline is ERROR, never FAIL
         return result(
             Outcome.ERROR,
-            cases_applicable=len(changed_indices),
             cases_transformed=len(changed_indices),
             details=(f"SCORER_RAISED: {type(exc).__name__}: {exc}",),
         )
@@ -226,10 +223,6 @@ def _run_one(
         layers.append("metric")
 
     details: list[str] = []
-    if not layers and divergent_metrics(list(metric_cmps)):
-        # cannot happen today -- divergence implies a metric violation -- but if a future
-        # comparator makes it possible, say so rather than hiding it
-        details.append(DIVERGENT_METRICS)
     if layers == ["metric"] and divergent_metrics(list(metric_cmps)):
         details.append(
             f"{DIVERGENT_METRICS}: verdicts unchanged; "
@@ -257,7 +250,6 @@ def _run_one(
     return result(
         outcome,
         layers=tuple(layers),
-        cases_applicable=len(changed_indices),
         cases_transformed=len(changed_indices),
         verdicts=verdicts,
         metrics=metric_cmps,

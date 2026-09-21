@@ -15,7 +15,7 @@ from dataclasses import dataclass
 from typing import Any, cast
 
 from inspect_ai.model import ModelName, ModelOutput
-from inspect_ai.scorer import Metric, SampleScore, Score, Scorer, Target
+from inspect_ai.scorer import Metric, SampleScore, Scorer, Target
 from inspect_ai.scorer._metric import MetricDeprecated, MetricProtocol
 from inspect_ai.solver import TaskState
 
@@ -39,7 +39,6 @@ class Observation:
 
     verdicts: tuple[Any, ...]
     metrics: Mapping[str, Any]
-    scores: tuple[Score, ...]
 
     def __len__(self) -> int:
         return len(self.verdicts)
@@ -152,7 +151,6 @@ async def observe_async(
     return Observation(
         verdicts=tuple(s.score.value for s in sample_scores),
         metrics=compute_metrics(metrics, sample_scores),
-        scores=tuple(s.score for s in sample_scores),
     )
 
 

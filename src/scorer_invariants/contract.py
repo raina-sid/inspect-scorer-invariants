@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import hashlib
 import json
-from collections.abc import Iterable, Mapping
+from collections.abc import Mapping
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import Any
@@ -50,9 +50,6 @@ class Invariant:
     name: str
     relation: Relation
     description: str
-
-    def __str__(self) -> str:
-        return self.name
 
 
 @dataclass(frozen=True)
@@ -152,15 +149,3 @@ class Contract:
         payload = json.dumps(self.to_dict(), sort_keys=True, separators=(",", ":"))
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
-
-def contract(
-    invariants: Iterable[Invariant],
-    exclusions: Iterable[Invariant] = (),
-    tolerances: Mapping[str, Tolerance] | None = None,
-) -> Contract:
-    """Convenience constructor."""
-    return Contract(
-        invariants=tuple(invariants),
-        exclusions=tuple(exclusions),
-        tolerances=dict(tolerances or {}),
-    )

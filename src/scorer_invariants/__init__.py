@@ -7,7 +7,7 @@ the caller, and is recorded with a hash of it.
 """
 
 from .case import Case
-from .contract import Contract, Invariant, Outcome, Relation, Tolerance, contract
+from .contract import Contract, Invariant, Outcome, Relation, Tolerance
 from .invariants import (
     ALL_INVARIANTS,
     CODE_FORMATTING,
@@ -47,7 +47,6 @@ __all__ = [
     "Transform",
     "assert_invariants",
     "by_name",
-    "contract",
     "probe",
     "transform",
 ]
