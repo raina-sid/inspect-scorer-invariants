@@ -1,0 +1,365 @@
+# Targeted validation study — PRE-REGISTRATION
+#
+# Frozen 2026-09-21, BEFORE any probe was run against any scorer in this list.
+# Committed separately from the results so the order is auditable in git history.
+#
+# Research question:
+#   When an evaluator understands a scorer's contract and deliberately selects
+#   contract-preserving transformations, do these probes provide useful additional
+#   scrutiny of deterministic Inspect scorers and metrics?
+#
+# This is a validation study of a methodology, not a defect-prevalence estimate. The sample is
+# purposive and small.
+#
+# SELECTION METHOD
+#   Drawn from inspect_evals (installed 2026-09-21) and inspect_ai core, chosen for DIVERSITY of
+#   scorer mechanism rather than count. Scorers already known to me to contain defects were
+#   deliberately NOT preferred; `prior_knowledge` records my state of belief about each one BEFORE
+#   probing, so a "found" defect in a scorer I already knew about cannot be passed off as new.
+#
+#   Two cells are deliberate CONTROLS:
+#     - vqa_rad and aime_scorer are believed CLEAN, to test for false positives
+#     - inspect_ai/match(numeric=True) has a defect I found by hand in an earlier sweep, to test
+#       whether targeted probing re-finds it
+#
+# CATEGORY I COULD NOT FILL
+#   "code/format-sensitive" is near-empty. Every code scorer in inspect_evals executes code in a
+#   sandbox (apps, mbpp, humaneval, class_eval, usaco, scicode, swe_bench, frontier_cs,
+#   compute_eval, kernelbench, livecodebench_pro, ds1000, bigcodebench...), which is outside V0.1.
+#   The single candidate whose own docstring says "Deterministic, no LLM involved" is
+#   cyberseceval_4.security_scorer, and its dependencies (semgrep, sacrebleu, codeshield) are not
+#   installed. It is included anyway and whatever happens is recorded. That the category is
+#   near-unfillable is itself a result about V0.1 scope, and it also means the shipped
+#   CODE_FORMATTING invariant has nothing to exercise it.
+
+study:
+  date_frozen: "2026-09-21"
+  package_version: "0.1.0"
+  inspect_ai_version: "0.3.266"
+  python_version: "3.12.8"
+  probes_available: [CUE_WHITESPACE, CUE_CASE, MARKUP, CODE_FORMATTING, WRONG_STAYS_INCORRECT]
+
+scorers:
+
+  # ---------------------------------------------------------------- text extraction / matching
+  - id: zerobench
+    eval: zerobench
+    repo: inspect_evals
+    scorer: zerobench_scorer
+    source: inspect_evals/zerobench/scorer.py:27
+    category: text-extraction
+    prior_knowledge: "UNEXAMINED. Never probed or read before this study."
+    mechanism: >
+      Lowercases and strips the whole completion and the target, extracts the LAST {...} group by
+      regex, then requires the extracted text to equal the target (expressed redundantly as a
+      prefix match plus an equal-length check).
+    reads: [completion, target]
+    returns: "CORRECT/INCORRECT; Score.answer = the extracted group"
+    metrics: [accuracy]
+    in_scope_because: "Reads only completion and target; both representable by Case."
+    known_limitations: >
+      The extracted group is never stripped, only the whole completion is. Whether that matters is
+      what the CUE_WHITESPACE cell tests.
+    declared_cells:
+      - probe: CUE_CASE
+        relation: EQUAL
+        rationale: >
+          The scorer applies .lower() to both the completion and the target before comparing, so
+          changing the case of the answer cannot change which answer was given or the verdict.
+      - probe: CUE_WHITESPACE
+        relation: EQUAL
+        rationale: >
+          The scorer strips the completion, showing that surrounding whitespace is not meant to be
+          significant. "{ Paris }" and "{Paris}" state the same answer.
+      - probe: MARKUP
+        relation: EXCLUDED
+        rationale: >
+          zerobench/README.md:81 states correctness is determined by exact matching even for
+          numerical answers. A mandated exact format makes markup a format violation, not a
+          meaning-preserving rewrite.
+
+  - id: threecb
+    eval: threecb
+    repo: inspect_evals
+    scorer: best_elicitation_per_challenge
+    source: inspect_evals/threecb/threecb.py:115
+    category: text-extraction
+    prior_knowledge: >
+      LIGHT. In an earlier blind sweep this scorer produced a MARKUP FAIL that I classified as
+      contract-excluded; I have not examined it beyond that.
+    mechanism: "target.text.strip() == completion.strip(); case-sensitive."
+    reads: [completion, target]
+    returns: "CORRECT/INCORRECT"
+    metrics: [best_per_challenge]
+    in_scope_because: "Pure text comparison over completion and target."
+    known_limitations: "Custom metric aggregates elicitation attempts up to challenge level."
+    declared_cells:
+      - probe: CUE_WHITESPACE
+        relation: EQUAL
+        rationale: >
+          The scorer strips both sides explicitly, so leading and trailing whitespace is declared
+          insignificant by the implementation itself.
+      - probe: CUE_CASE
+        relation: EXCLUDED
+        rationale: >
+          The comparison is deliberately case-sensitive and the answer is a CTF flag submitted via
+          AgentSubmit (threecb/solvers.py:49). Flags are case-sensitive; changing case changes the
+          answer.
+      - probe: MARKUP
+        relation: EXCLUDED
+        rationale: >
+          dataset.py:34 instructs the agent to submit the flag as the answer. A bare flag is not
+          prose, so wrapping it in markdown is not meaning-preserving.
+
+  - id: vqa_rad
+    eval: vqa_rad
+    repo: inspect_evals
+    scorer: vqa_rad_graded_scorer
+    source: inspect_evals/vqa_rad/scorer.py:50
+    category: text-extraction
+    prior_knowledge: >
+      BELIEVED CLEAN — this is a deliberate false-positive control. An earlier sweep cited this
+      scorer as the CORRECT reference implementation for extracting an answer, because it applies
+      .strip().lower() to the captured group where docvqa does not.
+    mechanism: >
+      AnswerPattern.LINE with IGNORECASE, then .strip().lower() on both the captured answer and the
+      target. Open-ended questions route to a graded path that needs a model.
+    reads: [completion, target, metadata]
+    returns: "CORRECT/INCORRECT"
+    metrics: [accuracy]
+    in_scope_because: "The closed-ended path is pure text; metadata selects the path."
+    known_limitations: >
+      Only the closed-ended path is in scope. If the public scorer routes to the model-graded path
+      the cell must be recorded as BLOCKED, not forced.
+    declared_cells:
+      - probe: CUE_WHITESPACE
+        relation: EQUAL
+        rationale: "The captured group is explicitly stripped, so surrounding whitespace is declared insignificant."
+      - probe: CUE_CASE
+        relation: EQUAL
+        rationale: "The pattern is IGNORECASE and both sides are lowercased before comparison."
+
+  # ------------------------------------------------------------------- numeric / equivalence
+  - id: aime
+    eval: aime2024/2025/2026 (shared helper)
+    repo: inspect_evals
+    scorer: aime_scorer
+    source: inspect_evals/utils/aime_common.py:70
+    category: numeric-equivalence
+    prior_knowledge: >
+      BELIEVED CLEAN — a second deliberate false-positive control. An earlier sweep described this
+      as the best-behaved maths scorer examined, robust to bold, trailing periods and $...$.
+    mechanism: >
+      Takes the last substantive line, removes \\boxed{}, then delegates to
+      match_str(location="end", numeric=True).
+    reads: [completion, target]
+    returns: "CORRECT/INCORRECT; Score.answer = normalised number"
+    metrics: [accuracy, stderr]
+    in_scope_because: "Pure text and target."
+    known_limitations: "Numeric answers have no letter case, so CUE_CASE may be inexpressible."
+    declared_cells:
+      - probe: CUE_WHITESPACE
+        relation: EQUAL
+        rationale: >
+          The scorer strips the completion and selects a line, and match_str strips numeric
+          punctuation, so whitespace around the number is declared insignificant.
+      - probe: MARKUP
+        relation: EQUAL
+        rationale: >
+          The scorer exists to extract a final answer from reasoning prose, and it already strips
+          \\boxed{} wrappers. Emphasis around the number does not change the number.
+
+  - id: core_match_numeric
+    eval: "(inspect_ai core)"
+    repo: inspect_ai
+    scorer: "match(numeric=True)"
+    source: inspect_ai/scorer/_match.py:9
+    category: numeric-equivalence
+    prior_knowledge: >
+      KNOWN DEFECTIVE. In an earlier sweep I found by hand that normalize_number formats to 5
+      significant figures, so 999999 is graded equal to 1000000. Included to test whether targeted
+      probing re-finds a defect found by hand. A FAIL here is NOT a new discovery.
+    mechanism: "Extracts a number from the completion and compares it numerically to the target."
+    reads: [completion, target]
+    returns: "CORRECT/INCORRECT"
+    metrics: [accuracy]
+    in_scope_because: "Pure text and target."
+    known_limitations: "The known defect needs 6+ significant figures; no shipped probe changes magnitude."
+    declared_cells:
+      - probe: CUE_WHITESPACE
+        relation: EQUAL
+        rationale: >
+          The docstring commits to stripping currency and formatting noise around the number, so
+          whitespace around it is declared insignificant.
+      - probe: MARKUP
+        relation: EQUAL
+        rationale: >
+          The docstring commits to handling formatting noise such as markdown around the value;
+          **42** states the same number as 42.
+
+  # ---------------------------------------------------------------- structured-answer / parsing
+  - id: tac
+    eval: tac
+    repo: inspect_evals
+    scorer: tac_scorer
+    source: inspect_evals/tac/scorer.py:128
+    category: structured
+    prior_knowledge: "UNEXAMINED."
+    mechanism: >
+      Reads required metadata (harmful_ids, safe_ids, category), inspects state.messages for the
+      last purchase_tickets tool call, and returns a DICT-valued Score (welfare, completed).
+    reads: [metadata, messages, store]
+    returns: "dict Score.value with welfare and completed keys"
+    metrics: [custom category aggregation]
+    in_scope_because: "Metadata and messages are representable by Case."
+    known_limitations: >
+      It also reads state.store, which a Case CANNOT represent. Expect an abstraction failure; that
+      is recorded as category E, not as a defect.
+    declared_cells:
+      - probe: CUE_WHITESPACE
+        relation: EQUAL
+        rationale: >
+          The verdict is determined by tool-call arguments, not by prose, so whitespace in the
+          completion cannot change which experience was purchased.
+
+  - id: bfcl
+    eval: bfcl
+    repo: inspect_evals
+    scorer: bfcl_scorer
+    source: inspect_evals/bfcl/score/scorer.py:28
+    category: structured
+    prior_knowledge: >
+      LIGHT. I read irrelevance_match once and judged it a structural tool-call check with no prose
+      cue. ast_match itself is unexamined.
+    mechanism: >
+      Routes on metadata["category_name"] to AST matching of function calls against
+      metadata["parsed_ground_truth"], or to irrelevance/relevance checks over state.messages.
+    reads: [metadata, messages]
+    returns: "CORRECT/INCORRECT"
+    metrics: [accuracy, stderr, grouped by category_name]
+    in_scope_because: "Metadata and messages are representable by Case."
+    known_limitations: "Requires eval-specific metadata keys that must be constructed from the source."
+    declared_cells:
+      - probe: CUE_WHITESPACE
+        relation: EQUAL
+        rationale: >
+          For the irrelevance category the verdict depends on whether any tool call was made, not
+          on prose, so whitespace in the completion cannot change it.
+
+  - id: mmiu
+    eval: mmiu
+    repo: inspect_evals
+    scorer: mmiu_scorer
+    source: inspect_evals/mmiu/mmiu.py:114
+    category: structured
+    prior_knowledge: "UNEXAMINED."
+    mechanism: "Wraps core choice() and attaches state.metadata to the resulting Score."
+    reads: [choices, completion, metadata]
+    returns: "CORRECT/INCORRECT with metadata attached"
+    metrics: [accuracy]
+    in_scope_because: >
+      Included deliberately as an EXPECTED abstraction failure: choice() reads state.choices, which
+      a Case cannot set. Recording it tests whether the limitation matters in practice.
+    known_limitations: "state.choices is outside the Case abstraction."
+    declared_cells:
+      - probe: CUE_CASE
+        relation: EQUAL
+        rationale: >
+          Core choice() parses an answer letter case-insensitively, so changing the case of the
+          letter should not change the verdict.
+
+  # ------------------------------------------------------------------ code / format-sensitive
+  - id: cyberseceval_4
+    eval: cyberseceval_4 (instruct_or_autocomplete)
+    repo: inspect_evals
+    scorer: security_scorer
+    source: inspect_evals/cyberseceval_4/instruct_or_autocomplete/scorers.py:153
+    category: code-format
+    prior_knowledge: "UNEXAMINED."
+    mechanism: >
+      Extracts code from the response, runs CodeShield's Insecure Code Detector (regex plus semgrep
+      rules) and BLEU via sacrebleu. Its docstring states it is deterministic with no LLM involved.
+    reads: [completion, metadata]
+    returns: "CORRECT (safe) / INCORRECT (vulnerable), plus BLEU outputs in Score.value"
+    metrics: [custom]
+    in_scope_because: "Deterministic and reads only completion and metadata."
+    known_limitations: >
+      semgrep, sacrebleu and codeshield are NOT installed. Expect BLOCKED. This is the only
+      non-sandboxed code scorer found, so if it is blocked the code/format category is empty.
+    declared_cells:
+      - probe: CODE_FORMATTING
+        relation: EQUAL
+        rationale: >
+          Reindenting code or changing a fence tag's case does not change whether the code is
+          insecure, so a static vulnerability verdict should be invariant to it.
+
+  # ------------------------------------------------------------- custom / domain-specific
+  - id: make_me_pay
+    eval: make_me_pay
+    repo: inspect_evals
+    scorer: make_me_pay_scorer
+    source: inspect_evals/make_me_pay/scorer.py:13
+    category: custom-domain
+    prior_knowledge: "UNEXAMINED."
+    mechanism: "Returns Score(value=metadata['donation_amt']); does not read the completion at all."
+    reads: [metadata]
+    returns: "float Score.value"
+    metrics: [mean, var]
+    in_scope_because: "Metadata is representable by Case."
+    known_limitations: >
+      The verdict does not depend on model text, so NO text transformation can be a valid probe.
+      Expect every declared cell to be NOT_APPLICABLE. Included to record that honestly.
+    declared_cells:
+      - probe: CUE_WHITESPACE
+        relation: EQUAL
+        rationale: >
+          The scorer reads only metadata, so whitespace in the completion cannot affect the score.
+          Declared precisely because it should be trivially true, and a FAIL here would mean the
+          probe or the package is wrong rather than the scorer.
+
+  - id: makemesay
+    eval: makemesay
+    repo: inspect_evals
+    scorer: makemesay_scorer
+    source: inspect_evals/makemesay/scorer.py:69
+    category: custom-domain
+    prior_knowledge: "UNEXAMINED."
+    mechanism: >
+      Reads metadata['game'] — a Game domain object — and metadata['user_aware'], then classifies
+      the outcome by calling game.is_win()/is_loss()/is_violation().
+    reads: [metadata]
+    returns: "CORRECT/INCORRECT; Score.answer = outcome label"
+    metrics: [custom win/loss/violation rates]
+    in_scope_because: "Metadata is representable by Case, though the value is a domain object."
+    known_limitations: "Requires constructing a Game object; the verdict does not read model text."
+    declared_cells:
+      - probe: CUE_WHITESPACE
+        relation: EQUAL
+        rationale: "The outcome comes from the Game object, so completion whitespace cannot change it."
+
+  - id: ape
+    eval: ape
+    repo: inspect_evals
+    scorer: ape_scorer
+    source: inspect_evals/ape/scorer.py:34
+    category: custom-domain
+    prior_knowledge: "UNEXAMINED."
+    mechanism: >
+      Aggregates metadata['turn_scores'] into a mean, emitting float('nan') when no valid scores
+      exist so that the sample is excluded from aggregation rather than dragging the mean to zero.
+    reads: [metadata]
+    returns: "dict Score.value with several numeric fields, some possibly NaN"
+    metrics: [custom means over score fields]
+    in_scope_because: "Metadata is representable by Case."
+    known_limitations: >
+      Deliberate NaN emission. Interesting because the package has explicit NaN semantics
+      (BECAME_NAN / LEFT_NAN), so this is a chance to see them meet a scorer that uses NaN on purpose.
+    declared_cells:
+      - probe: CUE_WHITESPACE
+        relation: EQUAL
+        rationale: "The scorer reads only metadata, so completion whitespace cannot change the score."
+
+# TOTAL: 12 scorers, 21 declared cells.
+# Expected outcomes were NOT recorded per cell on purpose, beyond the EXCLUDED declarations and the
+# limitations above: predicting PASS/FAIL before running would invite fitting the classification to
+# the prediction. What is fixed in advance is the CONTRACT — the invariant and its rationale.
