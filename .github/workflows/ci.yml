@@ -28,6 +28,10 @@ jobs:
         run: python -m scorecard.summary
       - name: Quickstart example
         run: python examples/quickstart.py
+      # Reads the frozen study JSON only -- no inspect_evals, no network -- so the validation
+      # result cannot drift without CI going red.
+      - name: Validation study audit
+        run: python validation/audit_study.py
       - name: Lint
         run: ruff check src scorecard tests examples
       - name: Types

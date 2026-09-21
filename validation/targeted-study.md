@@ -204,6 +204,24 @@ declared 3 exclusions with written reasons, and that is precisely where those fa
 
 The comparison is qualitative. Different scorer sets, tiny samples, no statistical claim.
 
+## Audit
+
+Every number above is re-derived from [`targeted-study.json`](targeted-study.json) by
+[`audit_study.py`](audit_study.py), not transcribed by hand — this project has twice published two
+different totals for the same thing when counting in prose. The audit also asserts six post-v0.1.1
+conditions, and runs in CI so the frozen result cannot drift:
+
+```
+1. no package-induced baseline error remains          (ape exercised, not ERROR)
+2. the zerobench defect still reproduces              (FAIL, scorer+metric, 1/2 cases)
+3. all three declared exclusions remain EXCLUDED
+4. all 11 expected-robust cells remain PASS           (incl. both control scorers, every cell)
+5. no ERROR or SETUP_FAILED among declared cells
+6. the one control ERROR is attributed to the TRANSFORMATION, not the package
+
+13 of 13 quoted counts match the data.
+```
+
 ## Limitations
 
 - 12 scorers, purposively selected. Nothing here estimates defect prevalence in Inspect.
@@ -231,10 +249,28 @@ scorer, and it only applies to scorers that parse model output — which exclude
 for diversity. The honest summary is that this is useful scrutiny for a specific and identifiable
 class of scorer, not a general-purpose check.
 
-**What follows from this, and what does not.** The recurring workflow worth considering for a future
-version is narrow: read the scorer, decide what its prompt permits, write two cases, declare the
-invariant, run. The two things that would most improve it are a transformation for `CODE_FORMATTING`
-or its removal from the advertised set, and a way to tell quickly whether a scorer reads model text at
-all — since that single question predicted exercisability in 11 of 12 cases here. Neither justifies
-expanding the abstraction, and on the evidence above neither should be started before someone other
-than the author has used the workflow on their own scorer.
+### The claim worth making
+
+> **The value of these probes comes from knowing what the scorer is supposed to preserve — not from
+> applying a larger generic battery of transformations.**
+
+That is the methodological lesson, and it is supported in both directions by the two studies rather
+than by one of them. Blind application of a generic battery reached 13% of scorers and produced five
+false positives in six FAILs. The same battery, aimed by someone who had read the contract first,
+reached 50% and produced none. The transformations did not change between the two studies. The only
+thing that changed was whether the invariant was chosen by a human who knew what the scorer promised.
+
+Two corollaries follow, and both cut against building more:
+
+- A larger transformation library would not have helped. Of the 12 scorers, six were unexercisable and
+  five of those because the verdict does not read model text at all — a gap no transformation closes.
+- The one genuine defect was found by a transformation whose *rationale* was written before it ran.
+  Had the same FAIL arrived from an undeclared generic sweep, it would have been indistinguishable
+  from the four exclusions that a contract-aware reading correctly ruled out in advance.
+
+**What follows for the package, and what does not.** The workflow worth considering later is narrow:
+read the scorer, decide what its prompt permits, write two cases, declare the invariant, run. The two
+things that would most improve it are a transformation for `CODE_FORMATTING` or its removal from the
+advertised set, and a fast way to tell whether a scorer reads model text at all — that single question
+predicted exercisability in 11 of 12 cases. Neither justifies expanding the abstraction, and neither
+should begin before someone other than the author has used the workflow on their own scorer.
