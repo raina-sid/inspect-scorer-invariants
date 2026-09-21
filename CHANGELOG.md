@@ -26,6 +26,10 @@ caller declares and a transformation the caller has licensed, does the pipeline 
   FAILs, and a measured reach figure across 62 real scorers — reported with its limits, including
   that pointed blindly the tool is close to useless.
 
+Named `inspect-scorer-probes` because what it probes is a scorer and the metrics computed from it,
+not an eval. An earlier working name implied a relationship with the `inspect_evals` collection that
+does not exist.
+
 Known limitations are documented in the README rather than here. In particular: offline and
 deterministic is a precondition the package does not enforce; model-graded scorers are out of scope
 and are not detected; and `Case` supports only `completion`, `target`, `metadata`, `messages` and

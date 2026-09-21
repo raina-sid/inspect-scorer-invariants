@@ -5,8 +5,8 @@ import itertools
 import pytest
 from inspect_ai.scorer import CORRECT, INCORRECT, Score, accuracy, mean, scorer, stderr
 
-from inspect_eval_probes.case import Case
-from inspect_eval_probes.pipeline import (
+from inspect_scorer_probes.case import Case
+from inspect_scorer_probes.pipeline import (
     NonRepeatableBaseline,
     baseline,
     observe,

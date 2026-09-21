@@ -14,8 +14,8 @@ from typing import Any
 
 from inspect_ai.scorer import accuracy, answer
 
-from inspect_eval_probes import Case, Contract, Outcome, ProbeReport, probe
-from inspect_eval_probes.invariants import (
+from inspect_scorer_probes import Case, Contract, Outcome, ProbeReport, probe
+from inspect_scorer_probes.invariants import (
     CUE_CASE,
     CUE_WHITESPACE,
     MARKUP,

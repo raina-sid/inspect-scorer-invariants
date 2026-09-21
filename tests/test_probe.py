@@ -16,7 +16,7 @@ from inspect_ai.scorer import (
     scorer,
 )
 
-from inspect_eval_probes import (
+from inspect_scorer_probes import (
     Case,
     Contract,
     InvariantViolation,
@@ -27,15 +27,15 @@ from inspect_eval_probes import (
     probe_async,
     transform,
 )
-from inspect_eval_probes.compare import MetricChange
-from inspect_eval_probes.invariants import (
+from inspect_scorer_probes.compare import MetricChange
+from inspect_scorer_probes.invariants import (
     CODE_FORMATTING,
     CUE_CASE,
     CUE_WHITESPACE,
     MARKUP,
     WRONG_STAYS_INCORRECT,
 )
-from inspect_eval_probes.pipeline import observe, observe_async, resolve_metrics
+from inspect_scorer_probes.pipeline import observe, observe_async, resolve_metrics
 
 CASES = [
     Case(completion="ANSWER: TRUE", target="TRUE"),

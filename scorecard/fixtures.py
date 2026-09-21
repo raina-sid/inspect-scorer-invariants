@@ -39,8 +39,8 @@ from inspect_ai.scorer import (
 )
 from inspect_ai.solver import TaskState
 
-from inspect_eval_probes import Case, Transform, transform
-from inspect_eval_probes.invariants import CUE_CASE, MARKUP, WRONG_STAYS_INCORRECT
+from inspect_scorer_probes import Case, Transform, transform
+from inspect_scorer_probes.invariants import CUE_CASE, MARKUP, WRONG_STAYS_INCORRECT
 
 PROVENANCE: dict[str, dict[str, str]] = {
     "worldsense": {

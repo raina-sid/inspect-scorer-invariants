@@ -12,8 +12,8 @@ from __future__ import annotations
 
 from inspect_ai.scorer import accuracy, answer
 
-from inspect_eval_probes import Contract, Outcome, probe
-from inspect_eval_probes.invariants import CUE_CASE, CUE_WHITESPACE, WRONG_STAYS_INCORRECT
+from inspect_scorer_probes import Contract, Outcome, probe
+from inspect_scorer_probes.invariants import CUE_CASE, CUE_WHITESPACE, WRONG_STAYS_INCORRECT
 
 from .fixtures import (
     AGIEVAL_CASES,

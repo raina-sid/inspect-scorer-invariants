@@ -1,4 +1,4 @@
-# inspect-eval-probes
+# inspect-scorer-probes
 
 Metamorphic invariance probes for [Inspect AI](https://inspect.aisi.org.uk) scoring pipelines.
 
@@ -22,7 +22,7 @@ recorded in the report, and is hashed.
 ## Install
 
 ```bash
-pip install inspect-eval-probes
+pip install inspect-scorer-probes
 ```
 
 ### Supported versions
@@ -54,7 +54,7 @@ outside V0.1. This is not a claim to cover arbitrary Inspect scorers.
 
 ```python
 from inspect_ai.scorer import accuracy
-from inspect_eval_probes import CUE_CASE, Case, Contract, assert_invariants, probe
+from inspect_scorer_probes import CUE_CASE, Case, Contract, assert_invariants, probe
 
 report = probe(
     scorer=my_scorer(),

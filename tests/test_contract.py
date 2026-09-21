@@ -4,14 +4,14 @@ from dataclasses import FrozenInstanceError
 
 import pytest
 
-from inspect_eval_probes.contract import (
+from inspect_scorer_probes.contract import (
     Contract,
     Invariant,
     Outcome,
     Relation,
     Tolerance,
 )
-from inspect_eval_probes.invariants import (
+from inspect_scorer_probes.invariants import (
     ALL_INVARIANTS,
     CUE_CASE,
     CUE_WHITESPACE,

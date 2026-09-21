@@ -6,7 +6,7 @@ the scorecard, so the scorecard failing must fail the build.
 
 from __future__ import annotations
 
-from inspect_eval_probes import Outcome
+from inspect_scorer_probes import Outcome
 
 from .summary import EXCLUSION, POSITIVE, ROBUST, cells, render
 

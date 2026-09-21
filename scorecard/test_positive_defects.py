@@ -14,8 +14,8 @@ import math
 
 from inspect_ai.scorer import accuracy
 
-from inspect_eval_probes import Contract, Outcome, probe
-from inspect_eval_probes.invariants import CUE_CASE, MARKUP, WRONG_STAYS_INCORRECT
+from inspect_scorer_probes import Contract, Outcome, probe
+from inspect_scorer_probes.invariants import CUE_CASE, MARKUP, WRONG_STAYS_INCORRECT
 
 from .fixtures import (
     NOVELTY_CASES,
