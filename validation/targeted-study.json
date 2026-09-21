@@ -13,7 +13,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "answer inside {...}; baseline one correct one incorrect"
+  "note": "answer inside {...}; baseline one correct one incorrect",
+  "cell_type": "declared"
  },
  {
   "scorer": "zerobench",
@@ -29,7 +30,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{'accuracy': 0.5}",
   "baseline_notes": "",
-  "note": "answer inside {...}; baseline one correct one incorrect"
+  "note": "answer inside {...}; baseline one correct one incorrect",
+  "cell_type": "declared"
  },
  {
   "scorer": "zerobench",
@@ -45,7 +47,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "answer inside {...}; baseline one correct one incorrect"
+  "note": "answer inside {...}; baseline one correct one incorrect",
+  "cell_type": "declared"
  },
  {
   "scorer": "zerobench",
@@ -61,7 +64,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{'accuracy': 0.0}",
   "baseline_notes": "",
-  "note": "answer inside {...}; baseline one correct one incorrect"
+  "note": "answer inside {...}; baseline one correct one incorrect",
+  "cell_type": "declared"
  },
  {
   "scorer": "zerobench",
@@ -77,7 +81,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "answer inside {...}; baseline one correct one incorrect"
+  "note": "answer inside {...}; baseline one correct one incorrect",
+  "cell_type": "declared"
  },
  {
   "scorer": "threecb",
@@ -93,7 +98,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "bare CTF flag; custom best_per_challenge metric replaced with accuracy for probing"
+  "note": "bare CTF flag; custom best_per_challenge metric replaced with accuracy for probing",
+  "cell_type": "declared"
  },
  {
   "scorer": "threecb",
@@ -109,7 +115,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{'accuracy': 0.5}",
   "baseline_notes": "",
-  "note": "bare CTF flag; custom best_per_challenge metric replaced with accuracy for probing"
+  "note": "bare CTF flag; custom best_per_challenge metric replaced with accuracy for probing",
+  "cell_type": "declared"
  },
  {
   "scorer": "threecb",
@@ -125,7 +132,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "bare CTF flag; custom best_per_challenge metric replaced with accuracy for probing"
+  "note": "bare CTF flag; custom best_per_challenge metric replaced with accuracy for probing",
+  "cell_type": "declared"
  },
  {
   "scorer": "threecb",
@@ -141,7 +149,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "bare CTF flag; custom best_per_challenge metric replaced with accuracy for probing"
+  "note": "bare CTF flag; custom best_per_challenge metric replaced with accuracy for probing",
+  "cell_type": "declared"
  },
  {
   "scorer": "vqa_rad",
@@ -157,7 +166,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{'accuracy': 0.5}",
   "baseline_notes": "",
-  "note": "metadata answer_type=closed routes to the exact-match path, not the grader"
+  "note": "metadata answer_type=closed routes to the exact-match path, not the grader",
+  "cell_type": "declared"
  },
  {
   "scorer": "vqa_rad",
@@ -173,7 +183,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{'accuracy': 0.5}",
   "baseline_notes": "",
-  "note": "metadata answer_type=closed routes to the exact-match path, not the grader"
+  "note": "metadata answer_type=closed routes to the exact-match path, not the grader",
+  "cell_type": "declared"
  },
  {
   "scorer": "vqa_rad",
@@ -189,7 +200,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{'accuracy': 0.5}",
   "baseline_notes": "",
-  "note": "metadata answer_type=closed routes to the exact-match path, not the grader"
+  "note": "metadata answer_type=closed routes to the exact-match path, not the grader",
+  "cell_type": "declared"
  },
  {
   "scorer": "vqa_rad",
@@ -205,7 +217,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{'accuracy': 0.5}",
   "baseline_notes": "",
-  "note": "metadata answer_type=closed routes to the exact-match path, not the grader"
+  "note": "metadata answer_type=closed routes to the exact-match path, not the grader",
+  "cell_type": "declared"
  },
  {
   "scorer": "aime",
@@ -221,7 +234,8 @@
   "baseline_metrics": "{'accuracy': 0.5, 'stderr': np.float64(0.5)}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "last substantive line, boxed answer stripped, numeric match"
+  "note": "last substantive line, boxed answer stripped, numeric match",
+  "cell_type": "declared"
  },
  {
   "scorer": "aime",
@@ -237,7 +251,8 @@
   "baseline_metrics": "{'accuracy': 0.5, 'stderr': np.float64(0.5)}",
   "transformed_metrics": "{'accuracy': 0.5, 'stderr': np.float64(0.5)}",
   "baseline_notes": "",
-  "note": "last substantive line, boxed answer stripped, numeric match"
+  "note": "last substantive line, boxed answer stripped, numeric match",
+  "cell_type": "declared"
  },
  {
   "scorer": "aime",
@@ -253,7 +268,8 @@
   "baseline_metrics": "{'accuracy': 0.5, 'stderr': np.float64(0.5)}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "last substantive line, boxed answer stripped, numeric match"
+  "note": "last substantive line, boxed answer stripped, numeric match",
+  "cell_type": "declared"
  },
  {
   "scorer": "aime",
@@ -269,7 +285,8 @@
   "baseline_metrics": "{'accuracy': 0.5, 'stderr': np.float64(0.5)}",
   "transformed_metrics": "{'accuracy': 0.5, 'stderr': np.float64(0.5)}",
   "baseline_notes": "",
-  "note": "last substantive line, boxed answer stripped, numeric match"
+  "note": "last substantive line, boxed answer stripped, numeric match",
+  "cell_type": "declared"
  },
  {
   "scorer": "core_match_numeric",
@@ -285,7 +302,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "inspect_ai core numeric match"
+  "note": "inspect_ai core numeric match",
+  "cell_type": "declared"
  },
  {
   "scorer": "core_match_numeric",
@@ -301,7 +319,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{'accuracy': 0.5}",
   "baseline_notes": "",
-  "note": "inspect_ai core numeric match"
+  "note": "inspect_ai core numeric match",
+  "cell_type": "declared"
  },
  {
   "scorer": "core_match_numeric",
@@ -317,7 +336,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "inspect_ai core numeric match"
+  "note": "inspect_ai core numeric match",
+  "cell_type": "declared"
  },
  {
   "scorer": "core_match_numeric",
@@ -333,7 +353,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{'accuracy': 0.5}",
   "baseline_notes": "",
-  "note": "inspect_ai core numeric match"
+  "note": "inspect_ai core numeric match",
+  "cell_type": "declared"
  },
  {
   "scorer": "tac",
@@ -349,7 +370,8 @@
   "baseline_metrics": "{'mean': 0.0}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "verdict comes from the last purchase_tickets tool call; Score.value is a dict"
+  "note": "verdict comes from the last purchase_tickets tool call; Score.value is a dict",
+  "cell_type": "declared"
  },
  {
   "scorer": "tac",
@@ -365,7 +387,8 @@
   "baseline_metrics": "{'mean': 0.0}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "verdict comes from the last purchase_tickets tool call; Score.value is a dict"
+  "note": "verdict comes from the last purchase_tickets tool call; Score.value is a dict",
+  "cell_type": "declared"
  },
  {
   "scorer": "bfcl",
@@ -381,7 +404,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "irrelevance category: correct iff NO tool call was made"
+  "note": "irrelevance category: correct iff NO tool call was made",
+  "cell_type": "declared"
  },
  {
   "scorer": "bfcl",
@@ -397,7 +421,8 @@
   "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "irrelevance category: correct iff NO tool call was made"
+  "note": "irrelevance category: correct iff NO tool call was made",
+  "cell_type": "declared"
  },
  {
   "scorer": "mmiu",
@@ -413,7 +438,8 @@
   "baseline_metrics": "{'accuracy': 0.0}",
   "transformed_metrics": "{'accuracy': 0.0}",
   "baseline_notes": "all 2 baseline verdicts are in the negative class; if that is unintended, the cases may not match what the scorer expects | every baseline verdict is identical ('I')",
-  "note": "wraps core choice(), which reads state.choices -- expected abstraction failure"
+  "note": "wraps core choice(), which reads state.choices -- expected abstraction failure",
+  "cell_type": "declared"
  },
  {
   "scorer": "mmiu",
@@ -429,7 +455,8 @@
   "baseline_metrics": "{'accuracy': 0.0}",
   "transformed_metrics": "{}",
   "baseline_notes": "all 2 baseline verdicts are in the negative class; if that is unintended, the cases may not match what the scorer expects | every baseline verdict is identical ('I')",
-  "note": "wraps core choice(), which reads state.choices -- expected abstraction failure"
+  "note": "wraps core choice(), which reads state.choices -- expected abstraction failure",
+  "cell_type": "declared"
  },
  {
   "scorer": "cyberseceval_4",
@@ -445,7 +472,8 @@
   "baseline_metrics": "{'accuracy': 0.0}",
   "transformed_metrics": "{}",
   "baseline_notes": "every baseline verdict is identical ({'score': 'C', 'is_vulnerable': False, 'is_safe': True})",
-  "note": "static insecure-code detection; deps semgrep/sacrebleu/codeshield not installed"
+  "note": "static insecure-code detection; deps semgrep/sacrebleu/codeshield not installed",
+  "cell_type": "declared"
  },
  {
   "scorer": "make_me_pay",
@@ -461,7 +489,8 @@
   "baseline_metrics": "{'mean': 2.5}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "reads only metadata['donation_amt']; the completion is never parsed"
+  "note": "reads only metadata['donation_amt']; the completion is never parsed",
+  "cell_type": "declared"
  },
  {
   "scorer": "make_me_pay",
@@ -477,35 +506,155 @@
   "baseline_metrics": "{'mean': 2.5}",
   "transformed_metrics": "{}",
   "baseline_notes": "",
-  "note": "reads only metadata['donation_amt']; the completion is never parsed"
+  "note": "reads only metadata['donation_amt']; the completion is never parsed",
+  "cell_type": "declared"
  },
  {
   "scorer": "makemesay",
   "category": "custom-domain",
-  "invariant": "-",
-  "transformation": "-",
-  "outcome": "SETUP_FAILED",
-  "detail": "ModuleNotFoundError: No module named 'inspect_evals.makemesay.custom_types'",
-  "baseline_verdicts": "",
-  "transformed_verdicts": "",
-  "baseline_metrics": "",
-  "transformed_metrics": "",
-  "note": ""
+  "invariant": "CUE_WHITESPACE",
+  "transformation": "cue_space_removed",
+  "outcome": "NOT_APPLICABLE",
+  "layers": "",
+  "cases_transformed": "0/2",
+  "detail": "the transformation could not be expressed for any case",
+  "baseline_verdicts": "['I', 'I']",
+  "transformed_verdicts": "[]",
+  "baseline_metrics": "{'accuracy': 0.0}",
+  "transformed_metrics": "{}",
+  "baseline_notes": "all 2 baseline verdicts are in the negative class; if that is unintended, the cases may not match what the scorer expects | every baseline verdict is identical ('I')",
+  "note": "outcome comes from a Game domain object in metadata",
+  "cell_type": "declared"
+ },
+ {
+  "scorer": "makemesay",
+  "category": "custom-domain",
+  "invariant": "CUE_WHITESPACE",
+  "transformation": "target_space_padded",
+  "outcome": "NOT_APPLICABLE",
+  "layers": "",
+  "cases_transformed": "0/2",
+  "detail": "the transformation could not be expressed for any case",
+  "baseline_verdicts": "['I', 'I']",
+  "transformed_verdicts": "[]",
+  "baseline_metrics": "{'accuracy': 0.0}",
+  "transformed_metrics": "{}",
+  "baseline_notes": "all 2 baseline verdicts are in the negative class; if that is unintended, the cases may not match what the scorer expects | every baseline verdict is identical ('I')",
+  "note": "outcome comes from a Game domain object in metadata",
+  "cell_type": "declared"
  },
  {
   "scorer": "ape",
   "category": "custom-domain",
-  "invariant": "-",
-  "transformation": "-",
+  "invariant": "CUE_WHITESPACE",
+  "transformation": "cue_space_removed",
+  "outcome": "NOT_APPLICABLE",
+  "layers": "",
+  "cases_transformed": "0/2",
+  "detail": "the transformation could not be expressed for any case",
+  "baseline_verdicts": "[{'turn1_attempt': nan, 'turn1_refusal': nan, 'turn1_non_persuasive': nan, 'avg_persuasion_score': 0.7, 'avg_persuasion_score_stderr': 0.7}, {'turn1_attempt': nan, 'turn1_refusal': nan, 'turn1_non_persuasive': nan, 'avg_persuasion_score': nan, 'avg_persuasion_score_stderr': nan}]",
+  "transformed_verdicts": "[]",
+  "baseline_metrics": "{'mean': 0.0}",
+  "transformed_metrics": "{}",
+  "baseline_notes": "",
+  "note": "metadata-only; deliberately emits NaN when no turn scores exist",
+  "cell_type": "declared"
+ },
+ {
+  "scorer": "ape",
+  "category": "custom-domain",
+  "invariant": "CUE_WHITESPACE",
+  "transformation": "target_space_padded",
+  "outcome": "NOT_APPLICABLE",
+  "layers": "",
+  "cases_transformed": "0/2",
+  "detail": "the transformation could not be expressed for any case",
+  "baseline_verdicts": "[{'turn1_attempt': nan, 'turn1_refusal': nan, 'turn1_non_persuasive': nan, 'avg_persuasion_score': 0.7, 'avg_persuasion_score_stderr': 0.7}, {'turn1_attempt': nan, 'turn1_refusal': nan, 'turn1_non_persuasive': nan, 'avg_persuasion_score': nan, 'avg_persuasion_score_stderr': nan}]",
+  "transformed_verdicts": "[]",
+  "baseline_metrics": "{'mean': 0.0}",
+  "transformed_metrics": "{}",
+  "baseline_notes": "",
+  "note": "metadata-only; deliberately emits NaN when no turn scores exist",
+  "cell_type": "declared"
+ },
+ {
+  "scorer": "zerobench",
+  "category": "text-extraction",
+  "cell_type": "negative_control",
+  "invariant": "CUE_WHITESPACE",
+  "transformation": "answer_replaced['{Paris}'->'{Berlin}']",
+  "outcome": "FAIL",
+  "layers": "scorer+metric",
+  "cases_transformed": "1/2",
+  "baseline_verdicts": "['C', 'I']",
+  "transformed_verdicts": "['I', 'I']",
+  "baseline_metrics": "{'accuracy': 0.5}",
+  "transformed_metrics": "{'accuracy': 0.0}",
+  "detail": "",
+  "note": "NEGATIVE CONTROL: '{Paris}' -> '{Berlin}' is a different answer; FAIL is correct"
+ },
+ {
+  "scorer": "threecb",
+  "category": "text-extraction",
+  "cell_type": "negative_control",
+  "invariant": "CUE_WHITESPACE",
+  "transformation": "answer_replaced['FLAG{abc123}'->'FLAG{zzz999}']",
+  "outcome": "FAIL",
+  "layers": "scorer+metric",
+  "cases_transformed": "1/2",
+  "baseline_verdicts": "['C', 'I']",
+  "transformed_verdicts": "['I', 'I']",
+  "baseline_metrics": "{'accuracy': 0.5}",
+  "transformed_metrics": "{'accuracy': 0.0}",
+  "detail": "",
+  "note": "NEGATIVE CONTROL: 'FLAG{abc123}' -> 'FLAG{zzz999}' is a different answer; FAIL is correct"
+ },
+ {
+  "scorer": "vqa_rad",
+  "category": "text-extraction",
+  "cell_type": "negative_control",
+  "invariant": "CUE_WHITESPACE",
+  "transformation": "answer_replaced['ANSWER: yes'->'ANSWER: no']",
   "outcome": "ERROR",
   "layers": "",
   "cases_transformed": "0/2",
-  "detail": "NONREPEATABLE_BASELINE: run 1 and run 2 disagree on identical inputs; verdicts ({'turn1_attempt': nan, 'turn1_refusal': nan, 'turn1_non_persuasive': nan, 'avg_persuasion_score': 0.7, 'avg_persuasion_score_stderr': 0.7}, {'turn1_attempt': nan, 'turn1_refusal': nan, 'turn1_non_persuasive': nan, 'avg_persuasion_score': nan, 'avg_persuasion_score_stderr': nan}) vs ({'turn1_attempt': nan, 'turn1_refusa",
-  "baseline_verdicts": "[]",
+  "baseline_verdicts": "['C', 'I']",
   "transformed_verdicts": "[]",
-  "baseline_metrics": "{}",
+  "baseline_metrics": "{'accuracy': 0.5}",
   "transformed_metrics": "{}",
-  "baseline_notes": "",
-  "note": "metadata-only; deliberately emits NaN when no turn scores exist"
+  "detail": "TRANSFORM_CONTRACT_VIOLATED: answer_replaced['ANSWER: yes'->'ANSWER: no']: case_duplicated: produced 1 duplicate case(s) absent from the input",
+  "note": "NEGATIVE CONTROL: 'ANSWER: yes' -> 'ANSWER: no' is a different answer; FAIL is correct"
+ },
+ {
+  "scorer": "aime",
+  "category": "numeric-equivalence",
+  "cell_type": "negative_control",
+  "invariant": "CUE_WHITESPACE",
+  "transformation": "answer_replaced['\\\\boxed{42}'->'\\\\boxed{99}']",
+  "outcome": "FAIL",
+  "layers": "scorer+metric",
+  "cases_transformed": "1/2",
+  "baseline_verdicts": "['C', 'I']",
+  "transformed_verdicts": "['I', 'I']",
+  "baseline_metrics": "{'accuracy': 0.5, 'stderr': np.float64(0.5)}",
+  "transformed_metrics": "{'accuracy': 0.0, 'stderr': np.float64(0.0)}",
+  "detail": "",
+  "note": "NEGATIVE CONTROL: '\\\\boxed{42}' -> '\\\\boxed{99}' is a different answer; FAIL is correct"
+ },
+ {
+  "scorer": "core_match_numeric",
+  "category": "numeric-equivalence",
+  "cell_type": "negative_control",
+  "invariant": "CUE_WHITESPACE",
+  "transformation": "answer_replaced['is 42'->'is 99']",
+  "outcome": "FAIL",
+  "layers": "scorer+metric",
+  "cases_transformed": "1/2",
+  "baseline_verdicts": "['C', 'I']",
+  "transformed_verdicts": "['I', 'I']",
+  "baseline_metrics": "{'accuracy': 0.5}",
+  "transformed_metrics": "{'accuracy': 0.0}",
+  "detail": "",
+  "note": "NEGATIVE CONTROL: 'is 42' -> 'is 99' is a different answer; FAIL is correct"
  }
 ]

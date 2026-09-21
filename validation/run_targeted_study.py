@@ -15,7 +15,8 @@ import json
 import pathlib
 import traceback
 import warnings
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 warnings.filterwarnings("ignore")
 
@@ -23,7 +24,7 @@ from inspect_ai.model import ChatMessageAssistant
 from inspect_ai.scorer import accuracy, match, mean, stderr
 from inspect_ai.tool import ToolCall
 
-from inspect_scorer_probes import Case, Contract, Outcome, probe
+from inspect_scorer_probes import Case, Contract, probe
 from inspect_scorer_probes.invariants import (
     CODE_FORMATTING,
     CUE_CASE,
@@ -216,11 +217,10 @@ def s_make_me_pay() -> tuple[Any, Any, list[Case], Contract, str]:
 
 
 def s_makemesay() -> tuple[Any, Any, list[Case], Contract, str]:
-    from inspect_evals.makemesay.scorer import makemesay_scorer
-
     # constructing a real Game is part of the test: if it cannot be done from the public API the
     # cell is a setup/abstraction failure, recorded as such
     from inspect_evals.makemesay.game import Game, Player  # type: ignore[import-not-found]
+    from inspect_evals.makemesay.scorer import makemesay_scorer
 
     game = Game(
         manipulator=Player(id="m", is_model=True),
@@ -232,7 +232,6 @@ def s_makemesay() -> tuple[Any, Any, list[Case], Contract, str]:
         turn=2,
         internal_monologue_start_token="<",
         internal_monologue_end_token=">",
-        word="banana",
     )
     return (
         makemesay_scorer(),
@@ -287,6 +286,71 @@ CATEGORY = {
 }
 
 
+# --------------------------------------------------------------------------------------
+# NEGATIVE CONTROLS -- added after the frozen cells, explicitly identified as new cells per the
+# study's methodological rule. Each replaces the answer with a GENUINELY DIFFERENT one while the
+# declared invariant is EQUAL. A FAIL here is CORRECT behaviour, not a defect: it demonstrates the
+# methodology is not demanding invariance everywhere, and that a real change is detected.
+# --------------------------------------------------------------------------------------
+
+NEGATIVE_CONTROLS: dict[str, tuple[str, str]] = {
+    "zerobench": ("{Paris}", "{Berlin}"),
+    "threecb": ("FLAG{abc123}", "FLAG{zzz999}"),
+    "vqa_rad": ("ANSWER: yes", "ANSWER: no"),
+    "aime": ("\\boxed{42}", "\\boxed{99}"),
+    "core_match_numeric": ("is 42", "is 99"),
+}
+
+
+def answer_replaced(old: str, new: str) -> Any:
+    from inspect_scorer_probes import transform
+
+    def apply(case: Case) -> Case | None:
+        if old not in case.completion:
+            return None
+        return case.with_completion(case.completion.replace(old, new))
+
+    return transform(f"answer_replaced[{old!r}->{new!r}]", [CUE_WHITESPACE], ["completion"], apply)
+
+
+def run_negative_controls(rows: list[dict[str, Any]]) -> None:
+    for sid, (old, new) in NEGATIVE_CONTROLS.items():
+        try:
+            scorer_obj, metrics, cases, _contract, note = SETUPS[sid]()
+            report = probe(
+                scorer_obj, metrics, cases,
+                Contract(invariants=(CUE_WHITESPACE,)),
+                transforms=[answer_replaced(old, new)],
+            )
+        except Exception as exc:
+            rows.append({
+                "scorer": sid, "category": CATEGORY[sid], "cell_type": "negative_control",
+                "invariant": "CUE_WHITESPACE", "transformation": "answer_replaced",
+                "outcome": "SETUP_FAILED", "detail": f"{type(exc).__name__}: {exc}"[:200],
+            })
+            continue
+        r = next((x for x in report.results if x.transformation.startswith("answer_replaced")), None)
+        if r is None:
+            rows.append({
+                "scorer": sid, "category": CATEGORY[sid], "cell_type": "negative_control",
+                "invariant": "CUE_WHITESPACE", "transformation": "answer_replaced",
+                "outcome": "NOT_RUN", "detail": "transformation not applied",
+            })
+            continue
+        rows.append({
+            "scorer": sid, "category": CATEGORY[sid], "cell_type": "negative_control",
+            "invariant": r.invariant, "transformation": r.transformation,
+            "outcome": r.outcome.name, "layers": "+".join(r.layers),
+            "cases_transformed": f"{r.cases_transformed}/{r.cases_total}",
+            "baseline_verdicts": str(list(report.baseline_verdicts)),
+            "transformed_verdicts": str([c.after for c in r.verdicts]),
+            "baseline_metrics": str(dict(report.baseline_metrics)),
+            "transformed_metrics": str({m.name: m.after for m in r.metrics}),
+            "detail": " | ".join(r.details)[:300],
+            "note": f"NEGATIVE CONTROL: {old!r} -> {new!r} is a different answer; FAIL is correct",
+        })
+
+
 def main() -> None:
     rows: list[dict[str, Any]] = []
     for sid, setup in SETUPS.items():
@@ -336,6 +400,10 @@ def main() -> None:
                 "note": note,
             })
 
+    for r in rows:
+        r.setdefault("cell_type", "declared")
+    run_negative_controls(rows)
+
     (HERE / "targeted-study.json").write_text(json.dumps(rows, indent=1, default=str))
     fields = sorted({k for r in rows for k in r})
     with (HERE / "targeted-study.csv").open("w", newline="") as fh:
@@ -344,10 +412,11 @@ def main() -> None:
         for r in rows:
             w.writerow(r)
 
-    print(f"{'scorer':20} {'invariant':16} {'transformation':22} outcome")
-    print("-" * 92)
+    print(f"{'scorer':20} {'type':17} {'invariant':16} {'transformation':26} outcome")
+    print("-" * 104)
     for r in rows:
-        print(f"{r['scorer']:20} {r['invariant']:16} {r['transformation']:22} {r['outcome']}")
+        print(f"{r['scorer']:20} {r.get('cell_type','declared'):17} {r['invariant']:16} "
+              f"{r['transformation'][:26]:26} {r['outcome']}")
     print("-" * 92)
     counts: dict[str, int] = {}
     for r in rows:

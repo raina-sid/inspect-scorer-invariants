@@ -68,9 +68,13 @@ def values_equal(value: Any, other: Any) -> bool:
 
     Found by running the targeted validation study against v0.1.0; see validation/targeted-study.md.
     """
-    if isinstance(value, float) and isinstance(other, float):
-        if math.isnan(value) and math.isnan(other):
-            return True
+    if (
+        isinstance(value, float)
+        and isinstance(other, float)
+        and math.isnan(value)
+        and math.isnan(other)
+    ):
+        return True
     if isinstance(value, Mapping) and isinstance(other, Mapping):
         return set(value) == set(other) and all(
             values_equal(v, other[k]) for k, v in value.items()

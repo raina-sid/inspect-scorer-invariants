@@ -359,7 +359,9 @@ scorers:
         relation: EQUAL
         rationale: "The scorer reads only metadata, so completion whitespace cannot change the score."
 
-# TOTAL: 12 scorers, 21 declared cells.
+# TOTAL: 12 scorers, 19 declared (scorer, invariant) contracts.
+# NOTE added with the results: an earlier draft of this line said 21. The correct count is 19,
+# which expanded to 34 executed cells because several transformations test one invariant.
 # Expected outcomes were NOT recorded per cell on purpose, beyond the EXCLUDED declarations and the
 # limitations above: predicting PASS/FAIL before running would invite fitting the classification to
 # the prediction. What is fixed in advance is the CONTRACT — the invariant and its rationale.
