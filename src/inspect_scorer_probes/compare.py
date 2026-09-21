@@ -12,6 +12,7 @@ goes 1.0 -> 0.0. A tool comparing only verdicts cannot see it.
 from __future__ import annotations
 
 import math
+from collections.abc import Mapping
 from dataclasses import dataclass
 from enum import Enum
 from typing import Any
@@ -54,6 +55,31 @@ class MetricComparison:
     def __str__(self) -> str:
         suffix = "" if self.change is MetricChange.UNCHANGED else f"  [{self.change.value}]"
         return f"{self.name}: {self.before} -> {self.after}{suffix}"
+
+
+def values_equal(value: Any, other: Any) -> bool:
+    """Equality that treats NaN as equal to itself, recursively.
+
+    `nan != nan`, and that propagates into containers: two dicts holding equal-but-distinct NaN
+    floats compare unequal. A scorer that deliberately emits NaN inside a dict-valued Score --
+    inspect_evals' `ape` does exactly this, to exclude a sample from aggregation rather than drag
+    the mean to zero -- was therefore reported as NON-REPEATABLE by v0.1.0, and its verdicts would
+    have been reported as CHANGED when nothing changed.
+
+    Found by running the targeted validation study against v0.1.0; see validation/targeted-study.md.
+    """
+    if isinstance(value, float) and isinstance(other, float):
+        if math.isnan(value) and math.isnan(other):
+            return True
+    if isinstance(value, Mapping) and isinstance(other, Mapping):
+        return set(value) == set(other) and all(
+            values_equal(v, other[k]) for k, v in value.items()
+        )
+    if isinstance(value, (list, tuple)) and isinstance(other, (list, tuple)):
+        return len(value) == len(other) and all(
+            values_equal(a, b) for a, b in zip(value, other)
+        )
+    return bool(value == other)
 
 
 def is_scalar(value: Any) -> bool:
@@ -143,7 +169,8 @@ def compare_verdict(
     relation: Relation, case_index: int, before: Any, after: Any
 ) -> VerdictComparison:
     if relation is Relation.EQUAL:
-        change = VerdictChange.UNCHANGED if before == after else VerdictChange.CHANGED
+        same = values_equal(before, after)
+        change = VerdictChange.UNCHANGED if same else VerdictChange.CHANGED
         return VerdictComparison(case_index, before, after, change)
 
     # STAYS_INCORRECT: only meaningful when the baseline was wrong to begin with

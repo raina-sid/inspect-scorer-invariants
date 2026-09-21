@@ -166,3 +166,18 @@ class TestMetricNaming:
     def test_duplicate_names_stay_distinguishable(self):
         m = resolve_metrics([accuracy(), accuracy()])
         assert len(m) == 2
+
+
+def test_a_dict_valued_nan_scorer_is_repeatable_not_flaky():
+    """Regression: v0.1.0 reported this scorer non-repeatable. See tests/test_compare.py."""
+    from inspect_ai.scorer import Score, scorer
+
+    @scorer(metrics=[accuracy()])
+    def nan_dict_scorer():
+        async def score(state, target):
+            return Score(value={"a": float("nan"), "b": 0.7})
+
+        return score
+
+    obs = baseline(nan_dict_scorer(), METRICS, CASES, repeatability_runs=3)
+    assert len(obs) == 2

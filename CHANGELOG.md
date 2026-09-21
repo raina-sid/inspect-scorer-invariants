@@ -34,3 +34,15 @@ Known limitations are documented in the README rather than here. In particular: 
 deterministic is a precondition the package does not enforce; model-graded scorers are out of scope
 and are not detected; and `Case` supports only `completion`, `target`, `metadata`, `messages` and
 `input`.
+
+## 0.1.1 — 2026-09-21
+
+One correctness fix, found by running the targeted validation study against 0.1.0.
+
+- **NaN inside a container broke repeatability and verdict comparison.** `nan != nan` propagates
+  into dicts, lists and tuples, so two equal-but-distinct NaN values compared unequal. A scorer that
+  deliberately emits NaN inside a dict-valued `Score` — `inspect_evals`' `ape` does, to exclude a
+  sample from aggregation rather than drag the mean to zero — was reported
+  `ERROR(NONREPEATABLE_BASELINE)`, and its verdicts would have been reported as changed when nothing
+  changed. Comparison is now recursively NaN-aware, shared between the repeatability check and the
+  verdict comparator so the two cannot drift apart. Eight regression tests.

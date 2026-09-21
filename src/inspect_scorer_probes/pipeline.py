@@ -20,7 +20,6 @@ from __future__ import annotations
 
 import asyncio
 import inspect
-import math
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from typing import TYPE_CHECKING, Any, cast, get_type_hints
@@ -35,6 +34,7 @@ if TYPE_CHECKING:  # these names are only needed by the type checker, so no runt
     from inspect_ai.scorer._metric import MetricDeprecated, MetricProtocol
 
 from .case import Case
+from .compare import values_equal
 
 #: Placeholder model name. No model is ever called; the scorer only reads the output we supply.
 PROBE_MODEL = "mockllm/model"
@@ -208,31 +208,14 @@ def observe(
     return asyncio.run(observe_async(scorer, metrics, cases))
 
 
-def _values_agree(value: Any, other: Any) -> bool:
-    """Equality that treats NaN as equal to itself.
-
-    `nan != nan`, so a bare comparison reports an all-NaN observation as unstable. This applies to
-    verdicts exactly as much as to metrics -- a Score.value can be NaN too, which is how the first
-    version of this function wrongly flagged a perfectly repeatable scorer.
-    """
-    if (
-        isinstance(value, float)
-        and isinstance(other, float)
-        and math.isnan(value)
-        and math.isnan(other)
-    ):
-        return True
-    return bool(value == other)
-
-
 def _observations_agree(a: Observation, b: Observation) -> bool:
     if len(a.verdicts) != len(b.verdicts):
         return False
-    if not all(_values_agree(x, y) for x, y in zip(a.verdicts, b.verdicts)):
+    if not all(values_equal(x, y) for x, y in zip(a.verdicts, b.verdicts)):
         return False
     if set(a.metrics) != set(b.metrics):
         return False
-    return all(_values_agree(v, b.metrics[name]) for name, v in a.metrics.items())
+    return all(values_equal(v, b.metrics[name]) for name, v in a.metrics.items())
 
 
 async def baseline_async(

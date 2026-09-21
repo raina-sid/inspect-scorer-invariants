@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "inspect-scorer-probes"
-version = "0.1.0"
+version = "0.1.1"
 description = "Metamorphic invariance probes for Inspect AI scoring pipelines"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -44,6 +44,11 @@ pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 100
+
+[tool.ruff.lint.per-file-ignores]
+# The study harness deliberately catches broad exceptions so a failing cell is RECORDED rather than
+# aborting the run, and prints rather than returns.
+"validation/*" = ["BLE001", "T201", "E402", "PLR0912", "C901"]
 
 [tool.mypy]
 strict = true

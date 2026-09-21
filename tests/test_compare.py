@@ -14,6 +14,7 @@ from inspect_scorer_probes.compare import (
     divergent_metrics,
     in_negative_class,
     is_scalar,
+    values_equal,
 )
 from inspect_scorer_probes.contract import Relation, Tolerance
 
@@ -186,3 +187,47 @@ def test_nan_comparison_never_uses_bare_inequality():
     assert NAN != NAN  # noqa: PLR0124 - asserting the trap itself, deliberately
     assert compare_metric("m", NAN, NAN).change is MetricChange.UNCHANGED
     assert not math.isnan(0.0)
+
+
+class TestNanInsideContainers:
+    """Regression for the v0.1.0 bug the targeted validation study exposed.
+
+    A scorer that deliberately emits NaN inside a dict-valued Score -- inspect_evals' `ape` does,
+    to exclude a sample from aggregation rather than drag the mean to zero -- was reported
+    NON-REPEATABLE by v0.1.0, because nan != nan propagates into containers. Its verdicts would
+    also have been reported CHANGED when nothing changed.
+    """
+
+    def test_bare_nan(self):
+        assert values_equal(NAN, NAN)
+        assert not values_equal(NAN, 1.0)
+
+    def test_nan_inside_a_dict(self):
+        # the exact shape ape returns
+        a = {"turn1_attempt": NAN, "avg_persuasion_score": 0.7}
+        b = {"turn1_attempt": float("nan"), "avg_persuasion_score": 0.7}
+        assert a != b, "plain == must disagree, or this test proves nothing"
+        assert values_equal(a, b)
+
+    def test_nan_inside_a_list_and_tuple(self):
+        assert values_equal([NAN, 1.0], [float("nan"), 1.0])
+        assert values_equal((NAN,), (float("nan"),))
+
+    def test_nested(self):
+        assert values_equal({"a": [NAN, {"b": NAN}]}, {"a": [float("nan"), {"b": float("nan")}]})
+
+    def test_genuine_differences_still_detected(self):
+        assert not values_equal({"a": NAN}, {"a": 1.0})
+        assert not values_equal({"a": NAN}, {"b": NAN})
+        assert not values_equal({"a": NAN}, {"a": NAN, "b": NAN})
+        assert not values_equal([NAN], [NAN, NAN])
+
+    def test_a_dict_verdict_with_nan_is_unchanged_not_changed(self):
+        before = {"welfare": NAN, "completed": 1.0}
+        after = {"welfare": float("nan"), "completed": 1.0}
+        assert compare_verdict(Relation.EQUAL, 0, before, after).change is VerdictChange.UNCHANGED
+
+    def test_a_dict_verdict_that_really_changed_is_still_changed(self):
+        before = {"welfare": 1.0, "completed": 1.0}
+        after = {"welfare": 0.0, "completed": 1.0}
+        assert compare_verdict(Relation.EQUAL, 0, before, after).change is VerdictChange.CHANGED
