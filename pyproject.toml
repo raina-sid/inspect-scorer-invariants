@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "inspect-scorer-probes"
-version = "0.1.1"
+version = "0.1.2"
 description = "Metamorphic invariance probes for Inspect AI scoring pipelines"
 readme = "README.md"
 requires-python = ">=3.11"

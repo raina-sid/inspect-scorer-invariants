@@ -46,3 +46,15 @@ One correctness fix, found by running the targeted validation study against 0.1.
   `ERROR(NONREPEATABLE_BASELINE)`, and its verdicts would have been reported as changed when nothing
   changed. Comparison is now recursively NaN-aware, shared between the repeatability check and the
   verdict comparator so the two cannot drift apart. Eight regression tests.
+
+## 0.1.2 — 2026-09-21
+
+Documentation honesty, no behaviour change.
+
+- **`CODE_FORMATTING` was advertised in the README's invariant table and ships no transformation**, so
+  it could only ever return `NOT_APPLICABLE`. That was an overclaim in a package whose entire pitch is
+  not overclaiming. The table now separates the three invariants that work out of the box from the two
+  that are declared but require a caller-supplied transformation, with the reason for each. Both
+  invariant descriptions say so in code as well as in the README.
+- `WITHOUT_BUILTIN_TRANSFORMATION` is exported and pinned by a test, so a future invariant cannot
+  silently become a third advertised-but-dead entry.

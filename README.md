@@ -130,13 +130,21 @@ keyed by the metric. Its own tests use uppercase answer literals throughout.
 
 ## The five invariants
 
-| invariant | asserts the observation does not depend on |
-|---|---|
-| `CUE_WHITESPACE` | whitespace around the answer cue |
-| `CUE_CASE` | case of the cue or the answer token |
-| `MARKUP` | markdown emphasis around the cue or the answer |
-| `CODE_FORMATTING` | reindentation, blank lines, hoisted imports, fence-tag case |
-| `WRONG_STAYS_INCORRECT` | *(a relation, not equality)* a wrong answer stays wrong when replaced by a differently-wrong answer of the same shape |
+**Three ship transformations and work out of the box:**
+
+| invariant | asserts the observation does not depend on | transformations |
+|---|---|---|
+| `CUE_WHITESPACE` | whitespace around the answer cue | `cue_space_removed`, `target_space_padded` |
+| `CUE_CASE` | case of the cue or the answer token | `cue_case_flip`, `target_case_flip` |
+| `MARKUP` | markdown emphasis around the cue or the answer | `answer_bolded`, `target_bolded` |
+
+**Two are declared but ship NO transformation.** You must supply your own, or they can only ever
+return `NOT_APPLICABLE`:
+
+| invariant | asserts | why nothing ships |
+|---|---|---|
+| `WRONG_STAYS_INCORRECT` | *(a relation, not equality)* a wrong answer stays wrong when replaced by a differently-wrong answer of the same shape | "a differently-wrong answer of the same surface shape" is domain knowledge; a generic guess would be the library smuggling an assumption into your test |
+| `CODE_FORMATTING` | reindentation, blank lines, hoisted imports, fence-tag case | every code scorer in `inspect_evals` executes code in a sandbox, outside V0.1 scope, so there was no real scorer to validate a shipped rewrite against |
 
 Transformations come in two families. **Cue-anchored** ones look for a known answer cue
 (`ANSWER:`, `VERDICT:`) — precise when the convention matches, useless when it does not.
@@ -144,10 +152,7 @@ Transformations come in two families. **Cue-anchored** ones look for a known ans
 works whatever cue the scorer uses. The second family exists because of the measurement above: before
 it, only 2 of the 8 observable scorers had any transformation apply; after it, all 8 did.
 
-`WRONG_STAYS_INCORRECT` ships with **no built-in transformation**, on purpose: "a differently-wrong
-answer of the same surface shape" is domain knowledge, and a generic guess would be the library
-smuggling an assumption into your test. Supply your own — `scorecard/fixtures.py` has a worked
-example.
+`scorecard/fixtures.py` has a worked example of supplying your own transformation.
 
 Two further transformation families were in the pre-registered set and are **not** shipped:
 `NUMERIC_EQUIVALENT` and `LEGITIMATE_DISTRACTOR` found nothing across all 18 evals. Shipping them

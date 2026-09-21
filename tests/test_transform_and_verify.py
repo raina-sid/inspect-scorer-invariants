@@ -332,3 +332,25 @@ class TestCaseInput:
         assert v is not None
         assert v.kind is ViolationKind.UNDECLARED_MUTATION
         assert "input" in v.detail
+
+
+def test_the_set_of_invariants_without_a_builtin_transformation_is_pinned():
+    """An invariant with no transformation can only return NOT_APPLICABLE.
+
+    The README says which two those are. This asserts the code agrees, so a future invariant cannot
+    silently become a third advertised-but-dead entry -- which is what CODE_FORMATTING was until
+    the targeted validation study made it visible.
+    """
+    from inspect_scorer_probes.invariants import ALL_INVARIANTS, WITHOUT_BUILTIN_TRANSFORMATION
+
+    empty = {i.name for i in ALL_INVARIANTS if not transforms_for(i)}
+    assert empty == WITHOUT_BUILTIN_TRANSFORMATION
+    assert empty == {"CODE_FORMATTING", "WRONG_STAYS_INCORRECT"}
+
+
+def test_every_invariant_without_a_builtin_says_so_in_its_description():
+    from inspect_scorer_probes.invariants import ALL_INVARIANTS, WITHOUT_BUILTIN_TRANSFORMATION
+
+    for inv in ALL_INVARIANTS:
+        if inv.name in WITHOUT_BUILTIN_TRANSFORMATION:
+            assert "NO TRANSFORMATION" in inv.description.upper(), inv.name

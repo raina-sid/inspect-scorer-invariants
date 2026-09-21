@@ -47,7 +47,10 @@ CODE_FORMATTING = Invariant(
     relation=Relation.EQUAL,
     description=(
         "The observation does not depend on semantics-preserving code formatting: "
-        "reindentation, a blank line after the signature, a hoisted import, or fence-tag case."
+        "reindentation, a blank line after the signature, a hoisted import, or fence-tag case. "
+        "SHIPS NO TRANSFORMATION -- supply your own, or this can only return NOT_APPLICABLE. "
+        "Nothing ships because every code scorer in inspect_evals executes code in a sandbox, "
+        "outside V0.1 scope, so there was no real scorer to validate a shipped rewrite against."
     ),
 )
 
@@ -57,8 +60,16 @@ WRONG_STAYS_INCORRECT = Invariant(
     description=(
         "Replacing a wrong answer with a differently-wrong answer of the same surface shape "
         "leaves the verdict incorrect. This is the only invariant that tests the "
-        "false-positive direction, and the only one whose relation is not equality."
+        "false-positive direction, and the only one whose relation is not equality. "
+        "SHIPS NO TRANSFORMATION -- supply your own, or this can only return NOT_APPLICABLE."
     ),
+)
+
+#: Declared but shipping NO built-in transformation. Probing one of these without supplying your own
+#: transformation can only return NOT_APPLICABLE. Pinned by a test so a future invariant cannot
+#: silently become a third advertised-but-dead entry.
+WITHOUT_BUILTIN_TRANSFORMATION: frozenset[str] = frozenset(
+    {"CODE_FORMATTING", "WRONG_STAYS_INCORRECT"}
 )
 
 #: Every invariant shipped in v1, in a stable order.
