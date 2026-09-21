@@ -10,7 +10,7 @@ from dataclasses import FrozenInstanceError
 
 import pytest
 
-from scorer_invariants.case import FIELDS, Case, changed_fields, changed_generations
+from scorer_invariants.case import FIELDS, Case, changed_fields
 from scorer_invariants.invariants import CUE_CASE, CUE_WHITESPACE, MARKUP
 from scorer_invariants.transform import (
     ANSWER_BOLDED,
@@ -33,10 +33,6 @@ class TestCase:
         with pytest.raises(FrozenInstanceError):
             case().completion = "x"  # type: ignore[misc]
 
-    def test_generations_normalises_a_string(self):
-        assert case(completion="a").generations == ["a"]
-        assert case(completion=["a", "b"]).generations == ["a", "b"]
-
     def test_unknown_field_rejected(self):
         with pytest.raises(KeyError, match="unknown Case field"):
             case().field("nope")
@@ -46,19 +42,6 @@ class TestCase:
         before = case(metadata={"k": 1})
         after = case(metadata={"k": 2})
         assert changed_fields(before, after) == {"metadata"}
-
-    def test_changed_generations_reports_indices(self):
-        before = case(completion=["a", "b", "c"])
-        after = case(completion=["a", "B", "c"])
-        assert changed_generations(before, after) == [1]
-
-    def test_changed_generations_empty_for_strings(self):
-        assert changed_generations(case(completion="a"), case(completion="b")) == []
-
-    def test_changed_generations_empty_when_lengths_differ(self):
-        before = case(completion=["a", "b"])
-        after = case(completion=["a"])
-        assert changed_generations(before, after) == []
 
 
 class TestTransformDeclaration:
@@ -159,15 +142,6 @@ class TestBuiltinRewrites:
         assert after is not None
         assert changed_fields(before, after) == {"completion"}
 
-    def test_list_completion_transforms_each_generation(self):
-        before = case(completion=["ANSWER: TRUE", "ANSWER: FALSE"])
-        after = CUE_CASE_FLIP.apply(before)
-        assert after is not None
-        assert after.completion == ["Answer: True", "Answer: False"]
-
-    def test_returns_none_when_no_generation_changes(self):
-        # None means NOT_APPLICABLE; it must never return the input to mean that
-        assert CUE_CASE_FLIP.apply(case(completion=["abc", "def"])) is None
 
 
 class TestBadTransformations:
@@ -247,3 +221,7 @@ class TestBadTransformations:
         assert v is not None
         assert v.transform == "bad"
         assert "scorer" not in str(v).lower()
+
+    def test_returns_none_rather_than_an_unchanged_case(self):
+        # None means NOT_APPLICABLE; returning the input would be a guaranteed PASS
+        assert CUE_CASE_FLIP.apply(case(completion="no caps here")) is None

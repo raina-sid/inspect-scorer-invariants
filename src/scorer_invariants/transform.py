@@ -124,17 +124,16 @@ def transform(
 _CUE = re.compile(r"(?i)\b(ANSWER|VERDICT|GRADE|FINAL ANSWER)(\s*):(\s*)")
 
 
-def _map_generations(case: Case, fn: Callable[[str], str | None]) -> Case | None:
-    """Apply `fn` to each generation; None from `fn` means that generation is untouched.
+def _map_completion(case: Case, fn: Callable[[str], str | None]) -> Case | None:
+    """Rewrite the completion with `fn`. None from `fn` means there was nothing to rewrite.
 
-    Returns None if no generation changed, which the framework reads as NOT_APPLICABLE rather
-    than as a pass.
+    Returning None propagates, so the framework reads it as NOT_APPLICABLE rather than as a pass.
+    A transformation must never return the input unchanged to mean "not applicable".
     """
-    gens = case.generations
-    out = [fn(g) or g for g in gens]
-    if out == gens:
+    new = fn(case.completion)
+    if new is None or new == case.completion:
         return None
-    return case.with_completion(out if isinstance(case.completion, list) else out[0])
+    return case.with_completion(new)
 
 
 def _flip_answer_token_case(text: str) -> str | None:
@@ -169,21 +168,21 @@ CUE_CASE_FLIP = transform(
     name="cue_case_flip",
     tests=[CUE_CASE],
     mutates=["completion"],
-    apply=lambda c: _map_generations(c, _flip_answer_token_case),
+    apply=lambda c: _map_completion(c, _flip_answer_token_case),
 )
 
 CUE_SPACE_REMOVED = transform(
     name="cue_space_removed",
     tests=[CUE_WHITESPACE],
     mutates=["completion"],
-    apply=lambda c: _map_generations(c, _strip_cue_space),
+    apply=lambda c: _map_completion(c, _strip_cue_space),
 )
 
 ANSWER_BOLDED = transform(
     name="answer_bolded",
     tests=[MARKUP],
     mutates=["completion"],
-    apply=lambda c: _map_generations(c, _wrap_answer_in_bold),
+    apply=lambda c: _map_completion(c, _wrap_answer_in_bold),
 )
 
 BUILTIN_TRANSFORMS: tuple[Transform, ...] = (

@@ -4,8 +4,17 @@
 shapes need and nothing more:
 
     worldsense     several cases, so the metric layer has something to aggregate
-    novelty_bench  one sample whose completion is k generations -> completion: list[str]
-    tau2           a scorer reading state.metadata          -> metadata
+    tau2           a scorer reading state.metadata                -> metadata
+    novelty_bench  k generations, which that eval keeps in
+                   state.metadata["all_completions"]              -> metadata
+
+Note what is deliberately absent. An earlier draft gave `completion` the type `str | list[str]`
+so that a multi-generation scorer could be probed per element. That was based on a guess about
+novelty_bench which turned out to be wrong: it reads its k generations from
+`state.metadata["all_completions"]`, not from the completion. Inspect does support multiple
+choices on a ModelOutput, so the capability is real -- but no fixture we ship would exercise it,
+and an untested path in a detector is exactly what this package exists to catch. It can be added
+when a fixture needs it.
 """
 
 from __future__ import annotations
@@ -27,7 +36,7 @@ class Case:
     (see `verify`), so an in-place edit is caught rather than trusted.
     """
 
-    completion: str | list[str]
+    completion: str
     target: str | list[str]
     metadata: dict[str, Any] | None = None
     messages: list[Any] | None = None
@@ -37,28 +46,13 @@ class Case:
             raise KeyError(f"unknown Case field {name!r}; known: {sorted(FIELDS)}")
         return getattr(self, name)
 
-    def with_completion(self, completion: str | list[str]) -> Case:
+    def with_completion(self, completion: str) -> Case:
         return replace(self, completion=completion)
 
-    @property
-    def generations(self) -> list[str]:
-        """The completion as a list, whether it holds one string or k generations."""
-        return list(self.completion) if isinstance(self.completion, list) else [self.completion]
+    def with_metadata(self, metadata: dict[str, Any]) -> Case:
+        return replace(self, metadata=metadata)
 
 
 def changed_fields(before: Case, after: Case) -> set[str]:
     """Which Case fields differ. Deep equality, so an in-place metadata edit is visible."""
     return {name for name in FIELDS if before.field(name) != after.field(name)}
-
-
-def changed_generations(before: Case, after: Case) -> list[int]:
-    """Which indices of a list completion differ, for reporting.
-
-    Returns [] when the completion is a plain string, or when lengths differ (in which case the
-    whole completion counts as changed and the index detail would be misleading).
-    """
-    if not (isinstance(before.completion, list) and isinstance(after.completion, list)):
-        return []
-    if len(before.completion) != len(after.completion):
-        return []
-    return [i for i, (b, a) in enumerate(zip(before.completion, after.completion)) if b != a]
