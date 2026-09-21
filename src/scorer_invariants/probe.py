@@ -18,6 +18,7 @@ from .compare import (
     compare_metric,
     compare_verdicts,
     divergent_metrics,
+    in_negative_class,
 )
 from .contract import Contract, Invariant, Outcome
 from .pipeline import (
@@ -123,7 +124,28 @@ def probe(
         results=tuple(results),
         baseline_verdicts=base.verdicts,
         baseline_metrics=dict(base.metrics),
+        baseline_notes=_baseline_notes(base),
     )
+
+
+def _baseline_notes(base: Observation) -> tuple[str, ...]:
+    """Flag a baseline that probably means the fixture, not the scorer, is wrong.
+
+    Earned from a real mistake: a fixture whose completions did not match the scorer's anchored
+    pattern produced an all-INCORRECT baseline, and the probe dutifully reported PASS -- it was
+    comparing two equally broken observations. An all-wrong baseline is legitimate sometimes, so
+    this is a note rather than an error, but it must be visible.
+    """
+    notes: list[str] = []
+    negatives = [in_negative_class(v) for v in base.verdicts]
+    if negatives and all(n is True for n in negatives):
+        notes.append(
+            f"all {len(negatives)} baseline verdicts are in the negative class; if that is "
+            "unintended, the cases may not match what the scorer expects"
+        )
+    if len(set(map(repr, base.verdicts))) == 1 and len(base.verdicts) > 1:
+        notes.append(f"every baseline verdict is identical ({base.verdicts[0]!r})")
+    return tuple(notes)
 
 
 def _run_one(

@@ -135,6 +135,10 @@ class ProbeReport:
     results: tuple[ProbeResult, ...]
     baseline_verdicts: tuple[Any, ...] = ()
     baseline_metrics: dict[str, Any] = field(default_factory=dict)
+    #: Notes about the baseline itself, e.g. that every verdict is already wrong. Not failures --
+    #: a legitimately all-incorrect baseline exists -- but a probe against a broken pipeline
+    #: measures nothing, and that must be visible rather than inferred.
+    baseline_notes: tuple[str, ...] = ()
 
     @property
     def contract_hash(self) -> str:
@@ -170,6 +174,8 @@ class ProbeReport:
         lines.append(f"contract {self.contract_hash[:12]}")
         lines.append(f"  invariants: {inv}")
         lines.append(f"  exclusions: {exc}")
+        for note in self.baseline_notes:
+            lines.append(f"  ! baseline: {note}")
         lines.append("")
 
         width_i = max((len(r.invariant) for r in self.results), default=9)
