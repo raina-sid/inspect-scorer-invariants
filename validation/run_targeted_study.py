@@ -316,7 +316,7 @@ def answer_replaced(old: str, new: str) -> Any:
 def run_negative_controls(rows: list[dict[str, Any]]) -> None:
     for sid, (old, new) in NEGATIVE_CONTROLS.items():
         try:
-            scorer_obj, metrics, cases, _contract, note = SETUPS[sid]()
+            scorer_obj, metrics, cases, _contract, _note = SETUPS[sid]()
             report = probe(
                 scorer_obj, metrics, cases,
                 Contract(invariants=(CUE_WHITESPACE,)),
