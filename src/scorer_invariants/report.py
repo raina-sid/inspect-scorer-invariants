@@ -30,13 +30,16 @@ UNCOMPARED_METRICS = "UNCOMPARED_METRICS"
 
 
 @dataclass(frozen=True)
-class Reproduction:
-    """Everything needed to re-observe a result.
+class ReproductionScaffold:
+    """The material needed to re-observe a result. A SCAFFOLD, not necessarily a runnable script.
 
-    Structured data is always present. Executable code is emitted ONLY when the caller supplied
-    the scorer in a reconstructible form (`scorer_source`), because arbitrary scorer source cannot
-    be regenerated -- claiming otherwise would be a lie told by a tool whose whole point is not
-    lying about measurement.
+    Structured data is always present: the cases on both sides, the verdicts, the metric values and
+    which case indices changed. Executable code is emitted only when the caller supplied the scorer
+    in a reconstructible form (`scorer_source`), because arbitrary scorer source cannot be
+    regenerated. `is_runnable` says which you have.
+
+    The name is deliberate. Calling the default output a "reproduction" would imply you can run it,
+    and usually you cannot without supplying the scorer yourself.
     """
 
     invariant: str
@@ -55,8 +58,16 @@ class Reproduction:
     scorer_source: str | None = None
 
     @property
+    def is_runnable(self) -> bool:
+        """Whether this scaffold can emit runnable code, i.e. whether `scorer_source` was given."""
+        return self.scorer_source is not None
+
+    @property
     def code(self) -> str | None:
-        """A runnable snippet, or None when the scorer is not reconstructible."""
+        """A runnable reproduction, or None when the scorer is not reconstructible.
+
+        When this is None the scaffold is still complete as DATA -- it just is not a script.
+        """
         if self.scorer_source is None:
             return None
         metric_names = ", ".join(repr(n) for n in self.metrics_before)
@@ -105,7 +116,7 @@ class ProbeResult:
     verdicts: tuple[VerdictComparison, ...] = ()
     metrics: tuple[MetricComparison, ...] = ()
     details: tuple[str, ...] = ()
-    reproduction: Reproduction | None = None
+    reproduction: ReproductionScaffold | None = None
 
     @property
     def executed(self) -> bool:
@@ -214,16 +225,20 @@ class InvariantViolation(AssertionError):
     """Raised by `assert_invariants` when a declared invariant did not hold."""
 
 
-def assert_invariants(report: ProbeReport, *, warn_on_error: bool = True) -> None:
-    """Fail a test when a declared invariant was violated.
+def assert_invariants(report: ProbeReport, *, fail_on_error: bool = True) -> None:
+    """Fail a test when a declared invariant was violated, or could not be observed.
 
-    EXCLUDED and NOT_APPLICABLE do not fail. ERROR does not fail either -- an observation that
-    could not be made is not evidence of a defect -- but it warns, because a scorer that could not
-    be probed must never read as green.
+    EXCLUDED and NOT_APPLICABLE never fail: the first is the caller's own declaration, the second
+    means the test could not be instantiated.
 
-    Zero executed probes IS a failure. A contract whose every probe came back NOT_APPLICABLE would
-    otherwise stay green forever, which is the vacuous-metric failure mode: a check that looks
-    fine because nothing ever fired.
+    ERROR fails BY DEFAULT. An ERROR is not evidence of a defect, but it is also not evidence of
+    correctness, and a CI job that exits 0 on PASS + ERROR has quietly converted "could not
+    observe" into "fine". Pass `fail_on_error=False` for exploratory use, where errors are warned
+    about instead. An ERROR is never represented as a PASS under either setting.
+
+    Zero executed probes IS a failure under both settings. A contract whose every probe came back
+    NOT_APPLICABLE would otherwise stay green forever -- the vacuous-metric failure mode, a check
+    that looks fine because nothing ever fired.
     """
     if report.probes_executed == 0:
         raise InvariantViolation(
@@ -231,14 +246,19 @@ def assert_invariants(report: ProbeReport, *, warn_on_error: bool = True) -> Non
             "assertion would pass without observing anything.\n\n" + report.render()
         )
 
-    if warn_on_error and report.errors:
-        names = ", ".join(f"{r.invariant}/{r.transformation}" for r in report.errors)
-        warnings.warn(
-            f"{len(report.errors)} probe(s) could not be observed and are NOT passes: {names}",
-            stacklevel=2,
-        )
-
+    problems: list[str] = []
     if report.failures:
-        raise InvariantViolation(
-            f"{len(report.failures)} declared invariant(s) violated:\n\n" + report.render()
-        )
+        problems.append(f"{len(report.failures)} declared invariant(s) violated")
+    if report.errors:
+        names = ", ".join(f"{r.invariant}/{r.transformation}" for r in report.errors)
+        if fail_on_error:
+            problems.append(f"{len(report.errors)} probe(s) could not be observed: {names}")
+        else:
+            warnings.warn(
+                f"{len(report.errors)} probe(s) could not be observed and are NOT passes: "
+                f"{names}",
+                stacklevel=2,
+            )
+
+    if problems:
+        raise InvariantViolation("; ".join(problems) + "\n\n" + report.render())

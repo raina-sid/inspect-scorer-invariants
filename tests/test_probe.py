@@ -94,6 +94,22 @@ def upper_keyed_accuracy():
 
 
 @scorer(metrics=[accuracy()])
+def raising_scorer():
+    async def score(state, target):
+        raise RuntimeError("scorer exploded")
+
+    return score
+
+
+@scorer(metrics=[accuracy()])
+def none_scorer():
+    async def score(state, target):
+        return None
+
+    return score
+
+
+@scorer(metrics=[accuracy()])
 def flaky_scorer():
     counter = itertools.count()
 
@@ -223,7 +239,7 @@ class TestNonRepeatable:
             flaky_scorer(), [accuracy()], CASES, Contract(invariants=(CUE_CASE,))
         )
         with pytest.raises(InvariantViolation, match="no probe was executed"):
-            assert_invariants(report, warn_on_error=False)
+            assert_invariants(report, fail_on_error=False)
 
 
 class TestBadTransformBlamedOnTheTransform:
@@ -380,7 +396,7 @@ class TestGuards:
                 case_insensitive_scorer(), [accuracy()], [], Contract(invariants=(CUE_CASE,))
             )
 
-    def test_error_warns_rather_than_passing_silently(self):
+    def test_error_fails_the_assertion_by_default(self):
         bad = transform(
             "bad_target_mutator",
             [CUE_CASE],
@@ -395,8 +411,13 @@ class TestGuards:
             transforms=[bad],
         )
         assert report.errors
-        with pytest.warns(UserWarning, match="could not be observed"):
+        # ERROR fails by default: a CI job exiting 0 on PASS + ERROR has converted
+        # "could not observe" into "fine"
+        with pytest.raises(InvariantViolation, match="could not be observed"):
             assert_invariants(report)
+        # and warns instead when the caller explicitly opts into exploratory behaviour
+        with pytest.warns(UserWarning, match="could not be observed"):
+            assert_invariants(report, fail_on_error=False)
 
 
 class TestToleranceEndToEnd:
@@ -469,6 +490,8 @@ class TestUncomparableMetricNeverPasses:
     def test_nested_metric_is_error_not_pass(self):
         r = self._report({"nested": nested_metric()}).results[0]
         assert r.outcome is Outcome.ERROR
+        assert any("UNCOMPARED_METRICS" in d for d in r.details)
+        assert "nested" in " ".join(r.details)
 
     def test_all_metrics_uncomparable(self):
         report = self._report({"a": dict_valued_metric(), "b": nested_metric()})
@@ -477,8 +500,9 @@ class TestUncomparableMetricNeverPasses:
         assert all(m.change is MetricChange.NOT_COMPARABLE for m in r.metrics)
         # nothing was observed, so the assertion must not pass either
         assert report.probes_executed == 0
-        with pytest.raises(InvariantViolation, match="no probe was executed"):
-            assert_invariants(report, warn_on_error=False)
+        for kwargs in ({}, {"fail_on_error": False}):
+            with pytest.raises(InvariantViolation, match="no probe was executed"):
+                assert_invariants(report, **kwargs)
 
     def test_one_comparable_and_one_uncomparable_is_still_not_pass(self):
         # the comparable one held; that is not enough to claim the relation was tested
@@ -557,3 +581,95 @@ class TestAsyncApi:
         which = asyncio.run(probe_async(*args))
         assert [r.outcome for r in sync.results] == [r.outcome for r in which.results]
         assert sync.contract_hash == which.contract_hash
+
+
+class TestDuplicateCaseThroughThePublicPath:
+    """verify.py unit-tests duplicate detection; this exercises it through probe()."""
+
+    def _dup_transform(self):
+        # [A, B, C] -> [A, A, C]: the count is preserved, but case 1 has been replaced by a copy
+        # of case 0, which silently reweights every aggregate metric
+        def apply(case: Case) -> Case | None:
+            if case.completion == "ANSWER: B":
+                return case.with_completion("ANSWER: A")
+            return None
+
+        return transform("duplicator", [CUE_CASE], ["completion"], apply)
+
+    def _report(self):
+        # the three cases share a target, because Case equality covers every field -- with
+        # different targets the rewritten case would not be a duplicate of case 0 at all, which
+        # is what an earlier version of this test got wrong
+        cases = [
+            Case(completion="ANSWER: A", target="A"),
+            Case(completion="ANSWER: B", target="A"),
+            Case(completion="ANSWER: C", target="A"),
+        ]
+        return probe(
+            case_insensitive_scorer(),
+            [accuracy()],
+            cases,
+            Contract(invariants=(CUE_CASE,)),
+            transforms=[self._dup_transform()],
+        )
+
+    def test_is_an_error(self):
+        r = next(x for x in self._report().results if x.transformation == "duplicator")
+        assert r.outcome is Outcome.ERROR
+
+    def test_names_case_duplicated(self):
+        r = next(x for x in self._report().results if x.transformation == "duplicator")
+        assert "CASE_DUPLICATED" in " ".join(r.details).upper()
+
+    def test_is_blamed_on_the_transformation_not_the_scorer(self):
+        r = next(x for x in self._report().results if x.transformation == "duplicator")
+        detail = " ".join(r.details)
+        assert "TRANSFORM_CONTRACT_VIOLATED" in detail
+        assert "duplicator" in detail
+        assert self._report().failures == () or all(
+            f.transformation != "duplicator" for f in self._report().failures
+        )
+
+
+class TestBaselineFailureThroughThePublicApi:
+    """A scorer that fails during the BASELINE must not leak an exception out of probe()."""
+
+    def test_raising_scorer_yields_a_structured_error_report(self):
+        report = probe(
+            raising_scorer(), [accuracy()], CASES, Contract(invariants=(CUE_CASE,))
+        )
+        assert len(report.errors) == 1
+        assert report.failures == ()
+        detail = report.errors[0].details[0]
+        assert "BASELINE_OBSERVATION_FAILED" in detail
+
+    def test_the_exception_information_is_preserved_not_swallowed(self):
+        report = probe(
+            raising_scorer(), [accuracy()], CASES, Contract(invariants=(CUE_CASE,))
+        )
+        detail = report.errors[0].details[0]
+        assert "RuntimeError" in detail
+        assert "scorer exploded" in detail
+
+    def test_a_none_score_during_baseline_is_also_structured(self):
+        report = probe(
+            none_scorer(), [accuracy()], CASES, Contract(invariants=(CUE_CASE,))
+        )
+        assert len(report.errors) == 1
+        assert "returned None" in report.errors[0].details[0]
+
+    def test_the_assertion_fails_rather_than_passing_on_an_unobservable_baseline(self):
+        report = probe(
+            raising_scorer(), [accuracy()], CASES, Contract(invariants=(CUE_CASE,))
+        )
+        with pytest.raises(InvariantViolation):
+            assert_invariants(report)
+
+    def test_async_path_behaves_identically(self):
+        async def main():
+            return await probe_async(
+                raising_scorer(), [accuracy()], CASES, Contract(invariants=(CUE_CASE,))
+            )
+
+        report = asyncio.run(main())
+        assert "BASELINE_OBSERVATION_FAILED" in report.errors[0].details[0]

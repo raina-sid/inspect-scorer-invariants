@@ -22,7 +22,7 @@ from .report import (
     InvariantViolation,
     ProbeReport,
     ProbeResult,
-    Reproduction,
+    ReproductionScaffold,
     assert_invariants,
 )
 from .transform import Transform, transform
@@ -42,7 +42,7 @@ __all__ = [
     "ProbeReport",
     "ProbeResult",
     "Relation",
-    "Reproduction",
+    "ReproductionScaffold",
     "Tolerance",
     "Transform",
     "assert_invariants",

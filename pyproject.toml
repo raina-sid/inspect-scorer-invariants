@@ -4,19 +4,39 @@ build-backend = "hatchling.build"
 
 [project]
 name = "inspect-scorer-invariants"
-version = "0.0.1"
+version = "0.1.0"
 description = "Metamorphic invariance probes for Inspect AI scoring pipelines"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "Siddharth Raina" }]
-dependencies = ["inspect-ai"]
+keywords = ["inspect-ai", "evaluation", "metamorphic-testing", "measurement-validity"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Testing",
+]
+# Floor is the version this was tested against, not a known minimum -- older releases are untested
+# and the package reads two private inspect_ai internals defensively.
+dependencies = ["inspect-ai>=0.3.266"]
 
 [project.optional-dependencies]
-dev = ["pytest", "pytest-asyncio", "ruff", "mypy"]
+dev = ["pytest", "ruff", "mypy"]
+
+[project.urls]
+Homepage = "https://github.com/raina-sid/inspect-scorer-invariants"
+Source = "https://github.com/raina-sid/inspect-scorer-invariants"
+Issues = "https://github.com/raina-sid/inspect-scorer-invariants/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/scorer_invariants"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/", "tests/", "scorecard/", "examples/", "README.md", "CHANGELOG.md", "LICENSE"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests", "scorecard"]

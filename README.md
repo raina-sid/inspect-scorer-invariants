@@ -25,43 +25,52 @@ recorded in the report, and is hashed.
 pip install inspect-scorer-invariants
 ```
 
-Requires `inspect-ai`. The package itself makes no provider call, no network request and no
-sandbox call.
+### Supported versions
+
+Tested for 0.1.0 on **Python 3.11, 3.12 and 3.13** with **`inspect-ai` 0.3.266**, by clean install
+into a fresh virtualenv on each. The dependency floor is `inspect-ai>=0.3.266` — that is the version
+tested, not a known minimum; older releases are untested. No broader compatibility is claimed.
+
+The package itself makes no provider call, no network request and no sandbox call.
 
 ### Precondition: your scorer must be offline and deterministic
 
-V1 requires the scorer under test to make no provider call, no network request and no sandbox call,
-and not to depend on a clock or an RNG. **The package does not enforce this and cannot detect a
-violation.** It does not sandbox your scorer, intercept sockets, or inspect what it calls. Hand it a
-model-graded scorer and it may quietly produce a result, and that result will be meaningless.
+V0.1 is designed for offline, deterministic scorers. **The package does not enforce the absence of
+provider or network calls.** Repeatability checks provide a limited guard against unstable
+observations; they do not prove determinism.
 
-The repeatability check is a weak safety net over that precondition, not enforcement — see below.
-Meeting the precondition is your responsibility.
+Concretely: it does not sandbox your scorer, intercept sockets, or inspect what it calls. Hand it a
+model-graded scorer and it may quietly produce a result, and that result will be meaningless. Meeting
+the precondition is your responsibility.
 
 ### Scope: what a `Case` can represent
 
-V1 supports scorers whose relevant `TaskState` inputs can be expressed as a `Case`:
-`completion`, `target`, `metadata`, `messages`. A scorer that reads anything else — the store,
+V0.1 supports scorers whose relevant `TaskState` inputs can be expressed as a `Case`:
+`completion`, `target`, `metadata`, `messages`, `input`. A scorer that reads anything else — the store,
 `output.choices`, tool calls, a sandbox — is outside what a `Case` can represent and therefore
-outside V1. This is not a claim to cover arbitrary Inspect scorers.
+outside V0.1. This is not a claim to cover arbitrary Inspect scorers.
 
 ## Use
 
 ```python
 from inspect_ai.scorer import accuracy
-from scorer_invariants import Case, Contract, CUE_CASE, MARKUP, assert_invariants, probe
+from scorer_invariants import CUE_CASE, Case, Contract, assert_invariants, probe
 
 report = probe(
     scorer=my_scorer(),
-    metrics=[accuracy(), my_weighted_accuracy()],
+    metrics={"accuracy": accuracy(), "weighted_accuracy": my_weighted_accuracy()},
     cases=[Case(completion="TRUE", target="TRUE"), Case(completion="FALSE", target="FALSE")],
-    contract=Contract(
-        invariants=[CUE_CASE],   # I assert the verdict does not depend on answer case
-        exclusions=[MARKUP],     # my prompt says "no other text", so markup is out of scope
-    ),
+    contract=Contract(invariants=[CUE_CASE]),
 )
 print(report.render())
 assert_invariants(report)
+```
+
+A complete, runnable version — a scorer that is fine and a metric that is not — is
+[`examples/quickstart.py`](examples/quickstart.py). It uses only the public API and runs offline:
+
+```bash
+python examples/quickstart.py
 ```
 
 `probe()` is a synchronous convenience wrapper and cannot run inside an active event loop. From an
@@ -164,9 +173,24 @@ rather than `PASS`, with an `UNCOMPARED_METRICS` detail naming the metric. Pass 
 metrics if you need a `PASS`. A real violation still reports `FAIL`, and still discloses that a
 metric went uncompared.
 
-`assert_invariants` raises on `FAIL`, ignores `EXCLUDED` and `NOT_APPLICABLE`, and **warns** on
-`ERROR` — a scorer that could not be probed must never read as green. It also fails outright when zero
-probes executed, because a contract that observes nothing would otherwise stay green forever.
+`assert_invariants` raises on `FAIL`, and **also on `ERROR` by default**. An ERROR is not evidence of
+a defect, but it is not evidence of correctness either, and a CI job that exits 0 on PASS + ERROR has
+quietly converted "could not observe" into "fine". For exploratory use, `fail_on_error=False` warns
+instead. Under either setting an ERROR is never represented as a PASS.
+
+`EXCLUDED` and `NOT_APPLICABLE` never fail. Zero executed probes fails under both settings, because a
+contract that observes nothing would otherwise stay green forever.
+
+## Reproduction scaffolds
+
+Every `FAIL` carries a `ReproductionScaffold`: both case lists, the verdicts, the metric values and
+which case indices changed. It is called a **scaffold** because it is not necessarily a runnable
+script — arbitrary scorer source cannot be reconstructed, so executable code is emitted only when you
+pass `scorer_source="my_scorer()"`. `scaffold.is_runnable` tells you which you have, and
+`scaffold.code` is `None` otherwise.
+
+The whole case list is carried, not just the first changed case, because a metric-layer finding
+cannot be reproduced from one case — an aggregate only moves once every case has been scored.
 
 ## Transformations declare their own contract, and the framework checks it
 

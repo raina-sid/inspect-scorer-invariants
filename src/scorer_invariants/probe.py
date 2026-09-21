@@ -24,6 +24,7 @@ be used inside a running event loop.
 from __future__ import annotations
 
 import asyncio
+import traceback
 from collections.abc import Mapping, Sequence
 
 from inspect_ai.scorer import Metric, Scorer
@@ -50,7 +51,7 @@ from .report import (
     UNCOMPARED_METRICS,
     ProbeReport,
     ProbeResult,
-    Reproduction,
+    ReproductionScaffold,
 )
 from .transform import BUILTIN_TRANSFORMS, Transform
 from .verify import verify_transformation
@@ -87,11 +88,7 @@ async def probe_async(
     resolved = resolve_metrics(metrics)
     available = tuple(transforms or ()) + BUILTIN_TRANSFORMS
 
-    try:
-        base = await baseline_async(
-            scorer, resolved, cases, repeatability_runs=repeatability_runs
-        )
-    except NonRepeatableBaseline as exc:
+    def baseline_error(detail: str) -> ProbeReport:
         return ProbeReport(
             contract=contract,
             results=(
@@ -100,9 +97,27 @@ async def probe_async(
                     transformation="-",
                     outcome=Outcome.ERROR,
                     cases_total=len(cases),
-                    details=(f"NONREPEATABLE_BASELINE: {exc}",),
+                    details=(detail,),
                 ),
             ),
+        )
+
+    try:
+        base = await baseline_async(
+            scorer, resolved, cases, repeatability_runs=repeatability_runs
+        )
+    except NonRepeatableBaseline as exc:
+        return baseline_error(f"NONREPEATABLE_BASELINE: {exc}")
+    except Exception as exc:  # noqa: BLE001 - see below
+        # An unobservable baseline is an ERROR, not a crash escaping the public API. The
+        # exception type, message and traceback tail are preserved in the detail so a genuine
+        # programming error is still diagnosable rather than swallowed. This also makes the
+        # baseline consistent with a scorer that raises on a TRANSFORMED observation, which
+        # already produced a structured ERROR.
+        tail = traceback.format_exc(limit=3).strip().splitlines()[-3:]
+        return baseline_error(
+            f"BASELINE_OBSERVATION_FAILED: {type(exc).__name__}: {exc}\n      "
+            + "\n      ".join(line.strip() for line in tail)
         )
 
     results: list[ProbeResult] = []
@@ -303,7 +318,7 @@ async def _run_one(
 
     reproduction = None
     if outcome is Outcome.FAIL:
-        reproduction = Reproduction(
+        reproduction = ReproductionScaffold(
             invariant=invariant.name,
             transformation=transformation.name,
             relation=invariant.relation,

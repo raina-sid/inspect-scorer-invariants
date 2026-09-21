@@ -23,12 +23,16 @@ import inspect
 import math
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
-from typing import Any, cast, get_type_hints
+from typing import TYPE_CHECKING, Any, cast, get_type_hints
 
 from inspect_ai.model import ModelName, ModelOutput
 from inspect_ai.scorer import Metric, SampleScore, Scorer, Target
-from inspect_ai.scorer._metric import MetricDeprecated, MetricProtocol
 from inspect_ai.solver import TaskState
+
+if TYPE_CHECKING:  # these names are only needed by the type checker, so no runtime import of a
+    # private inspect_ai module -- an unguarded one would make the package fail to import at all
+    # if that module ever moves
+    from inspect_ai.scorer._metric import MetricDeprecated, MetricProtocol
 
 from .case import Case
 

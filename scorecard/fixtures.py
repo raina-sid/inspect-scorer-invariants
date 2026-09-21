@@ -7,9 +7,16 @@ they are fixed a scorecard that called the real scorers would turn red -- doing 
 would destroy our own evidence. Second, depending on a large eval package would drag in datasets,
 network and optional extras that the package deliberately avoids.
 
-Each reduction reproduces ONE mechanism as literally as possible, with the provenance recorded
-below. They are not claimed to be the real scorers; they are claimed to exhibit the same defect,
-and the line references let anyone check that.
+Each reduction reproduces ONE mechanism, with the provenance recorded below. WHAT IS AND IS NOT
+CLAIMED: these are minimal reproductions of a mechanism, not byte-for-byte reproductions of the
+upstream implementation. They do not use the upstream code (worldsense computes with pandas; this
+does not), so a future upstream change could leave a fixture reproducing a mechanism that no longer
+exists there. The line references are what make that checkable.
+
+One correction to a claim made about this earlier: the upstream worldsense defect was first reported
+here as producing NaN. It does not. Measured through real inspect_ai.eval() with the upstream scorer
+and metrics, it produces 0.0, and the fixture matches on that value. The NaN came from an erroneous
+reimplementation of the mapping, not from the eval.
 
 Verified 2026-09-21 against inspect_evals with inspect_ai 0.3.263.
 """
