@@ -17,7 +17,7 @@ from .invariants import (
     WRONG_STAYS_INCORRECT,
     by_name,
 )
-from .probe import probe
+from .probe import probe, probe_async
 from .report import (
     InvariantViolation,
     ProbeReport,
@@ -48,5 +48,6 @@ __all__ = [
     "assert_invariants",
     "by_name",
     "probe",
+    "probe_async",
     "transform",
 ]

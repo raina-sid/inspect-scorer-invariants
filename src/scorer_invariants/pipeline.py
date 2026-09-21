@@ -1,8 +1,19 @@
 """Running a scoring pipeline and observing it.
 
-An observation is per-case verdicts plus aggregate metric values. Everything here is offline:
-no providers, no network, no sandbox. A scorer that needs any of those will surface as an ERROR
-or as a non-repeatable baseline rather than as a quiet result.
+An observation is per-case verdicts plus aggregate metric values.
+
+OFFLINE AND DETERMINISTIC IS A PRECONDITION, NOT A GUARANTEE. V1 requires the scorer under test to
+make no provider call, no network request and no sandbox call, and not to depend on a clock or an
+RNG. The package does **not** enforce this: it does not sandbox the scorer, intercept sockets, or
+inspect what the scorer calls. Hand it a model-graded scorer and it may quietly produce a result,
+and that result will be meaningless.
+
+The repeatability check in `baseline_async` is a weak safety net over that precondition, not
+enforcement. It observes the baseline N times and requires the observations to agree, which catches
+a scorer whose output varies across those N runs. It cannot catch a judge at temperature 0, a cached
+response, or any dependence that happens to be stable within one session.
+
+Meeting the precondition is the caller's responsibility.
 """
 
 from __future__ import annotations
@@ -12,7 +23,7 @@ import inspect
 import math
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
-from typing import Any, cast
+from typing import Any, cast, get_type_hints
 
 from inspect_ai.model import ModelName, ModelOutput
 from inspect_ai.scorer import Metric, SampleScore, Scorer, Target
@@ -26,7 +37,7 @@ PROBE_MODEL = "mockllm/model"
 
 
 class NonRepeatableBaseline(RuntimeError):
-    """The same inputs produced different observations across repeated runs.
+    """Repeated observations of the same inputs disagreed.
 
     Every comparison downstream would be meaningless, so this stops the probe. It is never
     reported as a scorer FAIL.
@@ -42,6 +53,19 @@ class Observation:
 
     def __len__(self) -> int:
         return len(self.verdicts)
+
+
+def _require_no_running_loop(name: str) -> None:
+    """Fail with a useful message rather than asyncio's when called from async code."""
+    try:
+        asyncio.get_running_loop()
+    except RuntimeError:
+        return
+    raise RuntimeError(
+        f"{name}() is a synchronous convenience wrapper and cannot be called while an event "
+        f"loop is running. Use {name}_async() instead -- for example from an async test, or "
+        "from inside an Inspect solver or scorer."
+    )
 
 
 def metric_name(metric: Metric, fallback_index: int) -> str:
@@ -78,8 +102,10 @@ def resolve_metrics(
 def to_task_state(case: Case, index: int) -> TaskState:
     """Adapt a Case into the TaskState a scorer reads.
 
-    Deliberately minimal: the scorer sees the completion, the metadata and the messages the case
-    supplies, and nothing invented on its behalf.
+    Deliberately minimal, and this is V1's scope limit: the scorer sees the completion, the
+    metadata and the messages the Case supplies, and nothing invented on its behalf. A scorer that
+    reads anything else off TaskState -- the store, `output.choices`, tool calls, a sandbox -- is
+    outside what a Case can represent, and therefore outside V1.
     """
     return TaskState(
         model=ModelName(PROBE_MODEL),
@@ -109,37 +135,51 @@ async def score_cases(scorer: Scorer, cases: Sequence[Case]) -> list[SampleScore
     return out
 
 
-def _takes_sample_scores(metric: Metric) -> bool:
-    """Which of Inspect's two metric signatures this is.
+def _call_metric(metric: Metric, sample_scores: list[SampleScore]) -> Any:
+    """Call a metric the way a real eval would.
 
-    `Metric` is a union: MetricProtocol takes list[SampleScore], the deprecated form takes
-    list[Score]. Dispatch on the annotation rather than by catching TypeError, which would
-    swallow a genuine TypeError raised inside the metric itself. Unannotated metrics are assumed
-    modern.
+    Inspect supports two metric signatures -- MetricProtocol takes list[SampleScore], the
+    deprecated form takes list[Score] -- and decides which to use in `is_metric_deprecated`.
+    Crucially, when a metric has no parameter or no usable type hint, Inspect treats it as
+    DEPRECATED and passes list[Score].
+
+    An earlier version of this function assumed the opposite. That meant an unannotated metric
+    received SampleScore here and Score in a real eval, so the value this package compared was not
+    the value the eval would report -- which silently invalidates the comparison. It was caught by
+    running a fixture through inspect_ai.eval() and finding the baseline metric wrong.
+
+    So we defer to Inspect's own dispatch where we can, which makes drift impossible. The fallback
+    mirrors Inspect's rule rather than guessing.
     """
     try:
+        from inspect_ai._eval.task.results import call_metric
+
+        return call_metric(metric, sample_scores)
+    except ImportError:  # pragma: no cover - private API moved
+        if _is_deprecated_signature(metric):
+            return cast("MetricDeprecated", metric)([s.score for s in sample_scores])
+        return cast("MetricProtocol", metric)(sample_scores)
+
+
+def _is_deprecated_signature(metric: Metric) -> bool:
+    """Mirror of Inspect's `is_metric_deprecated`: no param or no usable hint means deprecated."""
+    try:
         params = list(inspect.signature(metric).parameters.values())
-    except (TypeError, ValueError):
+        hints = get_type_hints(metric)
+    except (TypeError, ValueError, NameError):
         return True
     if not params:
         return True
-    return "Score]" not in str(params[0].annotation) or "SampleScore]" in str(
-        params[0].annotation
-    )
+    expected = hints.get(params[0].name)
+    if expected is None or expected is Any:
+        return True
+    return "SampleScore" not in str(expected)
 
 
 def compute_metrics(
     metrics: Mapping[str, Metric], sample_scores: list[SampleScore]
 ) -> dict[str, Any]:
-    values: dict[str, Any] = {}
-    for name, metric in metrics.items():
-        if _takes_sample_scores(metric):
-            values[name] = cast("MetricProtocol", metric)(sample_scores)
-        else:
-            values[name] = cast("MetricDeprecated", metric)(
-                [s.score for s in sample_scores]
-            )
-    return values
+    return {name: _call_metric(metric, sample_scores) for name, metric in metrics.items()}
 
 
 async def observe_async(
@@ -159,7 +199,8 @@ def observe(
     metrics: Mapping[str, Metric],
     cases: Sequence[Case],
 ) -> Observation:
-    """Synchronous wrapper, for use from a pytest test rather than inside a running eval."""
+    """Synchronous wrapper around `observe_async`. Not usable inside a running event loop."""
+    _require_no_running_loop("observe")
     return asyncio.run(observe_async(scorer, metrics, cases))
 
 
@@ -170,7 +211,12 @@ def _values_agree(value: Any, other: Any) -> bool:
     verdicts exactly as much as to metrics -- a Score.value can be NaN too, which is how the first
     version of this function wrongly flagged a perfectly repeatable scorer.
     """
-    if isinstance(value, float) and isinstance(other, float) and math.isnan(value) and math.isnan(other):
+    if (
+        isinstance(value, float)
+        and isinstance(other, float)
+        and math.isnan(value)
+        and math.isnan(other)
+    ):
         return True
     return bool(value == other)
 
@@ -185,7 +231,7 @@ def _observations_agree(a: Observation, b: Observation) -> bool:
     return all(_values_agree(v, b.metrics[name]) for name, v in a.metrics.items())
 
 
-def baseline(
+async def baseline_async(
     scorer: Scorer,
     metrics: Mapping[str, Metric],
     cases: Sequence[Case],
@@ -193,17 +239,16 @@ def baseline(
 ) -> Observation:
     """Observe the pipeline `repeatability_runs` times and require the runs to agree.
 
-    This establishes REPEATABILITY across the configured runs, not determinism -- a judge at
-    temperature 0, or two lucky draws, would pass. It is still worth doing: it catches most
-    model-graded scorers, and it makes it impossible for the tool to report sampling noise as a
-    defect.
+    This establishes REPEATABILITY across the configured runs. It does not establish determinism,
+    and it does not establish that the scorer is offline -- see the module docstring. A judge at
+    temperature 0, a cached response, or any dependence stable within one session passes it.
     """
     if repeatability_runs < 1:
         raise ValueError("repeatability_runs must be at least 1")
 
-    first = observe(scorer, metrics, cases)
+    first = await observe_async(scorer, metrics, cases)
     for run in range(2, repeatability_runs + 1):
-        again = observe(scorer, metrics, cases)
+        again = await observe_async(scorer, metrics, cases)
         if not _observations_agree(first, again):
             raise NonRepeatableBaseline(
                 f"run 1 and run {run} disagree on identical inputs; "
@@ -211,3 +256,14 @@ def baseline(
                 f"metrics {dict(first.metrics)} vs {dict(again.metrics)}"
             )
     return first
+
+
+def baseline(
+    scorer: Scorer,
+    metrics: Mapping[str, Metric],
+    cases: Sequence[Case],
+    repeatability_runs: int = 2,
+) -> Observation:
+    """Synchronous wrapper around `baseline_async`. Not usable inside a running event loop."""
+    _require_no_running_loop("baseline")
+    return asyncio.run(baseline_async(scorer, metrics, cases, repeatability_runs))

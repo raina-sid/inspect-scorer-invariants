@@ -23,6 +23,11 @@ from .contract import Contract, Outcome, Relation
 #: fixture this is the only thing separating a silent 1.0 -> 0.0 from a legitimate score of zero.
 DIVERGENT_METRICS = "DIVERGENT_METRICS"
 
+#: Reported when a requested metric could not be compared at all (a dict, a nested aggregate).
+#: Its presence prevents a PASS: PASS means the requested relation was tested and held, and for an
+#: uncomparable metric it was never tested.
+UNCOMPARED_METRICS = "UNCOMPARED_METRICS"
+
 
 @dataclass(frozen=True)
 class Reproduction:

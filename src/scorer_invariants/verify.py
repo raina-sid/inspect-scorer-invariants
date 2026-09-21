@@ -6,6 +6,13 @@ after applying, it diffs the cases against the declaration.
 
 Every violation here is attributed to the TRANSFORMATION, never to the scorer. A scorer must never
 be reported as failing because the thing probing it was wrong.
+
+WHAT THIS VERIFIES, PRECISELY. Structural compliance only: which Case fields changed, and that the
+case count is preserved. It cannot and does not establish SEMANTIC preservation -- that flipping
+case, or wrapping an answer in asterisks, leaves the meaning intact. That claim lives in the
+caller-declared invariant, which is why the contract is recorded and hashed rather than inferred.
+A transformation can be perfectly compliant here and still be semantically wrong, in which case the
+resulting FAIL is the caller's error, not the scorer's.
 """
 
 from __future__ import annotations

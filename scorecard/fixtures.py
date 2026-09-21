@@ -18,9 +18,18 @@ from __future__ import annotations
 
 import json
 import re
-from typing import Any
 
-from inspect_ai.scorer import CORRECT, INCORRECT, Score, Target, accuracy, metric, scorer
+from inspect_ai.scorer import (
+    CORRECT,
+    INCORRECT,
+    SampleScore,
+    Score,
+    Target,
+    accuracy,
+    metric,
+    scorer,
+    value_to_float,
+)
 from inspect_ai.solver import TaskState
 
 from scorer_invariants import Case, Transform, transform
@@ -105,12 +114,18 @@ def ws_accuracy_reduction():
     nothing raises.
     """
 
-    def compute(scores: list[Any]) -> float:
+    to_float = value_to_float()
+
+    def compute(scores: list[SampleScore]) -> float:
+        # the real metric converts the verdict with value_to_float (_utils.py:11); comparing
+        # against the CORRECT string instead made this fixture read 0.0 at baseline under
+        # inspect_ai.eval(), where the value arrives already converted
         weights = [_WS_WEIGHT.get(s.score.answer or "") for s in scores]
         total = sum(w for w in weights if w is not None)          # NaN-skipping sum
         earned = sum(
-            w for w, s in zip(weights, scores)
-            if w is not None and s.score.value == CORRECT
+            w * to_float(s.score.value)
+            for w, s in zip(weights, scores)
+            if w is not None
         )
         return earned / (total if total != 0 else 1)              # divide-by-zero guard
 

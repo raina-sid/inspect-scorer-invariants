@@ -2,10 +2,19 @@
 
 from __future__ import annotations
 
+import asyncio
 import itertools
 
 import pytest
-from inspect_ai.scorer import CORRECT, INCORRECT, Score, accuracy, metric, scorer
+from inspect_ai.scorer import (
+    CORRECT,
+    INCORRECT,
+    SampleScore,
+    Score,
+    accuracy,
+    metric,
+    scorer,
+)
 
 from scorer_invariants import (
     Case,
@@ -15,8 +24,10 @@ from scorer_invariants import (
     Tolerance,
     assert_invariants,
     probe,
+    probe_async,
     transform,
 )
+from scorer_invariants.compare import MetricChange
 from scorer_invariants.invariants import (
     CODE_FORMATTING,
     CUE_CASE,
@@ -24,6 +35,7 @@ from scorer_invariants.invariants import (
     MARKUP,
     WRONG_STAYS_INCORRECT,
 )
+from scorer_invariants.pipeline import observe, observe_async, resolve_metrics
 
 CASES = [
     Case(completion="ANSWER: TRUE", target="TRUE"),
@@ -68,7 +80,7 @@ def upper_keyed_accuracy():
     """
     weights = {"TRUE": 0.5, "FALSE": 0.5}
 
-    def compute(scores):
+    def compute(scores: list[SampleScore]) -> float:
         keyed = [weights.get(s.score.answer or "") for s in scores]
         total = sum(w for w in keyed if w is not None)
         if total == 0:
@@ -413,3 +425,135 @@ class TestToleranceEndToEnd:
         strict = self._report({}).contract_hash
         loose = self._report({"weighted": Tolerance(absolute=1.0)}).contract_hash
         assert strict != loose, "silencing a FAIL with tolerance must be visible in the record"
+
+
+@metric
+def dict_valued_metric():
+    """Inspect metrics may return a dict. Such a metric cannot be compared as a scalar."""
+
+    def compute(scores: list[SampleScore]) -> dict[str, float]:
+        return {"a": 1.0, "b": 2.0}
+
+    return compute
+
+
+@metric
+def nested_metric():
+    """A nested aggregate: also not a scalar."""
+
+    def compute(scores: list[SampleScore]) -> dict[str, object]:
+        return {"outer": {"inner": [1.0, 2.0]}}
+
+    return compute
+
+
+class TestUncomparableMetricNeverPasses:
+    """A requested observation must never silently disappear into PASS.
+
+    PASS means the requested relation was tested and held. For a non-scalar metric it was never
+    tested, so the honest outcome is ERROR -- an observation that could not be made.
+    """
+
+    def _report(self, metrics):
+        return probe(
+            case_insensitive_scorer(), metrics, CASES, Contract(invariants=(CUE_CASE,))
+        )
+
+    def test_dict_valued_metric_is_error_not_pass(self):
+        r = self._report({"per_key": dict_valued_metric()}).results[0]
+        assert r.outcome is Outcome.ERROR
+        assert r.outcome is not Outcome.PASS
+        assert any("UNCOMPARED_METRICS" in d for d in r.details)
+        assert "per_key" in " ".join(r.details)
+
+    def test_nested_metric_is_error_not_pass(self):
+        r = self._report({"nested": nested_metric()}).results[0]
+        assert r.outcome is Outcome.ERROR
+
+    def test_all_metrics_uncomparable(self):
+        report = self._report({"a": dict_valued_metric(), "b": nested_metric()})
+        r = report.results[0]
+        assert r.outcome is Outcome.ERROR
+        assert all(m.change is MetricChange.NOT_COMPARABLE for m in r.metrics)
+        # nothing was observed, so the assertion must not pass either
+        assert report.probes_executed == 0
+        with pytest.raises(InvariantViolation, match="no probe was executed"):
+            assert_invariants(report, warn_on_error=False)
+
+    def test_one_comparable_and_one_uncomparable_is_still_not_pass(self):
+        # the comparable one held; that is not enough to claim the relation was tested
+        report = self._report({"accuracy": accuracy(), "per_key": dict_valued_metric()})
+        r = report.results[0]
+        assert r.outcome is Outcome.ERROR
+        by_name = {m.name: m.change for m in r.metrics}
+        assert by_name["accuracy"] is MetricChange.UNCHANGED
+        assert by_name["per_key"] is MetricChange.NOT_COMPARABLE
+
+    def test_a_real_violation_still_reports_fail_not_error(self):
+        # FAIL is more informative than "could not compare everything", so it wins
+        report = probe(
+            case_sensitive_scorer(),
+            {"accuracy": accuracy(), "per_key": dict_valued_metric()},
+            CASES,
+            Contract(invariants=(CUE_CASE,)),
+        )
+        r = report.results[0]
+        assert r.outcome is Outcome.FAIL
+        assert any("UNCOMPARED_METRICS" in d for d in r.details), (
+            "the FAIL must still disclose that a metric went uncompared"
+        )
+
+    def test_only_scalar_metrics_yields_a_clean_pass(self):
+        r = self._report({"accuracy": accuracy()}).results[0]
+        assert r.outcome is Outcome.PASS
+
+
+class TestAsyncApi:
+    """probe()/observe() are sync wrappers; the async entry points work inside a live loop."""
+
+    def test_probe_async_works_inside_a_running_event_loop(self):
+        async def main():
+            return await probe_async(
+                case_sensitive_scorer(),
+                [accuracy()],
+                CASES,
+                Contract(invariants=(CUE_CASE,)),
+            )
+
+        report = asyncio.run(main())
+        assert report.failures, "the async path must produce the same finding as the sync one"
+
+    def test_observe_async_works_inside_a_running_event_loop(self):
+        async def main():
+            return await observe_async(
+                case_insensitive_scorer(), resolve_metrics([accuracy()]), CASES
+            )
+
+        obs = asyncio.run(main())
+        assert obs.metrics["accuracy"] == 1.0
+
+    def test_sync_probe_inside_a_loop_fails_with_a_useful_message(self):
+        async def main():
+            with pytest.raises(RuntimeError, match=r"probe_async\(\) instead"):
+                probe(
+                    case_sensitive_scorer(),
+                    [accuracy()],
+                    CASES,
+                    Contract(invariants=(CUE_CASE,)),
+                )
+
+        asyncio.run(main())
+
+    def test_sync_observe_inside_a_loop_fails_with_a_useful_message(self):
+        async def main():
+            with pytest.raises(RuntimeError, match=r"observe_async\(\) instead"):
+                observe(case_insensitive_scorer(), resolve_metrics([accuracy()]), CASES)
+
+        asyncio.run(main())
+
+    def test_sync_and_async_agree(self):
+        args = (case_sensitive_scorer(), [accuracy()], CASES, Contract(invariants=(CUE_CASE,)))
+        sync = probe(*args)
+        which = asyncio.run(probe_async(*args))
+        assert [r.outcome for r in sync.results] == [r.outcome for r in which.results]
+        assert sync.contract_hash == which.contract_hash

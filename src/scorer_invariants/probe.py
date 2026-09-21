@@ -4,16 +4,33 @@
 
 Nothing here decides whether C is right for the task. That judgment is the caller's, and it is
 recorded in the report along with a hash of it.
+
+THE EPISTEMIC RULE, which the outcome routing exists to enforce:
+
+    PASS            the requested relation was actually tested, and it held
+    FAIL            an observed violation
+    NOT_APPLICABLE  the test could not be instantiated
+    ERROR           an observation or computation failed
+    EXCLUDED        the caller explicitly excluded the invariant
+
+No requested observation may silently disappear into PASS. In particular, a metric that could not
+be compared -- a dict, a nested aggregate -- makes the outcome ERROR rather than PASS, because PASS
+would claim the relation was tested for that metric when it was not.
+
+`probe_async` is the real implementation. `probe` is a synchronous convenience wrapper and cannot
+be used inside a running event loop.
 """
 
 from __future__ import annotations
 
+import asyncio
 from collections.abc import Mapping, Sequence
 
 from inspect_ai.scorer import Metric, Scorer
 
 from .case import Case
 from .compare import (
+    MetricChange,
     MetricComparison,
     compare_metric,
     compare_verdicts,
@@ -24,16 +41,22 @@ from .contract import Contract, Invariant, Outcome
 from .pipeline import (
     NonRepeatableBaseline,
     Observation,
-    baseline,
-    observe,
+    baseline_async,
+    observe_async,
     resolve_metrics,
 )
-from .report import DIVERGENT_METRICS, ProbeReport, ProbeResult, Reproduction
+from .report import (
+    DIVERGENT_METRICS,
+    UNCOMPARED_METRICS,
+    ProbeReport,
+    ProbeResult,
+    Reproduction,
+)
 from .transform import BUILTIN_TRANSFORMS, Transform
 from .verify import verify_transformation
 
 
-def probe(
+async def probe_async(
     scorer: Scorer,
     metrics: Sequence[Metric] | Mapping[str, Metric],
     cases: Sequence[Case],
@@ -46,8 +69,10 @@ def probe(
     """Probe a scoring pipeline against a declared contract.
 
     Args:
-        scorer: the scorer under test. Must be offline -- no provider, network or sandbox.
-        metrics: the metrics this pipeline reports, as a list or a {name: metric} mapping.
+        scorer: the scorer under test. Must be offline and deterministic -- a PRECONDITION the
+            package does not enforce; see `pipeline`'s module docstring.
+        metrics: the metrics this pipeline reports, as a list or a {name: metric} mapping. A metric
+            whose value is not a scalar cannot be compared, and its presence prevents a PASS.
         cases: the observations to score. More than one is required for any metric-layer finding.
         contract: what the caller asserts holds, and what the task rules out.
         transforms: extra transformations. Builtins are always included.
@@ -63,7 +88,9 @@ def probe(
     available = tuple(transforms or ()) + BUILTIN_TRANSFORMS
 
     try:
-        base = baseline(scorer, resolved, cases, repeatability_runs=repeatability_runs)
+        base = await baseline_async(
+            scorer, resolved, cases, repeatability_runs=repeatability_runs
+        )
     except NonRepeatableBaseline as exc:
         return ProbeReport(
             contract=contract,
@@ -95,7 +122,7 @@ def probe(
             continue
         for transformation in applicable:
             results.append(
-                _run_one(
+                await _run_one(
                     scorer=scorer,
                     metrics=resolved,
                     cases=cases,
@@ -128,6 +155,33 @@ def probe(
     )
 
 
+def probe(
+    scorer: Scorer,
+    metrics: Sequence[Metric] | Mapping[str, Metric],
+    cases: Sequence[Case],
+    contract: Contract,
+    *,
+    transforms: Sequence[Transform] | None = None,
+    repeatability_runs: int = 2,
+    scorer_source: str | None = None,
+) -> ProbeReport:
+    """Synchronous wrapper around `probe_async`. Not usable inside a running event loop."""
+    from .pipeline import _require_no_running_loop
+
+    _require_no_running_loop("probe")
+    return asyncio.run(
+        probe_async(
+            scorer,
+            metrics,
+            cases,
+            contract,
+            transforms=transforms,
+            repeatability_runs=repeatability_runs,
+            scorer_source=scorer_source,
+        )
+    )
+
+
 def _baseline_notes(base: Observation) -> tuple[str, ...]:
     """Flag a baseline that probably means the fixture, not the scorer, is wrong.
 
@@ -148,7 +202,7 @@ def _baseline_notes(base: Observation) -> tuple[str, ...]:
     return tuple(notes)
 
 
-def _run_one(
+async def _run_one(
     *,
     scorer: Scorer,
     metrics: Mapping[str, Metric],
@@ -195,14 +249,13 @@ def _run_one(
     violation = verify_transformation(transformation, list(cases), transformed)
     if violation is not None:
         outcome = Outcome.ERROR if violation.is_error else Outcome.NOT_APPLICABLE
-        prefix = "TRANSFORM_CONTRACT_VIOLATED" if violation.is_error else violation.kind.value.upper()
-        return result(
-            outcome,
-            details=(f"{prefix}: {violation}",),
+        prefix = (
+            "TRANSFORM_CONTRACT_VIOLATED" if violation.is_error else violation.kind.value.upper()
         )
+        return result(outcome, details=(f"{prefix}: {violation}",))
 
     try:
-        after = observe(scorer, metrics, transformed)
+        after = await observe_async(scorer, metrics, transformed)
     except Exception as exc:  # noqa: BLE001 - an unobservable pipeline is ERROR, never FAIL
         return result(
             Outcome.ERROR,
@@ -210,7 +263,9 @@ def _run_one(
             details=(f"SCORER_RAISED: {type(exc).__name__}: {exc}",),
         )
 
-    verdicts = tuple(compare_verdicts(invariant.relation, list(base.verdicts), list(after.verdicts)))
+    verdicts = tuple(
+        compare_verdicts(invariant.relation, list(base.verdicts), list(after.verdicts))
+    )
     metric_cmps: tuple[MetricComparison, ...] = tuple(
         compare_metric(name, base.metrics[name], after.metrics[name], contract.tolerance_for(name))
         for name in base.metrics
@@ -230,7 +285,22 @@ def _run_one(
             f"{len(metric_cmps)} metrics moved"
         )
 
-    outcome = Outcome.FAIL if layers else Outcome.PASS
+    # A requested metric that could not be compared must not become a PASS. PASS means the
+    # requested relation was tested and held; for a non-scalar metric it was never tested.
+    uncompared = [m.name for m in metric_cmps if m.change is MetricChange.NOT_COMPARABLE]
+    if uncompared:
+        details.append(
+            f"{UNCOMPARED_METRICS}: {sorted(uncompared)} are not scalar, so the relation was "
+            "never tested for them. Pass only comparable metrics if you need a PASS."
+        )
+
+    if layers:
+        outcome = Outcome.FAIL
+    elif uncompared:
+        outcome = Outcome.ERROR
+    else:
+        outcome = Outcome.PASS
+
     reproduction = None
     if outcome is Outcome.FAIL:
         reproduction = Reproduction(

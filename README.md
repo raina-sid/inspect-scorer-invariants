@@ -25,7 +25,25 @@ recorded in the report, and is hashed.
 pip install inspect-scorer-invariants
 ```
 
-Requires `inspect-ai`. No model providers, no network, no Docker.
+Requires `inspect-ai`. The package itself makes no provider call, no network request and no
+sandbox call.
+
+### Precondition: your scorer must be offline and deterministic
+
+V1 requires the scorer under test to make no provider call, no network request and no sandbox call,
+and not to depend on a clock or an RNG. **The package does not enforce this and cannot detect a
+violation.** It does not sandbox your scorer, intercept sockets, or inspect what it calls. Hand it a
+model-graded scorer and it may quietly produce a result, and that result will be meaningless.
+
+The repeatability check is a weak safety net over that precondition, not enforcement — see below.
+Meeting the precondition is your responsibility.
+
+### Scope: what a `Case` can represent
+
+V1 supports scorers whose relevant `TaskState` inputs can be expressed as a `Case`:
+`completion`, `target`, `metadata`, `messages`. A scorer that reads anything else — the store,
+`output.choices`, tool calls, a sandbox — is outside what a `Case` can represent and therefore
+outside V1. This is not a claim to cover arbitrary Inspect scorers.
 
 ## Use
 
@@ -44,6 +62,14 @@ report = probe(
 )
 print(report.render())
 assert_invariants(report)
+```
+
+`probe()` is a synchronous convenience wrapper and cannot run inside an active event loop. From an
+async test, or from inside an Inspect solver or scorer, use the async entry points — the sync
+wrappers raise a message telling you so:
+
+```python
+report = await probe_async(...)      # and observe_async(...) at the lower level
 ```
 
 `invariants` is required. A probe with no declared contract would have to assume every invariant
@@ -106,6 +132,16 @@ would claim coverage measured at zero.
 | `ERROR` | an observation or computation failed |
 | `EXCLUDED` | you declared the task contract rules this invariant out |
 
+The rule the routing exists to enforce: **no requested observation may silently disappear into
+PASS.** `PASS` means the requested relation was actually tested and held — not merely that nothing
+contradicted it.
+
+That has a consequence worth knowing before you see it. A metric whose value is not a scalar — a
+dict, a nested aggregate — **cannot be compared**, so a probe that requested it reports `ERROR`
+rather than `PASS`, with an `UNCOMPARED_METRICS` detail naming the metric. Pass only comparable
+metrics if you need a `PASS`. A real violation still reports `FAIL`, and still discloses that a
+metric went uncompared.
+
 `assert_invariants` raises on `FAIL`, ignores `EXCLUDED` and `NOT_APPLICABLE`, and **warns** on
 `ERROR` — a scorer that could not be probed must never read as green. It also fails outright when zero
 probes executed, because a contract that observes nothing would otherwise stay green forever.
@@ -129,11 +165,20 @@ because the thing probing it was wrong.
 
 A transformation that changes nothing is `NOT_APPLICABLE`, not `PASS`.
 
+**What that verification does and does not establish.** It checks *structural* compliance only:
+which `Case` fields changed, and that the case count is preserved. It does **not** establish
+*semantic* preservation — that flipping case, or wrapping an answer in asterisks, leaves the meaning
+intact. That claim lives in the invariant **you** declared, which is why the contract is recorded and
+hashed rather than inferred. A transformation can be perfectly compliant structurally and still be
+semantically wrong, in which case the resulting `FAIL` is your error, not the scorer's.
+
 ## Repeatability, not determinism
 
 The baseline is observed twice (`repeatability_runs=2`) and the runs must agree, or the whole probe
 returns `ERROR(NONREPEATABLE_BASELINE)`. This establishes repeatability across the configured runs —
-**not** determinism. A judge at temperature 0, or two lucky draws, would pass it.
+**not** determinism, and **not** that the scorer is offline. A judge at temperature 0, a cached
+response, or any dependence that is stable within one session passes it. It is a weak safety net over
+the precondition above, not a substitute for it.
 
 ## The scorecard
 
@@ -198,14 +243,16 @@ package (`livebench`, `kernelbench`) is not present to probe. A scorer that read
 file rather than from model prose (`scbench`) has no text cue to perturb. And a structural tool-call
 matcher (`bfcl`) has no cue either.
 
-If your scorer is model-graded, this package is the wrong tool and will tell you so rather than guess.
+If your scorer is model-graded, this package is the wrong tool — and it will **not** reliably tell
+you so. See the precondition below.
 
 ## What this does not claim
 
 - Not that your scorer is **valid**. It reports invariance under transformations you declared, nothing more.
 - No recall figure, and no general accuracy figure. See the scorecard note above.
 - Nothing about security, adversarial robustness, or prompt injection.
-- No coverage of model-graded scorers.
+- No coverage of model-graded scorers, and **no detection of them** — that is a precondition you meet, not a check it runs.
+- Not that a transformation is semantically meaning-preserving; only that it is structurally compliant with its own declaration.
 - No generality beyond the class of deterministic scorers tested here.
 - It does not decide whether a `FAIL` is a real defect. That depends on what the prompt and docs
   promised, which you declare and it records.
