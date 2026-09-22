@@ -5,10 +5,31 @@
 any probe was run. **Harness:** [`run_targeted_study.py`](run_targeted_study.py).
 **Cell-level data:** [`targeted-study.csv`](targeted-study.csv), [`targeted-study.json`](targeted-study.json).
 
+> ## Correction, 2026-09-22
+>
+> **This study originally claimed "1 genuine defect / 12 applicable cells". The correct count of
+> defects attributable to `inspect_evals` is 0.**
+>
+> The one declared FAIL — `zerobench` flipping CORRECT → INCORRECT on `{ Paris }` — is real and
+> reproduces. But `inspect_evals/zerobench` is a **port**, and the ZeroBench authors publish their
+> scoring loop inline in their own README with the identical unstripped extraction. The port is
+> faithful. A PR "fixing" it would be asking `inspect_evals` to diverge from the reference
+> implementation, which is not a defect report.
+>
+> I checked the port's README prose and rejected a counter-argument from it (below, kept as written).
+> I did not check the authors' **code**, which was published the whole time and settles it. The
+> measured results are unaffected — `targeted-study.json` and `.csv` are unchanged, and the `FAIL` is
+> still the right outcome. Only the attribution was wrong.
+>
+> Full evidence, plus the same check run against three other findings, in
+> [`provenance-audit.md`](provenance-audit.md). Three of four inverted. The missing step is now part
+> of the method: **fetch the reference implementation before calling a FAIL a defect.**
+
 ## Research question
 
 An earlier blind sweep pointed these probes at 62 scorers with guessed input formats and no declared
-exclusions. It produced 6 FAIL cells of which 1 was genuine. This study tests the opposite condition:
+exclusions. It produced 6 FAIL cells of which 1 held up as a real verdict change. This study tests the
+opposite condition:
 
 > When an evaluator reads a scorer's contract first and deliberately selects contract-preserving
 > transformations, do these probes provide useful additional scrutiny of deterministic Inspect
@@ -71,14 +92,19 @@ explicitly identified as new cells.
 
 ### Defect discovery rate
 
-**1 genuine defect / 12 applicable cells = 8.3%.** This is not a prevalence estimate: the sample is
-purposive, small, and includes two scorers selected *because* I believed them clean.
+**0 defects attributable to `inspect_evals` / 12 applicable cells.** One declared cell FAILed and the
+mechanism is real, but it is inherited from the benchmark's reference implementation — see the
+correction above and [`provenance-audit.md`](provenance-audit.md).
+
+**1 reproducible scorer-behaviour finding / 12 applicable cells = 8.3%** is the defensible version of
+the original number. It is not a prevalence estimate either: the sample is purposive, small, and
+includes two scorers selected *because* I believed them clean.
 
 ### Classification of every FAIL
 
 | cell | classification |
 |---|---|
-| `zerobench` / `CUE_WHITESPACE` / `target_space_padded` | **A — genuine scorer defect** |
+| `zerobench` / `CUE_WHITESPACE` / `target_space_padded` | **real verdict change, inherited from the reference implementation** — not a port defect (was: "A — genuine scorer defect") |
 | negative control ×4 (`zerobench`, `threecb`, `aime`, `core_match_numeric`) | correct behaviour: the answer genuinely changed |
 | negative control, `vqa_rad` → `ERROR` | correct behaviour: see below |
 
@@ -92,9 +118,11 @@ it — `TRANSFORM_CONTRACT_VIOLATED: case_duplicated: produced 1 duplicate case(
 input` — and attributed it to the transformation, not the scorer. That guard existed only against
 synthetic tests until this study; here it caught a real accident of mine.
 
-## The genuine defect
+## The one declared FAIL
 
-**`zerobench_scorer`** — `inspect_evals/zerobench/scorer.py:27`
+**`zerobench_scorer`** — `inspect_evals/zerobench/scorer.py:27`. Real and reproducible, but **inherited
+from the reference implementation** and therefore not a defect in `inspect_evals`; see the correction at
+the top and [`provenance-audit.md`](provenance-audit.md). The mechanism below is as originally measured.
 
 | | |
 |---|---|
@@ -129,6 +157,13 @@ whitespace sensitivity. I reject it, because the scorer itself strips and lowerc
 performing exact matching on raw text, it is normalising and then matching, and the normalisation is
 applied to the wrong string. But the reader should know the argument exists.
 
+**Resolved 2026-09-22, and not in my favour.** I was arguing about the *port's* README. The ZeroBench
+authors publish their scoring loop inline in *their* README, and it performs the same unstripped
+extraction — so the port is faithful and the question of what the prose licenses is moot. The right
+check was never "what does the documentation say", it was "what does the reference implementation do."
+I weighed the wrong evidence while the decisive evidence sat one `curl` away, and only looked after
+building a fix. See [`provenance-audit.md`](provenance-audit.md).
+
 ## A package defect the study found
 
 Running against **v0.1.0**, `ape_scorer` returned `ERROR(NONREPEATABLE_BASELINE)`. The scorer is
@@ -157,7 +192,7 @@ The affected cell was re-run; `ape` now reports `NOT_APPLICABLE`, correctly.
 
 **Target-anchored: 9 applied, 6 not. Cue-anchored: 3 applied, 12 not.** The target-anchored family,
 added because the blind study showed cue-anchored probes reaching almost nothing, carried this study
-too — and the one genuine defect was found by `target_space_padded`, a transformation a cue-anchored
+too — and the one declared FAIL was found by `target_space_padded`, a transformation a cue-anchored
 probe could not express.
 
 ## Why half the scorers could not be exercised
@@ -193,7 +228,8 @@ and has no transformation, so it can only ever return `NOT_APPLICABLE`.
 | scorers | 62 | 12 |
 | scorers exercised | 8 (13%) | 6 (**50%**) |
 | FAIL cells | 6 | 1 declared (+4 negative controls, correct) |
-| genuine defects | 1 | 1 |
+| reproducible findings | 1 | 1 |
+| of those, attributable to the port | unaudited (see below) | **0** |
 | false positives among FAILs | **5 of 6** | **0 of 1** |
 | effort | minutes, automated | ~20 min per scorer, manual |
 
@@ -213,20 +249,30 @@ conditions, and runs in CI so the frozen result cannot drift:
 
 ```
 1. no package-induced baseline error remains          (ape exercised, not ERROR)
-2. the zerobench defect still reproduces              (FAIL, scorer+metric, 1/2 cases)
+2. the zerobench mechanism still reproduces           (FAIL, scorer+metric, 1/2 cases)
 3. all three declared exclusions remain EXCLUDED
 4. all 11 expected-robust cells remain PASS           (incl. both control scorers, every cell)
 5. no ERROR or SETUP_FAILED among declared cells
 6. the one control ERROR is attributed to the TRANSFORMATION, not the package
 
-13 of 13 quoted counts match the data.
+15 of 15 quoted counts match the data.
 ```
+
+Condition 2 is a check that the *measurement* is stable, not that the finding is a port defect — the
+2026-09-22 provenance audit reclassified it as inherited. The audit script cannot check provenance,
+because provenance lives in another repository; that check is manual and recorded in
+[`provenance-audit.md`](provenance-audit.md).
 
 ## Limitations
 
 - 12 scorers, purposively selected. Nothing here estimates defect prevalence in Inspect.
 - Two of the 12 were chosen *because* I believed them clean, which inflates the PASS count by design.
-- One genuine defect is a thin basis for any conclusion about discovery power.
+- One reproducible finding is a thin basis for any conclusion about discovery power — and after the
+  provenance audit it supports **no** conclusion about finding defects in `inspect_evals`, because it
+  was not one.
+- Every scorer here is a port of someone else's benchmark, and this study did not check any of them
+  against its reference implementation. That omission is what the 2026-09-22 correction fixes; the
+  blind study's `docvqa` finding is still unaudited on the same axis.
 - The in-scope/out-of-scope reasoning for unexercised scorers is from reading source, not from
   exhaustively attempting every possible `Case`.
 - `cyberseceval_4` was never exercised, so the code/format category is untested rather than shown
@@ -237,17 +283,23 @@ conditions, and runs in CI so the frozen result cannot drift:
 
 ## Conclusion
 
-**Moderate-to-strong validation.** Contract-aware use is materially better than blind use on the two
-things that decide whether anyone would trust the tool: it reached 50% of selected scorers versus 13%,
-and produced no false positives versus five in six. It found one previously unknown genuine defect in
-an UNEXAMINED scorer, reproducible in five lines, that the eval's own five scorer tests do not cover.
-It also found a real defect in the package itself, which is the outcome I would least have predicted
-and possibly the most valuable.
+**Moderate validation, downgraded from "moderate-to-strong" by the 2026-09-22 correction.**
+Contract-aware use is materially better than blind use on the two things that decide whether anyone
+would trust the tool: it reached 50% of selected scorers versus 13%, and produced no false positives
+versus five in six. Both of those still hold — they are properties of the probing method, not of the
+attribution. It also found a real defect in the package itself, which is the outcome I would least have
+predicted and possibly the most valuable.
 
-Against that: one defect is one defect. The methodology costs roughly twenty minutes of reading per
-scorer, and it only applies to scorers that parse model output — which excluded half of a set chosen
-for diversity. The honest summary is that this is useful scrutiny for a specific and identifiable
-class of scorer, not a general-purpose check.
+What does **not** hold is the headline it was written around. The one previously unknown finding in an
+UNEXAMINED scorer is real and reproducible in five lines, and the eval's own five scorer tests do not
+cover it — but it is a faithful reproduction of the benchmark authors' scoring code, so it is not a
+defect in `inspect_evals`. On the question this study was built to answer, the honest count is zero.
+
+Against that: the methodology costs roughly twenty minutes of reading per scorer, it only applies to
+scorers that parse model output — which excluded half of a set chosen for diversity — and, as the
+correction shows, it needs a further provenance check per finding before any finding can be attributed.
+The honest summary is that this is useful scrutiny for a specific and identifiable class of scorer, not
+a general-purpose check, and that its output is a question rather than a verdict.
 
 ### The claim worth making
 
@@ -260,17 +312,22 @@ false positives in six FAILs. The same battery, aimed by someone who had read th
 reached 50% and produced none. The transformations did not change between the two studies. The only
 thing that changed was whether the invariant was chosen by a human who knew what the scorer promised.
 
-Two corollaries follow, and both cut against building more:
+Three corollaries follow, and all three cut against building more:
 
 - A larger transformation library would not have helped. Of the 12 scorers, six were unexercisable and
   five of those because the verdict does not read model text at all — a gap no transformation closes.
-- The one genuine defect was found by a transformation whose *rationale* was written before it ran.
+- The one declared FAIL was found by a transformation whose *rationale* was written before it ran.
   Had the same FAIL arrived from an undeclared generic sweep, it would have been indistinguishable
   from the four exclusions that a contract-aware reading correctly ruled out in advance.
+- **Added 2026-09-22.** Declaring the invariant is necessary but not sufficient. A declared invariant on
+  a *ported* scorer is really a claim about the reference implementation, and nothing in the probe tells
+  you which of the two you are testing. That check is reading, not code — so the gap this study
+  exposes is in the workflow, not in the package.
 
 **What follows for the package, and what does not.** The workflow worth considering later is narrow:
-read the scorer, decide what its prompt permits, write two cases, declare the invariant, run. The two
-things that would most improve it are a transformation for `CODE_FORMATTING` or its removal from the
-advertised set, and a fast way to tell whether a scorer reads model text at all — that single question
-predicted exercisability in 11 of 12 cases. Neither justifies expanding the abstraction, and neither
-should begin before someone other than the author has used the workflow on their own scorer.
+read the scorer, decide what its prompt permits, write two cases, declare the invariant, run — then,
+before attributing any FAIL, fetch the reference implementation and check it does not do the same thing.
+The two things that would most improve the package are a transformation for `CODE_FORMATTING` or its
+removal from the advertised set, and a fast way to tell whether a scorer reads model text at all — that
+single question predicted exercisability in 11 of 12 cases. Neither justifies expanding the abstraction,
+and neither should begin before someone other than the author has used the workflow on their own scorer.

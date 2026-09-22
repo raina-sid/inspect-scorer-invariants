@@ -2,10 +2,10 @@
 
 WHY REDUCTIONS RATHER THAN CALLS INTO inspect_evals.
 
-Two reasons, and the first is the important one. These defects should be reported upstream, and if
-they are fixed a scorecard that called the real scorers would turn red -- doing the right thing
-would destroy our own evidence. Second, depending on a large eval package would drag in datasets,
-network and optional extras that the package deliberately avoids.
+Two reasons, and the first is the important one. If these mechanisms are ever fixed, a scorecard that
+called the real scorers would turn red -- doing the right thing would destroy our own evidence. Second,
+depending on a large eval package would drag in datasets, network and optional extras that the package
+deliberately avoids.
 
 Each reduction reproduces ONE mechanism, with the provenance recorded below. WHAT IS AND IS NOT
 CLAIMED: these are minimal reproductions of a mechanism, not byte-for-byte reproductions of the
@@ -19,6 +19,13 @@ and metrics, it produces 0.0, and the fixture matches on that value. The NaN cam
 reimplementation of the mapping, not from the eval.
 
 Verified 2026-09-21 against inspect_evals with inspect_ai 0.3.263.
+
+PROVENANCE AUDIT, 2026-09-22. An earlier version of this docstring said these defects "should be
+reported upstream". Two of the three should NOT be: novelty_bench and tau2 reproduce their reference
+implementations verbatim, so a fix would ask inspect_evals to diverge from the benchmark it ports. Only
+worldsense is a port divergence. Per-fixture verdicts are in the `reference` key below; evidence is in
+validation/provenance-audit.md. The fixtures remain valid as DETECTOR tests either way -- what changed is
+who, if anyone, should hear about each one.
 """
 
 from __future__ import annotations
@@ -42,42 +49,65 @@ from inspect_ai.solver import TaskState
 from inspect_scorer_probes import Case, Transform, transform
 from inspect_scorer_probes.invariants import CUE_CASE, MARKUP, WRONG_STAYS_INCORRECT
 
+# Every inspect_evals scorer is a PORT of someone else's benchmark, so `reference` records whether a
+# mechanism is the port's own or inherited from the reference implementation. A probe cannot tell the two
+# apart, and they need different audiences: a port divergence is a bug report for inspect_evals, an
+# inherited mechanism is a question for the benchmark's authors. Audited 2026-09-22 against the upstream
+# sources; see validation/provenance-audit.md. Three of the four findings turned out to be inherited.
 PROVENANCE: dict[str, dict[str, str]] = {
     "worldsense": {
         "mechanism": "metric weight table keyed uppercase-only vs an ignore_case=True scorer",
         "source": "inspect_evals/worldsense/_utils.py:45-83, worldsense.py:91-94",
         "observed": "verdicts unchanged; accuracy 1.0 -> 1.0; ws_accuracy 1.0 -> 0.0",
         "how": "verified end to end through inspect_ai.eval(), not a reimplementation",
+        "reference": "PORT-INTRODUCED. facebookresearch/worldsense analysis.py:222 keys the weight off "
+        "goldresp (the GOLD answer); the port keys it off the model's answer. The port also drops the "
+        "reference's resp_map (1/2->KNOW, 3->UNKNOWN, analysis.py:191-199,225) while keeping the weights "
+        "that only cohere with it, so answering '2' when gold is '1' is CORRECT upstream and INCORRECT "
+        "here. ignore_case=True has no counterpart upstream -- pattern() is an inspect_ai scorer. The "
+        "uppercase-only tables ARE inherited (analysis.py:202-219); the combination is new.",
     },
     "novelty_bench": {
         "mechanism": "unigram-overlap equality over .strip().lower().split() misses markup",
         "source": "inspect_evals/novelty_bench/partition.py:103-110",
         "observed": "distinct_k 1 -> 2 when one of three identical generations is bolded",
         "how": "verified by calling the real _maybe_test_equality and partition_responses",
+        "reference": "INHERITED, verbatim. novelty-bench@d60518d/src/partition.py:137-143 is the same "
+        "four lines. Do NOT file against inspect_evals. Broader than markup: splitting on whitespace "
+        "also makes 'Paris' and 'Paris.' non-equivalent, which inflates the diversity count.",
     },
     "tau2": {
         "mechanism": "unanchored substring test for required information",
         "source": "inspect_evals/tau2/common/scorer.py:112-137",
         "observed": "airline task 3's whole criterion is '4'; 'error code 404' scores CORRECT",
         "how": "verified against the shipped task data through the real scorer",
+        "reference": "INHERITED. sierra-research/tau2-bench evaluator_communicate.py does the same "
+        "substring test and carries its authors' own '# TODO: This could be improved!' on that line. "
+        "UNRESOLVED: the port reads ChatMessageUser where the reference reads AssistantMessage; the role "
+        "mapping may be correct given the port's user-simulator architecture, but I did not verify it.",
     },
     "frontierscience": {
         "mechanism": "VERDICT regex admits digits only; the prompt says 'no other text'",
         "source": "inspect_evals/frontierscience/frontierscience.py:100,210",
         "observed": "'VERDICT: **8**' scores 0.0 instead of 0.8 -- CONTRACT-EXCLUDED, not a defect",
         "how": "the eval's own test asserts the strictness at tests/frontierscience:290",
+        "reference": "NOT AUDITED, and it does not matter: the cell is contract-excluded, so nothing "
+        "would be filed either way.",
     },
     "core_choice": {
         "mechanism": "core answer()/parse_answers char class [A-Za-z\\d ,]+ rejects markup",
         "source": "inspect_ai/solver/_multiple_choice.py:98,108",
         "observed": "'ANSWER: **B**' -> INCORRECT -- a CORE property, excluded from scope",
         "how": "verified directly against core answer('letter')",
+        "reference": "NOT APPLICABLE. inspect_ai core is not a port of anything, so there is no "
+        "reference implementation to defer to.",
     },
     "scbench": {
         "mechanism": "answer parsed as JSON under a mandated 'Return EXACTLY' layout",
         "source": "inspect_evals/scbench/scorer.py:27-31, data/evals_canonical/*.json",
         "observed": "markup breaks the JSON parse -- CONTRACT-EXCLUDED; all 30 prompts mandate it",
         "how": "grepped 'Return EXACTLY' across all 30 canonical samples",
+        "reference": "NOT AUDITED, and it does not matter: the cell is contract-excluded.",
     },
 }
 

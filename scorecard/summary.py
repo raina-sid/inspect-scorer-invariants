@@ -97,7 +97,9 @@ def _probe(scorer_: Any, metrics: Any, cases: Any, contract: Contract, transform
 def cells() -> list[Cell]:
     out: list[Cell] = []
 
-    # ---- arm 1: three real defects, on three different scorer types
+    # ---- arm 1: three real scoring defects, on three different scorer types. Two of the three are
+    # inherited from their upstream reference implementations rather than being the port's own bugs --
+    # see fixtures.PROVENANCE. Irrelevant to detection, which is what this arm measures.
     out.append(
         Cell(
             POSITIVE, "worldsense", "CUE_CASE", Outcome.FAIL,

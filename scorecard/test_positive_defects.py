@@ -1,4 +1,10 @@
-"""Arm 1 of the scorecard: three real defects that MUST be reported as FAIL.
+"""Arm 1 of the scorecard: three real scoring defects that MUST be reported as FAIL.
+
+Real means the verdict or a metric genuinely moves, which is all this arm tests. It does NOT mean all
+three are bugs in inspect_evals -- two of them reproduce their upstream reference implementations
+verbatim, so only worldsense is the port's own. See fixtures.PROVENANCE and
+validation/provenance-audit.md. That distinction does not affect these tests: a detector must flag the
+mechanism regardless of which repository is responsible for it.
 
 These are the defects the pre-registered run found, on three different scorer types. If any of
 these stops failing, either the probe regressed or the fixture stopped reproducing the mechanism --

@@ -67,7 +67,8 @@ check("   ape is now exercised rather than ERROR",
       bool(ape) and all(r["outcome"] != "ERROR" for r in ape),
       f"outcomes={[r['outcome'] for r in ape]}")
 
-# 2. the zerobench defect still reproduces
+# 2. the zerobench mechanism still reproduces. NOTE: as of the 2026-09-22 provenance audit this is a
+# real verdict change INHERITED from the reference implementation, not a defect in inspect_evals.
 zb = cell("zerobench", "CUE_WHITESPACE", "target_space_padded")
 check("2. zerobench CUE_WHITESPACE still FAILs", zb is not None and zb["outcome"] == "FAIL",
       f"outcome={zb['outcome'] if zb else 'MISSING'}")
@@ -163,8 +164,12 @@ claims = [
     (r"\| EXCLUDED \| (\d+) \|", "EXCLUDED"),
     (r"\*\*Applicable cells\*\* \(PASS or FAIL\) = (\d+) of", "applicable cells"),
     (r"\*\*Scorers exercised\*\* = (\d+) of", "scorers exercised"),
-    (r"(\d+) genuine defect / \d+ applicable cells", None),          # must be 1
-    (r"genuine defect / (\d+) applicable cells", "applicable cells"),
+    # Corrected 2026-09-22: the FAIL is inherited from the reference implementation, so the count of
+    # defects attributable to inspect_evals is 0. The reproducible-finding count is still 1.
+    (r"\*\*(\d+) defects attributable to `inspect_evals`", 0),
+    (r"defects attributable to `inspect_evals` / (\d+) applicable cells", "applicable cells"),
+    (r"\*\*(\d+) reproducible scorer-behaviour finding", 1),
+    (r"reproducible scorer-behaviour finding / (\d+) applicable cells", "applicable cells"),
     (r"\*\*Target-anchored: (\d+) applied", "target-anchored applied"),
     (r"Target-anchored: \d+ applied, (\d+) not", "target-anchored n/a"),
     (r"Cue-anchored: (\d+) applied", "cue-anchored applied"),
@@ -177,9 +182,10 @@ for pattern, key in claims:
         check(f"claim not found in report: {pattern[:44]}", False)
         continue
     quoted = int(m.group(1))
-    expected = 1 if key is None else derived[key]
-    check(f"report says {quoted:>3} for {(key or 'genuine defects'):26}", quoted == expected,
-          f"derived {expected}")
+    # key is either a name in `derived`, or a literal expected value asserted by this script
+    expected = derived[key] if isinstance(key, str) else key
+    label = key if isinstance(key, str) else f"literal {key}"
+    check(f"report says {quoted:>3} for {label:26}", quoted == expected, f"derived {expected}")
 
 # the 12-scorer table must list every scorer, with the exercised column matching the data
 table_rows = re.findall(r"^\| `?([a-z0-9_]+)", REPORT, re.MULTILINE)

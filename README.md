@@ -128,6 +128,15 @@ This is a real defect, found this way. `worldsense`'s metric weight table is key
 while its scorer is built `ignore_case=True`, so `"True"` is accepted by the scorer and then cannot be
 keyed by the metric. Its own tests use uppercase answer literals throughout.
 
+**A FAIL is not yet a finding, and the missing step is not in this tool.** If the scorer you are probing
+is a **port** of a published benchmark — every `inspect_evals` scorer is — then the invariant you declared
+is really a claim about the *reference implementation*, and a FAIL has two causes the probe cannot
+distinguish: the port diverged, or the port faithfully reproduces a defective reference. Fetch the
+reference and check before you attribute anything. Three of the four findings this package was built on
+inverted on that check ([`validation/provenance-audit.md`](validation/provenance-audit.md)); `worldsense`
+above is one that survived it, and it survived for a deeper reason than the case mismatch — the port keys
+the metric weight off the model's answer where upstream keys it off the gold answer.
+
 ## The five invariants
 
 **Three ship transformations and work out of the box:**
@@ -273,8 +282,29 @@ which fails `MARKUP` and passes `CUE_CASE` — the same fixture, because its par
 normalises case and whitespace and only misses markup.
 
 Fixtures are vendored minimal reductions with provenance recorded in `scorecard/fixtures.py`, not calls
-into `inspect_evals`. These defects should be reported upstream, and if they are fixed a scorecard
-calling the real scorers would turn red — doing the right thing would destroy the evidence.
+into `inspect_evals`. If these mechanisms are ever fixed, a scorecard calling the real scorers would turn
+red — doing the right thing would destroy the evidence.
+
+### Two of the three positives are not `inspect_evals` bugs
+
+Every eval in `inspect_evals` is a **port** of someone else's benchmark, and for a port the contract is
+fidelity to the reference implementation. A probe cannot tell a port divergence from a faithful
+reproduction of a defective reference — but they need completely different audiences. Audited
+2026-09-22, and it inverted three of four findings:
+
+| fixture | reference implementation | who should hear about it |
+|---|---|---|
+| `worldsense` | **diverges** — the port keys the metric weight off the model's answer where upstream keys it off the gold answer, and drops the `resp_map` that makes the retained weights coherent | `inspect_evals` |
+| `novelty_bench` | **identical**, verbatim four lines | the NoveltyBench authors |
+| `tau2` | **identical**, and upstream carries its authors' own `# TODO: This could be improved!` on that line | the tau2-bench authors |
+
+So a PR "fixing" `novelty_bench` or `tau2` would be asking `inspect_evals` to diverge from the
+benchmark it is reproducing, which is a PR they should reject. Full evidence and the reproduction
+commands are in [`validation/provenance-audit.md`](validation/provenance-audit.md).
+
+**The step this adds to the workflow, and it is not optional: before attributing a FAIL to a scorer,
+fetch the reference implementation and check whether it does the same thing.** It costs one `curl`. I
+ran it after building a fix rather than before, which is how a wrong claim reached a published study.
 
 ## Reach: measured against 62 real scorers, and it is limited
 
@@ -287,7 +317,7 @@ with six guessed completion formats and no declared exclusions:
 | in scope, but the guessed format was wrong | **30** |
 | observed, and every probe exercised | **8** |
 | FAIL cells produced | 6 |
-| **genuinely defective** | **1** |
+| **a real verdict change rather than a false positive** | **1** |
 
 The 20 break down as: needs a sandbox (10), reads the store (4), reads `state.input` (3 — which is
 why `Case.input` now exists), reads `output.choices` (2), other `TaskState` (1).
@@ -297,13 +327,21 @@ why `Case.input` now exists), reads `output.choices` (2), other `TaskState` (1).
 Blind, it is close to useless: 1 true finding in 6 FAILs, and 30 of 62 scorers unreachable simply
 because a generic guess at their input format is not good enough. **The package cannot be pointed; it
 has to be aimed.** Someone probing their *own* scorer knows its format and its metadata keys, and
-knows what their prompt permits — that is the difference between the 17% above and the three real
-defects this package was built on.
+knows what their prompt permits — that is the difference between the 17% above and the three reproducible
+findings this package was built on. (One of which survived the provenance check above; two did not.)
 
 The one true finding is instructive: `docvqa` captures its answer with `match.groups()[0]` and **no
 `.strip()`** (`docvqa.py:136`), while `vqa_rad` does `match.groups()[0].strip().lower()` in the same
-repo. Trailing whitespace corrupts the comparison. A cue-anchored transformation missed it; a
-target-anchored one found it.
+repo. The captured text feeds an ANLS score with a hard `threshold = 0.5` cliff (`docvqa.py:92-98`), so a
+single trailing space costs a 3-character answer 0.75 instead of 1.0, and for a 1-character answer the
+normalised distance reaches 0.5 exactly and the score collapses to **0.0**. A cue-anchored transformation
+missed it; a target-anchored one found it.
+
+**Unaudited for provenance**, and the two things I first assumed about it were both wrong: the scorer is
+not exact-match (it implements ANLS itself, `docvqa.py:72-100`), and the effect is a graded score
+reduction rather than a corrupted comparison except at very short answers. Whether the reference
+implementation normalises before scoring is the open question, and I have not run the reference check
+described above against it. Until I do, this is a reproducible score change, not an established defect.
 
 Method and limits: the in-scope/out-of-scope split is static analysis of what each scorer reads off
 `TaskState`, so a scorer delegating to a module-level helper hides its accesses — 5 of the 54
@@ -337,6 +375,10 @@ you so. See the precondition below.
 - No generality beyond the class of deterministic scorers tested here.
 - It does not decide whether a `FAIL` is a real defect. That depends on what the prompt and docs
   promised, which you declare and it records.
+- **Nothing about whose defect it is.** If your scorer ports a published benchmark, it cannot tell a port
+  divergence from a faithful reproduction of a defective reference — and only the first is a bug report
+  for the port's maintainers. That check is reading another repository, which no probe can do for you.
+  It inverted three of the four findings this package was built on.
 - It does not read your prompt or docs to infer a contract. Inferring intent needs a model, which would
   put an oracle back in the loop and make every verdict rest on that model's reading.
 
