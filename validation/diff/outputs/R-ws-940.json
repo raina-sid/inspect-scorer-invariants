@@ -1,0 +1,134 @@
+{
+  "kind": "dataset_diff",
+  "before_task": "inspect_evals/worldsense",
+  "after_task": "inspect_evals/worldsense",
+  "samples": {
+    "before": 87048,
+    "after": 40176,
+    "removed": 46872,
+    "added": 0,
+    "unchanged": 40176,
+    "id_changed": 40176,
+    "metadata_changed": 0
+  },
+  "examples": {
+    "removed": [
+      "worldsense_b34690d7",
+      "worldsense_c882e4aa",
+      "worldsense_86afbbc0",
+      "worldsense_8abb7741",
+      "worldsense_bca60d2e"
+    ],
+    "id_changed": [
+      "worldsense_09fc340e -> worldsense_95defb0f",
+      "worldsense_e406e221 -> worldsense_98574918",
+      "worldsense_eda712d2 -> worldsense_552c4503",
+      "worldsense_b527e91e -> worldsense_0f1e4318",
+      "worldsense_bdeeb105 -> worldsense_16352a6d"
+    ]
+  },
+  "groups": [
+    {
+      "key": "target",
+      "value": "2",
+      "before": 6696,
+      "after": 0,
+      "delta": -6696
+    },
+    {
+      "key": "target",
+      "value": "FALSE",
+      "before": 13392,
+      "after": 0,
+      "delta": -13392
+    },
+    {
+      "key": "target",
+      "value": "IMPOSSIBLE",
+      "before": 20088,
+      "after": 0,
+      "delta": -20088
+    },
+    {
+      "key": "problemname",
+      "value": "Compl.normal",
+      "before": 10044,
+      "after": 3348,
+      "delta": -6696
+    },
+    {
+      "key": "problemname",
+      "value": "Compl.trivial",
+      "before": 10044,
+      "after": 3348,
+      "delta": -6696
+    },
+    {
+      "key": "problemsize",
+      "value": "3",
+      "before": 29016,
+      "after": 13392,
+      "delta": -15624
+    },
+    {
+      "key": "problemsize",
+      "value": "4",
+      "before": 29016,
+      "after": 13392,
+      "delta": -15624
+    },
+    {
+      "key": "problemsize",
+      "value": "5",
+      "before": 29016,
+      "after": 13392,
+      "delta": -15624
+    },
+    {
+      "key": "problemname",
+      "value": "Consist.normal",
+      "before": 20088,
+      "after": 10044,
+      "delta": -10044
+    },
+    {
+      "key": "problemname",
+      "value": "Consist.trivial",
+      "before": 20088,
+      "after": 10044,
+      "delta": -10044
+    },
+    {
+      "key": "problemname",
+      "value": "Infer.normal",
+      "before": 20088,
+      "after": 10044,
+      "delta": -10044
+    },
+    {
+      "key": "problemname",
+      "value": "Infer.trivial",
+      "before": 6696,
+      "after": 3348,
+      "delta": -3348
+    },
+    {
+      "key": "target",
+      "value": "1",
+      "before": 6696,
+      "after": 3348,
+      "delta": -3348
+    },
+    {
+      "key": "target",
+      "value": "3",
+      "before": 6696,
+      "after": 3348,
+      "delta": -3348
+    }
+  ],
+  "skipped_group_keys": [
+    "tuple_ID"
+  ],
+  "empty": false
+}

@@ -1,0 +1,15 @@
+SCORE DIFF
+────────────────────────────────────────────────────────────
+before  /tmp/replay/ws/upstream-rescored.eval
+after   /tmp/replay/ws/patched-rescored.eval
+
+samples matched 10   only before 0   only after 0
+
+scorer pattern_with_metadata   [verdicts unchanged, metrics changed]
+  verdicts compared 10
+  metric accuracy                    1.0 -> 1.0          same
+  metric stderr                      0.0 -> 0.0          same
+  metric ws_accuracy                 0.0 -> 1.0          changed
+  metric ws_bias                     0.0 -> 1.0          changed
+
+observed differences above; whether they preserve comparability is your call

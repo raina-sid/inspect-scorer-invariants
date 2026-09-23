@@ -1,0 +1,33 @@
+DATASET DIFF
+────────────────────────────────────────────────────────────
+task    inspect_evals/worldsense  ->  inspect_evals/worldsense
+
+samples (matched by content: input + choices + target)
+  before               87,048
+  after                40,176
+  removed              46,872
+  added                     0
+  unchanged            40,176
+  id changed           40,176   (same content, different sample id)
+  metadata changed          0   (same content, different metadata)
+  e.g. removed: worldsense_68885fcb, worldsense_a2a843e9, worldsense_f6d3daa5, worldsense_52d35358, worldsense_b55fa6a7
+  e.g. id_changed: worldsense_7b3aafaf -> worldsense_16c6ec55, worldsense_7e20f28b -> worldsense_3d1a7b1a, worldsense_d36042ba -> worldsense_a84225ea, worldsense_72a005b6 -> worldsense_dfc4f9b5, worldsense_1fd4b9c2 -> worldsense_faf68d7c
+
+by group (largest relative loss first)
+  target                   2                                 6,696 ->        0  (-100.0%)
+  target                   FALSE                            13,392 ->        0  (-100.0%)
+  target                   IMPOSSIBLE                       20,088 ->        0  (-100.0%)
+  problemname              Compl.normal                     10,044 ->    3,348  (-66.7%)
+  problemname              Compl.trivial                    10,044 ->    3,348  (-66.7%)
+  problemsize              3                                29,016 ->   13,392  (-53.8%)
+  problemsize              4                                29,016 ->   13,392  (-53.8%)
+  problemsize              5                                29,016 ->   13,392  (-53.8%)
+  problemname              Consist.normal                   20,088 ->   10,044  (-50.0%)
+  problemname              Consist.trivial                  20,088 ->   10,044  (-50.0%)
+  problemname              Infer.normal                     20,088 ->   10,044  (-50.0%)
+  problemname              Infer.trivial                     6,696 ->    3,348  (-50.0%)
+  target                   1                                 6,696 ->    3,348  (-50.0%)
+  target                   3                                 6,696 ->    3,348  (-50.0%)
+  not decomposed (> 50 distinct values): tuple_ID
+
+observed differences above; whether they preserve comparability is your call

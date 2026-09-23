@@ -1,0 +1,310 @@
+{
+  "kind": "dataset_diff",
+  "before_task": "inspect_evals/sciknoweval",
+  "after_task": "inspect_evals/sciknoweval",
+  "samples": {
+    "before": 70196,
+    "after": 66386,
+    "removed": 3810,
+    "added": 0,
+    "unchanged": 66386,
+    "id_changed": 66386,
+    "metadata_changed": 0
+  },
+  "examples": {
+    "id_changed": [
+      "sciknoweval_c2e13b27 -> sciknoweval_8d3d213e",
+      "sciknoweval_2b842118 -> sciknoweval_e0c332c1",
+      "sciknoweval_b07d3291 -> sciknoweval_130e054e",
+      "sciknoweval_0d5b857f -> sciknoweval_1cbba355",
+      "sciknoweval_a9a6e99f -> sciknoweval_0729f26a"
+    ],
+    "removed": [
+      "sciknoweval_6fabd91c",
+      "sciknoweval_2e7bcdd4",
+      "sciknoweval_4b583964",
+      "sciknoweval_6fabd91c",
+      "sciknoweval_6fabd91c"
+    ]
+  },
+  "groups": [
+    {
+      "key": "task",
+      "value": "material_toxicity_prediction",
+      "before": 615,
+      "after": 4,
+      "delta": -611
+    },
+    {
+      "key": "type",
+      "value": "mcq-2-choices",
+      "before": 746,
+      "after": 9,
+      "delta": -737
+    },
+    {
+      "key": "task",
+      "value": "proteotoxicity_prediction",
+      "before": 510,
+      "after": 172,
+      "delta": -338
+    },
+    {
+      "key": "task",
+      "value": "molecular_property_prediction",
+      "before": 2365,
+      "after": 822,
+      "delta": -1543
+    },
+    {
+      "key": "task",
+      "value": "single_cell_analysis",
+      "before": 300,
+      "after": 199,
+      "delta": -101
+    },
+    {
+      "key": "task",
+      "value": "protein_function_prediction",
+      "before": 1232,
+      "after": 834,
+      "delta": -398
+    },
+    {
+      "key": "task",
+      "value": "L2_Chemistry",
+      "before": 1587,
+      "after": 1177,
+      "delta": -410
+    },
+    {
+      "key": "task",
+      "value": "high_school_physics_calculation",
+      "before": 698,
+      "after": 551,
+      "delta": -147
+    },
+    {
+      "key": "type",
+      "value": "relation_extraction",
+      "before": 1988,
+      "after": 1575,
+      "delta": -413
+    },
+    {
+      "key": "level",
+      "value": "L4",
+      "before": 5257,
+      "after": 4175,
+      "delta": -1082
+    },
+    {
+      "key": "task",
+      "value": "mol_toxicity_prediction",
+      "before": 870,
+      "after": 753,
+      "delta": -117
+    },
+    {
+      "key": "domain",
+      "value": "chemistry",
+      "before": 20640,
+      "after": 18534,
+      "delta": -2106
+    },
+    {
+      "key": "level",
+      "value": "L3",
+      "before": 8150,
+      "after": 7543,
+      "delta": -607
+    },
+    {
+      "key": "domain",
+      "value": "material",
+      "before": 10719,
+      "after": 10077,
+      "delta": -642
+    },
+    {
+      "key": "type",
+      "value": "mcq-4-choices",
+      "before": 52024,
+      "after": 49473,
+      "delta": -2551
+    },
+    {
+      "key": "task",
+      "value": "perovskite_stability_prediction",
+      "before": 480,
+      "after": 458,
+      "delta": -22
+    },
+    {
+      "key": "level",
+      "value": "L1",
+      "before": 37450,
+      "after": 35851,
+      "delta": -1599
+    },
+    {
+      "key": "task",
+      "value": "diffusion_rate_analysis",
+      "before": 149,
+      "after": 143,
+      "delta": -6
+    },
+    {
+      "key": "level",
+      "value": "L2",
+      "before": 12896,
+      "after": 12480,
+      "delta": -416
+    },
+    {
+      "key": "domain",
+      "value": "biology",
+      "before": 27494,
+      "after": 26617,
+      "delta": -877
+    },
+    {
+      "key": "task",
+      "value": "general_physics_calculation",
+      "before": 800,
+      "after": 775,
+      "delta": -25
+    },
+    {
+      "key": "task",
+      "value": "laboratory_safety_test",
+      "before": 723,
+      "after": 709,
+      "delta": -14
+    },
+    {
+      "key": "level",
+      "value": "L5",
+      "before": 6443,
+      "after": 6337,
+      "delta": -106
+    },
+    {
+      "key": "domain",
+      "value": "physics",
+      "before": 11343,
+      "after": 11158,
+      "delta": -185
+    },
+    {
+      "key": "task",
+      "value": "molecule_name_conversion",
+      "before": 828,
+      "after": 815,
+      "delta": -13
+    },
+    {
+      "key": "task",
+      "value": "physics_problem_solving",
+      "before": 302,
+      "after": 298,
+      "delta": -4
+    },
+    {
+      "key": "task",
+      "value": "lattice_volume_calculation",
+      "before": 160,
+      "after": 158,
+      "delta": -2
+    },
+    {
+      "key": "type",
+      "value": "open-ended-qa",
+      "before": 10180,
+      "after": 10072,
+      "delta": -108
+    },
+    {
+      "key": "task",
+      "value": "molecule_structure_prediction",
+      "before": 495,
+      "after": 492,
+      "delta": -3
+    },
+    {
+      "key": "task",
+      "value": "fundamental_physics_exam",
+      "before": 2375,
+      "after": 2366,
+      "delta": -9
+    },
+    {
+      "key": "task",
+      "value": "protein_property_identification",
+      "before": 1500,
+      "after": 1496,
+      "delta": -4
+    },
+    {
+      "key": "task",
+      "value": "harmful_QA",
+      "before": 751,
+      "after": 749,
+      "delta": -2
+    },
+    {
+      "key": "task",
+      "value": "L2_Biology",
+      "before": 2114,
+      "after": 2109,
+      "delta": -5
+    },
+    {
+      "key": "task",
+      "value": "literature_multi_choice_question",
+      "before": 21185,
+      "after": 21153,
+      "delta": -32
+    },
+    {
+      "key": "task",
+      "value": "protein_description_generation",
+      "before": 930,
+      "after": 929,
+      "delta": -1
+    },
+    {
+      "key": "task",
+      "value": "molar_weight_calculation",
+      "before": 996,
+      "after": 995,
+      "delta": -1
+    },
+    {
+      "key": "type",
+      "value": "true_or_false",
+      "before": 4723,
+      "after": 4722,
+      "delta": -1
+    },
+    {
+      "key": "task",
+      "value": "material_literature_QA",
+      "before": 5534,
+      "after": 5533,
+      "delta": -1
+    },
+    {
+      "key": "task",
+      "value": "L2_General",
+      "before": 8822,
+      "after": 8821,
+      "delta": -1
+    }
+  ],
+  "skipped_group_keys": [
+    "subtask",
+    "target"
+  ],
+  "empty": false
+}

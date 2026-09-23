@@ -27,13 +27,16 @@ dependencies = ["inspect-ai>=0.3.266"]
 [project.optional-dependencies]
 dev = ["pytest", "ruff", "mypy"]
 
+[project.scripts]
+inspect-audit = "inspect_audit.cli:main"
+
 [project.urls]
 Homepage = "https://github.com/raina-sid/inspect-scorer-probes"
 Source = "https://github.com/raina-sid/inspect-scorer-probes"
 Issues = "https://github.com/raina-sid/inspect-scorer-probes/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/inspect_scorer_probes"]
+packages = ["src/inspect_scorer_probes", "src/inspect_audit"]
 
 [tool.hatch.build.targets.sdist]
 include = ["src/", "tests/", "scorecard/", "examples/", "README.md", "CHANGELOG.md", "LICENSE"]

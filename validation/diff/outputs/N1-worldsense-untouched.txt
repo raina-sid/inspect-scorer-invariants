@@ -1,0 +1,18 @@
+DATASET DIFF
+────────────────────────────────────────────────────────────
+task    inspect_evals/worldsense  ->  inspect_evals/worldsense
+
+samples (matched by content: input + choices + target)
+  before               40,176
+  after                40,176
+  removed                   0
+  added                     0
+  unchanged            40,176
+  id changed                0   (same content, different sample id)
+  metadata changed          0   (same content, different metadata)
+
+by group (largest relative loss first)
+  no group changed
+  not decomposed (> 50 distinct values): tuple_ID
+
+no differences observed

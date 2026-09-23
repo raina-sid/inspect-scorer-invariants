@@ -1,0 +1,45 @@
+DATASET DIFF
+────────────────────────────────────────────────────────────
+task    inspect_evals/sciknoweval  ->  inspect_evals/sciknoweval
+
+samples (matched by content: input + choices + target)
+  before               70,196
+  after                66,386
+  removed               3,810
+  added                     0
+  unchanged            66,386
+  id changed           66,386   (same content, different sample id)
+  metadata changed          0   (same content, different metadata)
+  e.g. id_changed: sciknoweval_8da60378 -> sciknoweval_0381ff88, sciknoweval_8b04b3f5 -> sciknoweval_eb53e431, sciknoweval_a11fe662 -> sciknoweval_3ef7393e, sciknoweval_a8eb13f2 -> sciknoweval_2ab1fdec, sciknoweval_b31e577f -> sciknoweval_2e604fb4
+  e.g. removed: sciknoweval_56c25543, sciknoweval_f1661df9, sciknoweval_7116b7cd, sciknoweval_c6c6f645, sciknoweval_00c444a7
+
+by group (largest relative loss first)
+  task                     material_toxicity_prediction        615 ->        4  (-99.3%)
+  type                     mcq-2-choices                       746 ->        9  (-98.8%)
+  task                     proteotoxicity_prediction           510 ->      172  (-66.3%)
+  task                     molecular_property_prediction     2,365 ->      822  (-65.2%)
+  task                     single_cell_analysis                300 ->      199  (-33.7%)
+  task                     protein_function_prediction       1,232 ->      834  (-32.3%)
+  task                     L2_Chemistry                      1,587 ->    1,177  (-25.8%)
+  task                     high_school_physics_calculatio      698 ->      551  (-21.1%)
+  type                     relation_extraction               1,988 ->    1,575  (-20.8%)
+  level                    L4                                5,257 ->    4,175  (-20.6%)
+  task                     mol_toxicity_prediction             870 ->      753  (-13.4%)
+  domain                   chemistry                        20,640 ->   18,534  (-10.2%)
+  level                    L3                                8,150 ->    7,543  (-7.4%)
+  domain                   material                         10,719 ->   10,077  (-6.0%)
+  type                     mcq-4-choices                    52,024 ->   49,473  (-4.9%)
+  task                     perovskite_stability_predictio      480 ->      458  (-4.6%)
+  level                    L1                               37,450 ->   35,851  (-4.3%)
+  task                     diffusion_rate_analysis             149 ->      143  (-4.0%)
+  level                    L2                               12,896 ->   12,480  (-3.2%)
+  domain                   biology                          27,494 ->   26,617  (-3.2%)
+  task                     general_physics_calculation         800 ->      775  (-3.1%)
+  task                     laboratory_safety_test              723 ->      709  (-1.9%)
+  level                    L5                                6,443 ->    6,337  (-1.6%)
+  domain                   physics                          11,343 ->   11,158  (-1.6%)
+  task                     molecule_name_conversion            828 ->      815  (-1.6%)
+  ... 14 more changed groups in --json output
+  not decomposed (> 50 distinct values): subtask, target
+
+observed differences above; whether they preserve comparability is your call
