@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased
+
+- **New: `inspect-audit diff`** — observed differences between two states of an evaluation, no model
+  calls. `snapshot` a task's dataset; `diff dataset` matches samples by content hash (not id) and
+  reports removed / added / id-changed / metadata-changed with per-group and per-target deltas;
+  `diff scores` compares two logs of the same transcripts and refuses when scoring called a model.
+  Validated against pre-registered replays of `inspect_evals` #940 and #2025
+  (`validation/diff/RESULT.md`).
+- README: install instruction corrected (the package is not on PyPI), and the probe-layer headline
+  corrected — two of its three original findings were inherited from reference implementations.
+
 ## 0.1.0 — 2026-09-21
 
 First release. Metamorphic invariance probes for Inspect AI scoring pipelines: given a contract the

@@ -1,29 +1,143 @@
 # inspect-scorer-probes
 
-Metamorphic invariance probes for [Inspect AI](https://inspect.aisi.org.uk) scoring pipelines.
+Evidence for auditing [Inspect AI](https://inspect.aisi.org.uk) evaluations when they change.
+
+**Observation is automatic; interpretation is yours.** Nothing here decides whether an evaluation is
+correct. It reports what changed between two states of an evaluation, where, and which samples to
+read — and it tests explicit contracts you declare. It never infers one.
+
+Two layers:
+
+| | question it answers | needs |
+|---|---|---|
+| **`inspect-audit diff`** | What changed between these two states of an eval? | two dataset snapshots, or two logs of the same transcripts |
+| **metamorphic probes** | Does my scorer honour the contract **I declared**? | a contract and cases you write |
+
+Not on PyPI. Install from git:
+
+```bash
+pip install "git+https://github.com/raina-sid/inspect-scorer-probes"
+```
+
+---
+
+## `inspect-audit diff`
+
+### Why a diff
+
+Every scorer or dataset PR to an eval raises the same question — *is this still comparable with
+results produced before it?* — and `inspect_evals`' own `TASK_VERSIONING.md` asks authors to answer
+it. Today that is answered by reading code. Inspect records everything needed to answer it from
+evidence, but nothing compares two states.
+
+What we measured before building this: single-run heuristics over logs flagged 7 things on 20 fresh
+evals and none was real; recomputing a run's metrics from its own stored scores reproduced all 232
+logs we tried, by construction. The findings that were real all came from **comparing two states**.
+
+### Use
+
+```bash
+# dataset: build the task's dataset as an eval would (no model calls), in each state
+inspect-audit snapshot inspect_evals/sciknoweval -o before.jsonl     # at the old code
+inspect-audit snapshot inspect_evals/sciknoweval -o after.jsonl      # at the new code
+inspect-audit diff dataset before.jsonl after.jsonl [--json]
+
+# scores: re-score the SAME transcripts with changed scorer/metric code, then diff
+inspect score base.eval ...                                          # Inspect's own re-scoring
+inspect-audit diff scores base.eval rescored.eval [--json]
+```
+
+Exit status `0` no differences, `1` differences observed, `2` refused or error. A difference is not a
+failure; the code exists so CI can notice.
+
+### What it looks like
+
+Replaying `inspect_evals` PR #940 on `sciknoweval` (abridged):
+
+```
+samples (matched by content: input + choices + target)
+  before               70,196
+  after                66,386
+  removed               3,810
+  added                     0
+  id changed           66,386   (same content, different sample id)
+  metadata changed          0
+
+by group (largest relative loss first)
+  task   material_toxicity_prediction        615 ->        4  (-99.3%)
+  type   mcq-2-choices                       746 ->        9  (-98.8%)
+  task   proteotoxicity_prediction           510 ->      172  (-66.3%)
+  task   molecular_property_prediction     2,365 ->      822  (-65.2%)
+```
+
+The total says 5%. The group breakdown says one task is now scored on 4 questions. Group
+decomposition is part of the result for that reason.
+
+### What it observes, and how
+
+- **Samples are matched by content** (input text, choices, target), not by id. Ids change without
+  content changing, and can repeat; matching on them reports churn that is not there. Id and
+  metadata changes on unchanged content are reported as their own categories.
+- **States are multisets**: row order never matters, duplicates are counted, not collapsed.
+- **Every count names example sample ids** to go and read.
+- **`diff scores` refuses rather than guesses** when either log's scoring phase called a model (a
+  `ModelEvent` inside Inspect's `scorers` span): a judge re-roll alone changes scores, so a difference
+  cannot be attributed to scorer code. It also refuses when the two logs are not the same transcripts,
+  and on header-only logs.
+- It separates **verdicts changed** from **verdicts unchanged, metrics changed** — the second is an
+  aggregation change that no per-sample check can see.
+
+### What it cannot observe
+
+- Whether a difference is intended, harmful or fine. That is yours to decide.
+- Model-graded scoring differences (refused by design, above).
+- Datasets that are gated, need extras or a sandbox to build, or that no longer build at an old
+  commit. Snapshots are the primitive for this reason: build each state wherever it builds.
+- Anything outside the dataset and scores: solver changes, tool behaviour, environment drift.
+- Task lookup uses two private Inspect calls (there is no public API); they are isolated in one place
+  and fail with an explicit error if Inspect changes them.
+
+### Validation
+
+Pre-registered before any code was written ([`validation/diff/PREREG.md`](validation/diff/PREREG.md)),
+result in [`validation/diff/RESULT.md`](validation/diff/RESULT.md):
+
+| replay | observed | |
+|---|---|---|
+| worldsense, PR #940 | 46,872 removed; targets `FALSE`, `IMPOSSIBLE`, `2` -> 0 | pass |
+| sciknoweval, PR #940 | 3,810 removed; `material_toxicity_prediction` 615 -> 4 | pass |
+| aime_scorer, PR #2025 | 0 verdict transitions in 60 real transcripts | uninformative |
+| worldsense metric patch (self-authored) | verdicts unchanged, metrics changed | pass |
+| 7 controls (self, reordered, id-only, metadata-only, model-graded, ...) | as stated | pass |
+
+**"Verdicts changed" is exercised only synthetically so far** — no historical scorer change we
+replayed produced a transition. The replay also found two bugs in the tool itself, both fixed with
+regression tests. Nothing here measures demand: it shows the tool would have surfaced two real
+defects at review time, on one PR, from one bug family.
+
+---
+
+# Explicit contracts: metamorphic scorer probes
 
 Existing scorer tests can establish that a scorer behaves correctly on its fixtures. They do not
 establish that the **measurement** stays invariant under transformations the task contract treats as
 semantically irrelevant.
 
 In a pre-registered run across 18 Inspect evals, a frozen set of such transformations exposed three
-previously missed failures, spanning both scorer-level and metric-level behaviour. All three evals
-already had scorer tests.
+failures, spanning both scorer-level and metric-level behaviour. A later provenance audit found two
+of the three were faithful reproductions of the benchmarks' own reference implementations, not
+defects of the Inspect ports (see [the scorecard](#two-of-the-three-positives-are-not-inspect_evals-bugs)).
 
-The package answers exactly one question:
+This layer answers exactly one question:
 
 > Given a contract **C** and a transformation **T**, does pipeline **P** satisfy **C**?
 
 It does **not** decide whether C is semantically right for the task. That judgment stays with you, is
 recorded in the report, and is hashed.
 
----
-
 ## Install
 
-```bash
-pip install inspect-scorer-probes
-```
+Installed with the package above.
 
 ### Supported versions
 
