@@ -1,0 +1,36 @@
+{
+ "commit": "3ed4cab114",
+ "date": "2026-09-17",
+ "eval": "theagentcompany",
+ "label": "none",
+ "py_changed": 1,
+ "before": "1-A",
+ "after": "1-A",
+ "tasks": [
+  "theagentcompany"
+ ],
+ "secs": {
+  "before": 1.4,
+  "after": 1.2,
+  "again": 1.3
+ },
+ "build": {
+  "before": {
+   "theagentcompany": {
+    "error": "ModuleNotFoundError: No module named 'inspect_cyber'"
+   }
+  },
+  "after": {
+   "theagentcompany": {
+    "error": "ModuleNotFoundError: No module named 'inspect_cyber'"
+   }
+  },
+  "again": {
+   "theagentcompany": {
+    "error": "ModuleNotFoundError: No module named 'inspect_cyber'"
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

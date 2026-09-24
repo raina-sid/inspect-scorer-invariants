@@ -1,0 +1,37 @@
+pairs run: 119
+
+M1 build success (both sides built at least one task)
+  N       23 /   46
+  X       13 /   16
+  none    28 /   57
+  docs     0 /    0
+  primary overall 64 / 119 (54%)
+  top build failures:
+      14  before task: ValueError: No model specified (and no model environment var
+      14  after task: ValueError: No model specified (and no model environment var
+      13  before task: PrerequisiteError: ERROR: Unable to initialise OpenAI client
+      13  after task: PrerequisiteError: ERROR: Unable to initialise OpenAI client
+       9  before task: PrerequisiteError: [bold]ERROR[/bold]: Google API requires o
+       9  after task: PrerequisiteError: [bold]ERROR[/bold]: Google API requires o
+       8  before task: RuntimeError: Command failed: docker compose -p inspect-cti-
+       8  after task: RuntimeError: Command failed: docker compose -p inspect-cti-
+       6  before task: ModuleNotFoundError: No module named 'torch'
+       6  after task: ModuleNotFoundError: No module named 'torch'
+
+M2 flake: 8 / 133 buildable tasks (6.0%)
+    FLAKE 6c97e3589f gpqa/gpqa_diamond
+    FLAKE 6c97e3589f sad/sad_stages_full
+    FLAKE 6c97e3589f sad/sad_stages_oversight
+    FLAKE 6c97e3589f sad/sad_influence
+    FLAKE 6c97e3589f sad/sad_facts_llms
+    FLAKE 6c97e3589f sad/sad_facts_human_defaults
+    FLAKE 81edb2765c cyberseceval_2/cyse2_vulnerability_exploit
+    FLAKE ae814a7a46 bfcl/bfcl_prereqs
+
+M3 fire rate (pair has >= 1 task with a non-empty diff)
+  N        3 /   23  (13%)
+  X        1 /   13  (8%)
+  none     2 /   28  (7%)
+  docs     0 /    0  (0%)
+
+M5 wall time per pair (3 builds): median 9s, p90 42s, max 105s

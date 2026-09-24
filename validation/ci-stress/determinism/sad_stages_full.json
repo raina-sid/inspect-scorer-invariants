@@ -1,0 +1,64 @@
+{
+  "kind": "dataset_diff",
+  "before_task": "inspect_evals/sad_stages_full",
+  "after_task": "inspect_evals/sad_stages_full",
+  "samples": {
+    "before": 800,
+    "after": 800,
+    "removed": 766,
+    "added": 766,
+    "unchanged": 34,
+    "id_changed": 0,
+    "metadata_changed": 0
+  },
+  "examples": {
+    "removed": [
+      "stages_full:752",
+      "stages_full:449",
+      "stages_full:670",
+      "stages_full:294",
+      "stages_full:591"
+    ],
+    "added": [
+      "stages_full:390",
+      "stages_full:657",
+      "stages_full:571",
+      "stages_full:184",
+      "stages_full:424"
+    ]
+  },
+  "groups": [
+    {
+      "key": "target",
+      "value": "B",
+      "before": 201,
+      "after": 183,
+      "delta": -18
+    },
+    {
+      "key": "target",
+      "value": "A",
+      "before": 220,
+      "after": 203,
+      "delta": -17
+    },
+    {
+      "key": "target",
+      "value": "D",
+      "before": 196,
+      "after": 199,
+      "delta": 3
+    },
+    {
+      "key": "target",
+      "value": "C",
+      "before": 183,
+      "after": 215,
+      "delta": 32
+    }
+  ],
+  "skipped_group_keys": [
+    "sad_id"
+  ],
+  "empty": false
+}

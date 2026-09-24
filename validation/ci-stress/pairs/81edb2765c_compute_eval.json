@@ -1,0 +1,66 @@
+{
+ "commit": "81edb2765c",
+ "date": "2026-09-15",
+ "eval": "compute_eval",
+ "label": "X",
+ "py_changed": 1,
+ "before": "1-A",
+ "after": "1-B",
+ "tasks": [
+  "compute_eval"
+ ],
+ "secs": {
+  "before": 3.3,
+  "after": 3.3,
+  "again": 3.2
+ },
+ "build": {
+  "before": {
+   "compute_eval": {
+    "n": 406,
+    "path": "/tmp/stress/out/snaps/81edb2765c_compute_eval_before/compute_eval.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "compute_eval": {
+    "n": 406,
+    "path": "/tmp/stress/out/snaps/81edb2765c_compute_eval_after/compute_eval.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "compute_eval": {
+    "n": 406,
+    "path": "/tmp/stress/out/snaps/81edb2765c_compute_eval_again/compute_eval.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "compute_eval": {
+   "kind": "dataset_diff",
+   "before_task": "compute_eval",
+   "after_task": "compute_eval",
+   "samples": {
+    "before": 406,
+    "after": 406,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 406,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "prompt",
+    "task_id"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "compute_eval": false
+ }
+}

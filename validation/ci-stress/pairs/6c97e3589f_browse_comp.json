@@ -1,0 +1,36 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "browse_comp",
+ "label": "none",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "2-A",
+ "tasks": [
+  "browse_comp"
+ ],
+ "secs": {
+  "before": 1.7,
+  "after": 1.5,
+  "again": 1.5
+ },
+ "build": {
+  "before": {
+   "browse_comp": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  },
+  "after": {
+   "browse_comp": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  },
+  "again": {
+   "browse_comp": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

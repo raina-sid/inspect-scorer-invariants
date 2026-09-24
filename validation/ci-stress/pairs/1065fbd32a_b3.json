@@ -1,0 +1,36 @@
+{
+ "commit": "1065fbd32a",
+ "date": "2026-07-13",
+ "eval": "b3",
+ "label": "N",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "3-A",
+ "tasks": [
+  "b3"
+ ],
+ "secs": {
+  "before": 3.6,
+  "after": 4.5,
+  "again": 3.9
+ },
+ "build": {
+  "before": {
+   "b3": {
+    "error": "ImportError: rouge_score is not installed. Install with `uv sync --extra b3` to run the b3 benchmark."
+   }
+  },
+  "after": {
+   "b3": {
+    "error": "ImportError: rouge_score is not installed. Install with `uv sync --extra b3` to run the b3 benchmark."
+   }
+  },
+  "again": {
+   "b3": {
+    "error": "ImportError: rouge_score is not installed. Install with `uv sync --extra b3` to run the b3 benchmark."
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

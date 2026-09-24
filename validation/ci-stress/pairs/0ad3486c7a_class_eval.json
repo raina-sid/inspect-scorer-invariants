@@ -1,0 +1,36 @@
+{
+ "commit": "0ad3486c7a",
+ "date": "2026-08-19",
+ "eval": "class_eval",
+ "label": "N",
+ "py_changed": 1,
+ "before": "2-C",
+ "after": "3-C",
+ "tasks": [
+  "class_eval"
+ ],
+ "secs": {
+  "before": 4.1,
+  "after": 3.1,
+  "again": 4.2
+ },
+ "build": {
+  "before": {
+   "class_eval": {
+    "error": "CalledProcessError: Command '['docker', 'compose', '-f', '/tmp/stress/work/tmp6zm9d55b/src/inspect_evals/class_eval/compose.yaml', 'config']' returned non-zero exit status 125."
+   }
+  },
+  "after": {
+   "class_eval": {
+    "error": "CalledProcessError: Command '['docker', 'compose', '-f', '/tmp/stress/work/tmpg3kdg7bq/src/inspect_evals/class_eval/compose.yaml', 'config']' returned non-zero exit status 125."
+   }
+  },
+  "again": {
+   "class_eval": {
+    "error": "CalledProcessError: Command '['docker', 'compose', '-f', '/tmp/stress/work/tmpiix7z1io/src/inspect_evals/class_eval/compose.yaml', 'config']' returned non-zero exit status 125."
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

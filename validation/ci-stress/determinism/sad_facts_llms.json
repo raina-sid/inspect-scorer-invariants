@@ -1,0 +1,35 @@
+{
+  "kind": "dataset_diff",
+  "before_task": "inspect_evals/sad_facts_llms",
+  "after_task": "inspect_evals/sad_facts_llms",
+  "samples": {
+    "before": 249,
+    "after": 249,
+    "removed": 126,
+    "added": 126,
+    "unchanged": 123,
+    "id_changed": 0,
+    "metadata_changed": 0
+  },
+  "examples": {
+    "removed": [
+      "facts_llms:6",
+      "facts_llms:17",
+      "facts_llms:26",
+      "facts_llms:152",
+      "facts_llms:192"
+    ],
+    "added": [
+      "facts_llms:0",
+      "facts_llms:202",
+      "facts_llms:111",
+      "facts_llms:130",
+      "facts_llms:232"
+    ]
+  },
+  "groups": [],
+  "skipped_group_keys": [
+    "sad_id"
+  ],
+  "empty": false
+}

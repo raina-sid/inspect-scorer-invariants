@@ -1,0 +1,218 @@
+{
+ "commit": "1988aaf076",
+ "date": "2026-08-24",
+ "eval": "cyberseceval_4",
+ "label": "N",
+ "py_changed": 1,
+ "before": "4-B",
+ "after": "5-B",
+ "tasks": [
+  "cyse4_mitre",
+  "cyse4_mitre_frr",
+  "cyse4_instruct",
+  "cyse4_autocomplete",
+  "cyse4_multiturn_phishing"
+ ],
+ "secs": {
+  "before": 1.9,
+  "after": 1.9,
+  "again": 1.8
+ },
+ "build": {
+  "before": {
+   "cyse4_mitre": {
+    "n": 1000,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_before/cyse4_mitre.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse4_mitre_frr": {
+    "n": 750,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_before/cyse4_mitre_frr.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse4_instruct": {
+    "n": 1916,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_before/cyse4_instruct.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse4_autocomplete": {
+    "n": 1916,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_before/cyse4_autocomplete.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse4_multiturn_phishing": {
+    "n": 856,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_before/cyse4_multiturn_phishing.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "cyse4_mitre": {
+    "n": 1000,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_after/cyse4_mitre.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse4_mitre_frr": {
+    "n": 750,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_after/cyse4_mitre_frr.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse4_instruct": {
+    "n": 1916,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_after/cyse4_instruct.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse4_autocomplete": {
+    "n": 1916,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_after/cyse4_autocomplete.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse4_multiturn_phishing": {
+    "n": 856,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_after/cyse4_multiturn_phishing.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "cyse4_mitre": {
+    "n": 1000,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_again/cyse4_mitre.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse4_mitre_frr": {
+    "n": 750,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_again/cyse4_mitre_frr.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse4_instruct": {
+    "n": 1916,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_again/cyse4_instruct.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse4_autocomplete": {
+    "n": 1916,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_again/cyse4_autocomplete.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse4_multiturn_phishing": {
+    "n": 856,
+    "path": "/tmp/stress/out/snaps/1988aaf076_cyberseceval_4_again/cyse4_multiturn_phishing.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "cyse4_mitre": {
+   "kind": "dataset_diff",
+   "before_task": "cyse4_mitre",
+   "after_task": "cyse4_mitre",
+   "samples": {
+    "before": 1000,
+    "after": 1000,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 1000,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "base_prompt"
+   ],
+   "empty": true
+  },
+  "cyse4_mitre_frr": {
+   "kind": "dataset_diff",
+   "before_task": "cyse4_mitre_frr",
+   "after_task": "cyse4_mitre_frr",
+   "samples": {
+    "before": 750,
+    "after": 750,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 750,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "cyse4_instruct": {
+   "kind": "dataset_diff",
+   "before_task": "cyse4_instruct",
+   "after_task": "cyse4_instruct",
+   "samples": {
+    "before": 1916,
+    "after": 1916,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 1916,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "line_text",
+    "origin_code",
+    "pattern_desc",
+    "target"
+   ],
+   "empty": true
+  },
+  "cyse4_autocomplete": {
+   "kind": "dataset_diff",
+   "before_task": "cyse4_autocomplete",
+   "after_task": "cyse4_autocomplete",
+   "samples": {
+    "before": 1916,
+    "after": 1916,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 1916,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "line_text",
+    "origin_code",
+    "pattern_desc",
+    "target"
+   ],
+   "empty": true
+  },
+  "cyse4_multiturn_phishing": {
+   "kind": "dataset_diff",
+   "before_task": "cyse4_multiturn_phishing",
+   "after_task": "cyse4_multiturn_phishing",
+   "samples": {
+    "before": 856,
+    "after": 856,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 856,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "prompt_id",
+    "target_profile"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "cyse4_mitre": false,
+  "cyse4_mitre_frr": false,
+  "cyse4_instruct": false,
+  "cyse4_autocomplete": false,
+  "cyse4_multiturn_phishing": false
+ }
+}

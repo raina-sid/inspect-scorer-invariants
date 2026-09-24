@@ -1,0 +1,93 @@
+{
+ "commit": "a89ec03183",
+ "date": "2026-09-14",
+ "eval": "agent_bench",
+ "label": "N",
+ "py_changed": 7,
+ "before": "3-A",
+ "after": "4-A",
+ "tasks": [
+  "agent_bench_os"
+ ],
+ "secs": {
+  "before": 1.6,
+  "after": 2.4,
+  "again": 3.9
+ },
+ "build": {
+  "before": {
+   "agent_bench_os": {
+    "n": 125,
+    "path": "/tmp/stress/out/snaps/a89ec03183_agent_bench_before/agent_bench_os.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "agent_bench_os": {
+    "n": 119,
+    "path": "/tmp/stress/out/snaps/a89ec03183_agent_bench_after/agent_bench_os.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "agent_bench_os": {
+    "n": 119,
+    "path": "/tmp/stress/out/snaps/a89ec03183_agent_bench_again/agent_bench_os.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "agent_bench_os": {
+   "kind": "dataset_diff",
+   "before_task": "agent_bench_os",
+   "after_task": "agent_bench_os",
+   "samples": {
+    "before": 125,
+    "after": 119,
+    "removed": 42,
+    "added": 36,
+    "unchanged": 83,
+    "id_changed": 0,
+    "metadata_changed": 21
+   },
+   "examples": {
+    "removed": [
+     "48",
+     "71",
+     "36",
+     "52",
+     "59"
+    ],
+    "added": [
+     "26",
+     "48",
+     "8",
+     "63",
+     "118"
+    ],
+    "metadata_changed": [
+     "46",
+     "27",
+     "41",
+     "56",
+     "97"
+    ]
+   },
+   "groups": [
+    {
+     "key": "target",
+     "value": "<no target, result is checked against a script at eval scoring time>",
+     "before": 123,
+     "after": 117,
+     "delta": -6
+    }
+   ],
+   "skipped_group_keys": [],
+   "empty": false
+  }
+ },
+ "flake": {
+  "agent_bench_os": false
+ }
+}

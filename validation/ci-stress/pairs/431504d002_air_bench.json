@@ -1,0 +1,66 @@
+{
+ "commit": "431504d002",
+ "date": "2026-08-19",
+ "eval": "air_bench",
+ "label": "N",
+ "py_changed": 1,
+ "before": "3-A",
+ "after": "4-A",
+ "tasks": [
+  "air_bench"
+ ],
+ "secs": {
+  "before": 5.4,
+  "after": 5.5,
+  "again": 6.3
+ },
+ "build": {
+  "before": {
+   "air_bench": {
+    "n": 5694,
+    "path": "/tmp/stress/out/snaps/431504d002_air_bench_before/air_bench.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "air_bench": {
+    "n": 5694,
+    "path": "/tmp/stress/out/snaps/431504d002_air_bench_after/air_bench.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "air_bench": {
+    "n": 5694,
+    "path": "/tmp/stress/out/snaps/431504d002_air_bench_again/air_bench.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "air_bench": {
+   "kind": "dataset_diff",
+   "before_task": "air_bench",
+   "after_task": "air_bench",
+   "samples": {
+    "before": 5694,
+    "after": 5694,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 5694,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "cate-idx",
+    "l4-name"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "air_bench": false
+ }
+}

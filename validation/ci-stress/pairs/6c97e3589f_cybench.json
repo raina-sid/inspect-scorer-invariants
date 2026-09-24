@@ -1,0 +1,36 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "cybench",
+ "label": "none",
+ "py_changed": 1,
+ "before": "4-C",
+ "after": "4-C",
+ "tasks": [
+  "cybench"
+ ],
+ "secs": {
+  "before": 1.8,
+  "after": 3.2,
+  "again": 1.9
+ },
+ "build": {
+  "before": {
+   "cybench": {
+    "error": "ModuleNotFoundError: No module named 'inspect_cyber'"
+   }
+  },
+  "after": {
+   "cybench": {
+    "error": "ModuleNotFoundError: No module named 'inspect_cyber'"
+   }
+  },
+  "again": {
+   "cybench": {
+    "error": "ModuleNotFoundError: No module named 'inspect_cyber'"
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

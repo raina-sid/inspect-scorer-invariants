@@ -1,0 +1,169 @@
+{
+ "commit": "81edb2765c",
+ "date": "2026-09-15",
+ "eval": "cyberseceval_2",
+ "label": "X",
+ "py_changed": 3,
+ "before": "4-A",
+ "after": "4-B",
+ "tasks": [
+  "cyse2_interpreter_abuse",
+  "cyse2_prompt_injection",
+  "cyse2_vulnerability_exploit"
+ ],
+ "secs": {
+  "before": 1.4,
+  "after": 1.5,
+  "again": 1.6
+ },
+ "build": {
+  "before": {
+   "cyse2_interpreter_abuse": {
+    "n": 489,
+    "path": "/tmp/stress/out/snaps/81edb2765c_cyberseceval_2_before/cyse2_interpreter_abuse.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse2_prompt_injection": {
+    "n": 250,
+    "path": "/tmp/stress/out/snaps/81edb2765c_cyberseceval_2_before/cyse2_prompt_injection.jsonl",
+    "shuffle_disabled": true
+   },
+   "cyse2_vulnerability_exploit": {
+    "n": 585,
+    "path": "/tmp/stress/out/snaps/81edb2765c_cyberseceval_2_before/cyse2_vulnerability_exploit.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "after": {
+   "cyse2_interpreter_abuse": {
+    "n": 489,
+    "path": "/tmp/stress/out/snaps/81edb2765c_cyberseceval_2_after/cyse2_interpreter_abuse.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse2_prompt_injection": {
+    "n": 250,
+    "path": "/tmp/stress/out/snaps/81edb2765c_cyberseceval_2_after/cyse2_prompt_injection.jsonl",
+    "shuffle_disabled": true
+   },
+   "cyse2_vulnerability_exploit": {
+    "n": 585,
+    "path": "/tmp/stress/out/snaps/81edb2765c_cyberseceval_2_after/cyse2_vulnerability_exploit.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "again": {
+   "cyse2_interpreter_abuse": {
+    "n": 489,
+    "path": "/tmp/stress/out/snaps/81edb2765c_cyberseceval_2_again/cyse2_interpreter_abuse.jsonl",
+    "shuffle_disabled": false
+   },
+   "cyse2_prompt_injection": {
+    "n": 250,
+    "path": "/tmp/stress/out/snaps/81edb2765c_cyberseceval_2_again/cyse2_prompt_injection.jsonl",
+    "shuffle_disabled": true
+   },
+   "cyse2_vulnerability_exploit": {
+    "n": 585,
+    "path": "/tmp/stress/out/snaps/81edb2765c_cyberseceval_2_again/cyse2_vulnerability_exploit.jsonl",
+    "shuffle_disabled": true
+   }
+  }
+ },
+ "diffs": {
+  "cyse2_interpreter_abuse": {
+   "kind": "dataset_diff",
+   "before_task": "cyse2_interpreter_abuse",
+   "after_task": "cyse2_interpreter_abuse",
+   "samples": {
+    "before": 489,
+    "after": 489,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 489,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "cyse2_prompt_injection": {
+   "kind": "dataset_diff",
+   "before_task": "cyse2_prompt_injection",
+   "after_task": "cyse2_prompt_injection",
+   "samples": {
+    "before": 250,
+    "after": 250,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 250,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "judge_question",
+    "target",
+    "test_case_prompt"
+   ],
+   "empty": true
+  },
+  "cyse2_vulnerability_exploit": {
+   "kind": "dataset_diff",
+   "before_task": "cyse2_vulnerability_exploit",
+   "after_task": "cyse2_vulnerability_exploit",
+   "samples": {
+    "before": 585,
+    "after": 585,
+    "removed": 543,
+    "added": 543,
+    "unchanged": 42,
+    "id_changed": 21,
+    "metadata_changed": 21
+   },
+   "examples": {
+    "removed": [
+     "cyberseceval2_vuln_d4798cc2",
+     "cyberseceval2_vuln_77f95a8e",
+     "cyberseceval2_vuln_a695c75d",
+     "cyberseceval2_vuln_f2e0be30",
+     "cyberseceval2_vuln_c1df9a70"
+    ],
+    "added": [
+     "cyberseceval2_vuln_6d6b91c5",
+     "cyberseceval2_vuln_0423b5b6",
+     "cyberseceval2_vuln_6c6e9075",
+     "cyberseceval2_vuln_4373080a",
+     "cyberseceval2_vuln_0189f415"
+    ],
+    "id_changed": [
+     "cyberseceval2_vuln_9e5d2283 -> cyberseceval2_vuln_db0c6087",
+     "cyberseceval2_vuln_d58103ea -> cyberseceval2_vuln_1ee5ecb0",
+     "cyberseceval2_vuln_6b6bcd3a -> cyberseceval2_vuln_0f20a648",
+     "cyberseceval2_vuln_0fbdce6c -> cyberseceval2_vuln_3f675bcd",
+     "cyberseceval2_vuln_c02e33e0 -> cyberseceval2_vuln_f48fdc79"
+    ],
+    "metadata_changed": [
+     "cyberseceval2_vuln_db0c6087",
+     "cyberseceval2_vuln_1ee5ecb0",
+     "cyberseceval2_vuln_0f20a648",
+     "cyberseceval2_vuln_3f675bcd",
+     "cyberseceval2_vuln_f48fdc79"
+    ]
+   },
+   "groups": [],
+   "skipped_group_keys": [
+    "answer",
+    "target"
+   ],
+   "empty": false
+  }
+ },
+ "flake": {
+  "cyse2_interpreter_abuse": false,
+  "cyse2_prompt_injection": false,
+  "cyse2_vulnerability_exploit": true
+ }
+}

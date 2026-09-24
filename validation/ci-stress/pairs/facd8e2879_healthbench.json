@@ -1,0 +1,178 @@
+{
+ "commit": "facd8e2879",
+ "date": "2026-09-15",
+ "eval": "healthbench",
+ "label": "N",
+ "py_changed": 1,
+ "before": "2-B",
+ "after": "3-B",
+ "tasks": [
+  "healthbench",
+  "healthbench_hard",
+  "healthbench_consensus",
+  "healthbench_meta_eval"
+ ],
+ "secs": {
+  "before": 45.3,
+  "after": 5.0,
+  "again": 5.1
+ },
+ "build": {
+  "before": {
+   "healthbench": {
+    "n": 5000,
+    "path": "/tmp/stress/out/snaps/facd8e2879_healthbench_before/healthbench.jsonl",
+    "shuffle_disabled": false
+   },
+   "healthbench_hard": {
+    "n": 1000,
+    "path": "/tmp/stress/out/snaps/facd8e2879_healthbench_before/healthbench_hard.jsonl",
+    "shuffle_disabled": false
+   },
+   "healthbench_consensus": {
+    "n": 3671,
+    "path": "/tmp/stress/out/snaps/facd8e2879_healthbench_before/healthbench_consensus.jsonl",
+    "shuffle_disabled": false
+   },
+   "healthbench_meta_eval": {
+    "n": 29511,
+    "path": "/tmp/stress/out/snaps/facd8e2879_healthbench_before/healthbench_meta_eval.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "healthbench": {
+    "n": 5000,
+    "path": "/tmp/stress/out/snaps/facd8e2879_healthbench_after/healthbench.jsonl",
+    "shuffle_disabled": false
+   },
+   "healthbench_hard": {
+    "n": 1000,
+    "path": "/tmp/stress/out/snaps/facd8e2879_healthbench_after/healthbench_hard.jsonl",
+    "shuffle_disabled": false
+   },
+   "healthbench_consensus": {
+    "n": 3671,
+    "path": "/tmp/stress/out/snaps/facd8e2879_healthbench_after/healthbench_consensus.jsonl",
+    "shuffle_disabled": false
+   },
+   "healthbench_meta_eval": {
+    "n": 29511,
+    "path": "/tmp/stress/out/snaps/facd8e2879_healthbench_after/healthbench_meta_eval.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "healthbench": {
+    "n": 5000,
+    "path": "/tmp/stress/out/snaps/facd8e2879_healthbench_again/healthbench.jsonl",
+    "shuffle_disabled": false
+   },
+   "healthbench_hard": {
+    "n": 1000,
+    "path": "/tmp/stress/out/snaps/facd8e2879_healthbench_again/healthbench_hard.jsonl",
+    "shuffle_disabled": false
+   },
+   "healthbench_consensus": {
+    "n": 3671,
+    "path": "/tmp/stress/out/snaps/facd8e2879_healthbench_again/healthbench_consensus.jsonl",
+    "shuffle_disabled": false
+   },
+   "healthbench_meta_eval": {
+    "n": 29511,
+    "path": "/tmp/stress/out/snaps/facd8e2879_healthbench_again/healthbench_meta_eval.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "healthbench": {
+   "kind": "dataset_diff",
+   "before_task": "healthbench",
+   "after_task": "healthbench",
+   "samples": {
+    "before": 5000,
+    "after": 5000,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 5000,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "prompt_id"
+   ],
+   "empty": true
+  },
+  "healthbench_hard": {
+   "kind": "dataset_diff",
+   "before_task": "healthbench_hard",
+   "after_task": "healthbench_hard",
+   "samples": {
+    "before": 1000,
+    "after": 1000,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 1000,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "prompt_id"
+   ],
+   "empty": true
+  },
+  "healthbench_consensus": {
+   "kind": "dataset_diff",
+   "before_task": "healthbench_consensus",
+   "after_task": "healthbench_consensus",
+   "samples": {
+    "before": 3671,
+    "after": 3671,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 3671,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "prompt_id"
+   ],
+   "empty": true
+  },
+  "healthbench_meta_eval": {
+   "kind": "dataset_diff",
+   "before_task": "healthbench_meta_eval",
+   "after_task": "healthbench_meta_eval",
+   "samples": {
+    "before": 29511,
+    "after": 29511,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 29511,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "completion_id",
+    "prompt_id",
+    "target"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "healthbench": false,
+  "healthbench_hard": false,
+  "healthbench_consensus": false,
+  "healthbench_meta_eval": false
+ }
+}

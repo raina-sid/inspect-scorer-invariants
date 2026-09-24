@@ -1,0 +1,139 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "frontier_cs",
+ "label": "none",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "2-A",
+ "tasks": [
+  "frontier_cs",
+  "frontier_cs_algorithmic",
+  "frontier_cs_research"
+ ],
+ "secs": {
+  "before": 6.6,
+  "after": 4.9,
+  "again": 5.1
+ },
+ "build": {
+  "before": {
+   "frontier_cs": {
+    "n": 211,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_frontier_cs_before/frontier_cs.jsonl",
+    "shuffle_disabled": true
+   },
+   "frontier_cs_algorithmic": {
+    "n": 172,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_frontier_cs_before/frontier_cs_algorithmic.jsonl",
+    "shuffle_disabled": true
+   },
+   "frontier_cs_research": {
+    "n": 39,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_frontier_cs_before/frontier_cs_research.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "after": {
+   "frontier_cs": {
+    "n": 211,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_frontier_cs_after/frontier_cs.jsonl",
+    "shuffle_disabled": true
+   },
+   "frontier_cs_algorithmic": {
+    "n": 172,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_frontier_cs_after/frontier_cs_algorithmic.jsonl",
+    "shuffle_disabled": true
+   },
+   "frontier_cs_research": {
+    "n": 39,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_frontier_cs_after/frontier_cs_research.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "again": {
+   "frontier_cs": {
+    "n": 211,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_frontier_cs_again/frontier_cs.jsonl",
+    "shuffle_disabled": true
+   },
+   "frontier_cs_algorithmic": {
+    "n": 172,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_frontier_cs_again/frontier_cs_algorithmic.jsonl",
+    "shuffle_disabled": true
+   },
+   "frontier_cs_research": {
+    "n": 39,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_frontier_cs_again/frontier_cs_research.jsonl",
+    "shuffle_disabled": true
+   }
+  }
+ },
+ "diffs": {
+  "frontier_cs": {
+   "kind": "dataset_diff",
+   "before_task": "frontier_cs",
+   "after_task": "frontier_cs",
+   "samples": {
+    "before": 211,
+    "after": 211,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 211,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "problem_id",
+    "statement"
+   ],
+   "empty": true
+  },
+  "frontier_cs_algorithmic": {
+   "kind": "dataset_diff",
+   "before_task": "frontier_cs_algorithmic",
+   "after_task": "frontier_cs_algorithmic",
+   "samples": {
+    "before": 172,
+    "after": 172,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 172,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "problem_id",
+    "statement"
+   ],
+   "empty": true
+  },
+  "frontier_cs_research": {
+   "kind": "dataset_diff",
+   "before_task": "frontier_cs_research",
+   "after_task": "frontier_cs_research",
+   "samples": {
+    "before": 39,
+    "after": 39,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 39,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  }
+ },
+ "flake": {
+  "frontier_cs": false,
+  "frontier_cs_algorithmic": false,
+  "frontier_cs_research": false
+ }
+}

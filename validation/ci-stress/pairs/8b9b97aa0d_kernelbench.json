@@ -1,0 +1,49 @@
+{
+ "commit": "8b9b97aa0d",
+ "date": "2026-09-18",
+ "eval": "kernelbench",
+ "label": "none",
+ "py_changed": 6,
+ "before": "6-C",
+ "after": "6-C",
+ "tasks": [
+  "kernelbench",
+  "kernelbench_sandbox_check"
+ ],
+ "secs": {
+  "before": 13.8,
+  "after": 2.1,
+  "again": 2.1
+ },
+ "build": {
+  "before": {
+   "kernelbench": {
+    "error": "ModuleNotFoundError: No module named 'torch'"
+   },
+   "kernelbench_sandbox_check": {
+    "error": "task not registered"
+   },
+   "_full_checkout": true
+  },
+  "after": {
+   "kernelbench": {
+    "error": "ModuleNotFoundError: No module named 'torch'"
+   },
+   "kernelbench_sandbox_check": {
+    "error": "ModuleNotFoundError: No module named 'kernelbench'"
+   },
+   "_full_checkout": false
+  },
+  "again": {
+   "kernelbench": {
+    "error": "ModuleNotFoundError: No module named 'torch'"
+   },
+   "kernelbench_sandbox_check": {
+    "error": "ModuleNotFoundError: No module named 'kernelbench'"
+   },
+   "_full_checkout": false
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

@@ -1,0 +1,69 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "sciknoweval",
+ "label": "none",
+ "py_changed": 1,
+ "before": "3-B",
+ "after": "3-B",
+ "tasks": [
+  "sciknoweval"
+ ],
+ "secs": {
+  "before": 10.3,
+  "after": 6.8,
+  "again": 6.9
+ },
+ "build": {
+  "before": {
+   "sciknoweval": {
+    "n": 66386,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sciknoweval_before/sciknoweval.jsonl",
+    "shuffle_disabled": true
+   },
+   "_full_checkout": false
+  },
+  "after": {
+   "sciknoweval": {
+    "n": 66386,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sciknoweval_after/sciknoweval.jsonl",
+    "shuffle_disabled": true
+   },
+   "_full_checkout": false
+  },
+  "again": {
+   "sciknoweval": {
+    "n": 66386,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sciknoweval_again/sciknoweval.jsonl",
+    "shuffle_disabled": true
+   },
+   "_full_checkout": false
+  }
+ },
+ "diffs": {
+  "sciknoweval": {
+   "kind": "dataset_diff",
+   "before_task": "sciknoweval",
+   "after_task": "sciknoweval",
+   "samples": {
+    "before": 66386,
+    "after": 66386,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 66386,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "subtask",
+    "target"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "sciknoweval": false
+ }
+}

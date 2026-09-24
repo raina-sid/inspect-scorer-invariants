@@ -1,0 +1,36 @@
+{
+ "commit": "431504d002",
+ "date": "2026-08-19",
+ "eval": "livecodebench_pro",
+ "label": "N",
+ "py_changed": 1,
+ "before": "1-A",
+ "after": "2-A",
+ "tasks": [
+  "livecodebench_pro"
+ ],
+ "secs": {
+  "before": 3.0,
+  "after": 4.0,
+  "again": 3.3
+ },
+ "build": {
+  "before": {
+   "livecodebench_pro": {
+    "error": "CalledProcessError: Command '['docker', 'compose', '-f', '/tmp/stress/work/tmprgdqhcx0/src/inspect_evals/livecodebench_pro/compose.yaml', 'config']' returned non-zero exit status 125."
+   }
+  },
+  "after": {
+   "livecodebench_pro": {
+    "error": "CalledProcessError: Command '['docker', 'compose', '-f', '/tmp/stress/work/tmp9mrwlvdu/src/inspect_evals/livecodebench_pro/compose.yaml', 'config']' returned non-zero exit status 125."
+   }
+  },
+  "again": {
+   "livecodebench_pro": {
+    "error": "CalledProcessError: Command '['docker', 'compose', '-f', '/tmp/stress/work/tmpza8xys67/src/inspect_evals/livecodebench_pro/compose.yaml', 'config']' returned non-zero exit status 125."
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

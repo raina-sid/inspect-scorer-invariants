@@ -1,0 +1,69 @@
+{
+ "commit": "81edb2765c",
+ "date": "2026-09-15",
+ "eval": "cyberseceval_3",
+ "label": "X",
+ "py_changed": 1,
+ "before": "3-A",
+ "after": "3-B",
+ "tasks": [
+  "cyse3_visual_prompt_injection"
+ ],
+ "secs": {
+  "before": 55.9,
+  "after": 3.9,
+  "again": 3.9
+ },
+ "build": {
+  "before": {
+   "cyse3_visual_prompt_injection": {
+    "n": 1000,
+    "path": "/tmp/stress/out/snaps/81edb2765c_cyberseceval_3_before/cyse3_visual_prompt_injection.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "after": {
+   "cyse3_visual_prompt_injection": {
+    "n": 1000,
+    "path": "/tmp/stress/out/snaps/81edb2765c_cyberseceval_3_after/cyse3_visual_prompt_injection.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "again": {
+   "cyse3_visual_prompt_injection": {
+    "n": 1000,
+    "path": "/tmp/stress/out/snaps/81edb2765c_cyberseceval_3_again/cyse3_visual_prompt_injection.jsonl",
+    "shuffle_disabled": true
+   }
+  }
+ },
+ "diffs": {
+  "cyse3_visual_prompt_injection": {
+   "kind": "dataset_diff",
+   "before_task": "cyse3_visual_prompt_injection",
+   "after_task": "cyse3_visual_prompt_injection",
+   "samples": {
+    "before": 1000,
+    "after": 1000,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 1000,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "id",
+    "judge_question",
+    "system_prompt",
+    "target",
+    "user_input_text"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "cyse3_visual_prompt_injection": false
+ }
+}

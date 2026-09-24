@@ -1,0 +1,49 @@
+{
+ "commit": "8ddfea18ea",
+ "date": "2026-09-18",
+ "eval": "ds1000",
+ "label": "none",
+ "py_changed": 4,
+ "before": "3-B",
+ "after": "3-B",
+ "tasks": [
+  "ds1000",
+  "ds1000_sandbox_check"
+ ],
+ "secs": {
+  "before": 14.4,
+  "after": 2.2,
+  "again": 2.1
+ },
+ "build": {
+  "before": {
+   "ds1000": {
+    "error": "CalledProcessError: Command '['docker', 'compose', '-f', '/tmp/stress/work/tmp9ayrnffy/src/inspect_evals/ds1000/compose.yaml', 'config']' returned non-zero exit status 125."
+   },
+   "ds1000_sandbox_check": {
+    "error": "task not registered"
+   },
+   "_full_checkout": true
+  },
+  "after": {
+   "ds1000": {
+    "error": "CalledProcessError: Command '['docker', 'compose', '-f', '/tmp/stress/work/tmpx62m9fxl/src/inspect_evals/ds1000/compose.yaml', 'config']' returned non-zero exit status 125."
+   },
+   "ds1000_sandbox_check": {
+    "error": "CalledProcessError: Command '['docker', 'compose', '-f', '/tmp/stress/work/tmpx62m9fxl/src/inspect_evals/ds1000/compose.yaml', 'config']' returned non-zero exit status 125."
+   },
+   "_full_checkout": false
+  },
+  "again": {
+   "ds1000": {
+    "error": "CalledProcessError: Command '['docker', 'compose', '-f', '/tmp/stress/work/tmpgo69e32o/src/inspect_evals/ds1000/compose.yaml', 'config']' returned non-zero exit status 125."
+   },
+   "ds1000_sandbox_check": {
+    "error": "CalledProcessError: Command '['docker', 'compose', '-f', '/tmp/stress/work/tmpgo69e32o/src/inspect_evals/ds1000/compose.yaml', 'config']' returned non-zero exit status 125."
+   },
+   "_full_checkout": false
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

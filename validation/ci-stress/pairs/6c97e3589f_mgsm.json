@@ -1,0 +1,66 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "mgsm",
+ "label": "none",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "2-A",
+ "tasks": [
+  "mgsm"
+ ],
+ "secs": {
+  "before": 1.5,
+  "after": 1.8,
+  "again": 1.4
+ },
+ "build": {
+  "before": {
+   "mgsm": {
+    "n": 2750,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_mgsm_before/mgsm.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "after": {
+   "mgsm": {
+    "n": 2750,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_mgsm_after/mgsm.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "again": {
+   "mgsm": {
+    "n": 2750,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_mgsm_again/mgsm.jsonl",
+    "shuffle_disabled": true
+   }
+  }
+ },
+ "diffs": {
+  "mgsm": {
+   "kind": "dataset_diff",
+   "before_task": "mgsm",
+   "after_task": "mgsm",
+   "samples": {
+    "before": 2750,
+    "after": 2750,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 2750,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "question_id",
+    "target"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "mgsm": false
+ }
+}

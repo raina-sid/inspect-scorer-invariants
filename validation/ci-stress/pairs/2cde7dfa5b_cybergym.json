@@ -1,0 +1,36 @@
+{
+ "commit": "2cde7dfa5b",
+ "date": "2026-09-09",
+ "eval": "cybergym",
+ "label": "none",
+ "py_changed": 1,
+ "before": "3-B",
+ "after": "3-B",
+ "tasks": [
+  "cybergym"
+ ],
+ "secs": {
+  "before": 1.4,
+  "after": 1.4,
+  "again": 1.4
+ },
+ "build": {
+  "before": {
+   "cybergym": {
+    "error": "ModuleNotFoundError: No module named 'inspect_cyber'"
+   }
+  },
+  "after": {
+   "cybergym": {
+    "error": "ModuleNotFoundError: No module named 'inspect_cyber'"
+   }
+  },
+  "again": {
+   "cybergym": {
+    "error": "ModuleNotFoundError: No module named 'inspect_cyber'"
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

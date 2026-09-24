@@ -1,0 +1,36 @@
+{
+ "commit": "1f2a1b9358",
+ "date": "2026-08-21",
+ "eval": "niah",
+ "label": "N",
+ "py_changed": 2,
+ "before": "2-A",
+ "after": "3-A",
+ "tasks": [
+  "niah"
+ ],
+ "secs": {
+  "before": 2.1,
+  "after": 2.1,
+  "again": 2.1
+ },
+ "build": {
+  "before": {
+   "niah": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  },
+  "after": {
+   "niah": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  },
+  "again": {
+   "niah": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

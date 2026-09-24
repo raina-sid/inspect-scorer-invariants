@@ -1,0 +1,18 @@
+{
+  "kind": "dataset_diff",
+  "before_task": "inspect_evals/gpqa_diamond",
+  "after_task": "inspect_evals/gpqa_diamond",
+  "samples": {
+    "before": 198,
+    "after": 198,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 198,
+    "id_changed": 0,
+    "metadata_changed": 0
+  },
+  "examples": {},
+  "groups": [],
+  "skipped_group_keys": [],
+  "empty": true
+}

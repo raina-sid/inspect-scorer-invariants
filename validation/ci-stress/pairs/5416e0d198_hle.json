@@ -1,0 +1,36 @@
+{
+ "commit": "5416e0d198",
+ "date": "2026-08-19",
+ "eval": "hle",
+ "label": "N",
+ "py_changed": 5,
+ "before": "4-B",
+ "after": "5-C",
+ "tasks": [
+  "hle"
+ ],
+ "secs": {
+  "before": 2.6,
+  "after": 3.1,
+  "again": 2.8
+ },
+ "build": {
+  "before": {
+   "hle": {
+    "error": "DatasetNotFoundError: Dataset 'cais/hle' is a gated dataset on the Hub. You must be authenticated to access it."
+   }
+  },
+  "after": {
+   "hle": {
+    "error": "DatasetNotFoundError: Dataset 'cais/hle' is a gated dataset on the Hub. You must be authenticated to access it."
+   }
+  },
+  "again": {
+   "hle": {
+    "error": "DatasetNotFoundError: Dataset 'cais/hle' is a gated dataset on the Hub. You must be authenticated to access it."
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

@@ -1,0 +1,36 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "mlrc_bench",
+ "label": "none",
+ "py_changed": 1,
+ "before": "1-C",
+ "after": "1-C",
+ "tasks": [
+  "mlrc_bench"
+ ],
+ "secs": {
+  "before": 1.3,
+  "after": 1.3,
+  "again": 1.4
+ },
+ "build": {
+  "before": {
+   "mlrc_bench": {
+    "error": "RuntimeError: HF_TOKEN environment variable is required for the llm-merging task. Export it in your shell or add it to ./.env (HF_TOKEN=...)."
+   }
+  },
+  "after": {
+   "mlrc_bench": {
+    "error": "RuntimeError: HF_TOKEN environment variable is required for the llm-merging task. Export it in your shell or add it to ./.env (HF_TOKEN=...)."
+   }
+  },
+  "again": {
+   "mlrc_bench": {
+    "error": "RuntimeError: HF_TOKEN environment variable is required for the llm-merging task. Export it in your shell or add it to ./.env (HF_TOKEN=...)."
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

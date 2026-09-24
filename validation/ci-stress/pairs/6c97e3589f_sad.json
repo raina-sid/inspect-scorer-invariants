@@ -1,0 +1,387 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "sad",
+ "label": "none",
+ "py_changed": 1,
+ "before": "3-A",
+ "after": "3-A",
+ "tasks": [
+  "sad_stages_full",
+  "sad_stages_oversight",
+  "sad_influence",
+  "sad_facts_llms",
+  "sad_facts_human_defaults"
+ ],
+ "secs": {
+  "before": 7.3,
+  "after": 2.9,
+  "again": 2.8
+ },
+ "build": {
+  "before": {
+   "sad_stages_full": {
+    "n": 800,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_before/sad_stages_full.jsonl",
+    "shuffle_disabled": false
+   },
+   "sad_stages_oversight": {
+    "n": 400,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_before/sad_stages_oversight.jsonl",
+    "shuffle_disabled": false
+   },
+   "sad_influence": {
+    "n": 255,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_before/sad_influence.jsonl",
+    "shuffle_disabled": false
+   },
+   "sad_facts_llms": {
+    "n": 249,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_before/sad_facts_llms.jsonl",
+    "shuffle_disabled": false
+   },
+   "sad_facts_human_defaults": {
+    "n": 1200,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_before/sad_facts_human_defaults.jsonl",
+    "shuffle_disabled": false
+   },
+   "_full_checkout": false
+  },
+  "after": {
+   "sad_stages_full": {
+    "n": 800,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_after/sad_stages_full.jsonl",
+    "shuffle_disabled": false
+   },
+   "sad_stages_oversight": {
+    "n": 400,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_after/sad_stages_oversight.jsonl",
+    "shuffle_disabled": false
+   },
+   "sad_influence": {
+    "n": 255,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_after/sad_influence.jsonl",
+    "shuffle_disabled": false
+   },
+   "sad_facts_llms": {
+    "n": 249,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_after/sad_facts_llms.jsonl",
+    "shuffle_disabled": false
+   },
+   "sad_facts_human_defaults": {
+    "n": 1200,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_after/sad_facts_human_defaults.jsonl",
+    "shuffle_disabled": false
+   },
+   "_full_checkout": false
+  },
+  "again": {
+   "sad_stages_full": {
+    "n": 800,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_again/sad_stages_full.jsonl",
+    "shuffle_disabled": false
+   },
+   "sad_stages_oversight": {
+    "n": 400,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_again/sad_stages_oversight.jsonl",
+    "shuffle_disabled": false
+   },
+   "sad_influence": {
+    "n": 255,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_again/sad_influence.jsonl",
+    "shuffle_disabled": false
+   },
+   "sad_facts_llms": {
+    "n": 249,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_again/sad_facts_llms.jsonl",
+    "shuffle_disabled": false
+   },
+   "sad_facts_human_defaults": {
+    "n": 1200,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_sad_again/sad_facts_human_defaults.jsonl",
+    "shuffle_disabled": false
+   },
+   "_full_checkout": false
+  }
+ },
+ "diffs": {
+  "sad_stages_full": {
+   "kind": "dataset_diff",
+   "before_task": "sad_stages_full",
+   "after_task": "sad_stages_full",
+   "samples": {
+    "before": 800,
+    "after": 800,
+    "removed": 765,
+    "added": 765,
+    "unchanged": 35,
+    "id_changed": 1,
+    "metadata_changed": 0
+   },
+   "examples": {
+    "removed": [
+     "stages_full:351",
+     "stages_full:729",
+     "stages_full:458",
+     "stages_full:524",
+     "stages_full:69"
+    ],
+    "added": [
+     "stages_full:130",
+     "stages_full:179",
+     "stages_full:338",
+     "stages_full:361",
+     "stages_full:164"
+    ],
+    "id_changed": [
+     "stages_full:14 -> stages_full:58"
+    ]
+   },
+   "groups": [
+    {
+     "key": "target",
+     "value": "B",
+     "before": 188,
+     "after": 181,
+     "delta": -7
+    },
+    {
+     "key": "target",
+     "value": "C",
+     "before": 206,
+     "after": 207,
+     "delta": 1
+    },
+    {
+     "key": "target",
+     "value": "A",
+     "before": 200,
+     "after": 206,
+     "delta": 6
+    }
+   ],
+   "skipped_group_keys": [
+    "sad_id"
+   ],
+   "empty": false
+  },
+  "sad_stages_oversight": {
+   "kind": "dataset_diff",
+   "before_task": "sad_stages_oversight",
+   "after_task": "sad_stages_oversight",
+   "samples": {
+    "before": 400,
+    "after": 400,
+    "removed": 203,
+    "added": 203,
+    "unchanged": 197,
+    "id_changed": 2,
+    "metadata_changed": 0
+   },
+   "examples": {
+    "added": [
+     "stages_oversight:117",
+     "stages_oversight:48",
+     "stages_oversight:216",
+     "stages_oversight:212",
+     "stages_oversight:269"
+    ],
+    "id_changed": [
+     "stages_oversight:302 -> stages_oversight:264",
+     "stages_oversight:264 -> stages_oversight:302"
+    ],
+    "removed": [
+     "stages_oversight:40",
+     "stages_oversight:6",
+     "stages_oversight:295",
+     "stages_oversight:164",
+     "stages_oversight:56"
+    ]
+   },
+   "groups": [
+    {
+     "key": "target",
+     "value": "A",
+     "before": 208,
+     "after": 201,
+     "delta": -7
+    },
+    {
+     "key": "target",
+     "value": "B",
+     "before": 192,
+     "after": 199,
+     "delta": 7
+    }
+   ],
+   "skipped_group_keys": [
+    "sad_id"
+   ],
+   "empty": false
+  },
+  "sad_influence": {
+   "kind": "dataset_diff",
+   "before_task": "sad_influence",
+   "after_task": "sad_influence",
+   "samples": {
+    "before": 255,
+    "after": 255,
+    "removed": 125,
+    "added": 125,
+    "unchanged": 130,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {
+    "removed": [
+     "influence:92",
+     "influence:51",
+     "influence:184",
+     "influence:222",
+     "influence:142"
+    ],
+    "added": [
+     "influence:162",
+     "influence:214",
+     "influence:7",
+     "influence:109",
+     "influence:51"
+    ]
+   },
+   "groups": [
+    {
+     "key": "target",
+     "value": "A",
+     "before": 144,
+     "after": 127,
+     "delta": -17
+    },
+    {
+     "key": "target",
+     "value": "B",
+     "before": 111,
+     "after": 128,
+     "delta": 17
+    }
+   ],
+   "skipped_group_keys": [
+    "sad_id"
+   ],
+   "empty": false
+  },
+  "sad_facts_llms": {
+   "kind": "dataset_diff",
+   "before_task": "sad_facts_llms",
+   "after_task": "sad_facts_llms",
+   "samples": {
+    "before": 249,
+    "after": 249,
+    "removed": 111,
+    "added": 111,
+    "unchanged": 138,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {
+    "removed": [
+     "facts_llms:57",
+     "facts_llms:120",
+     "facts_llms:212",
+     "facts_llms:71",
+     "facts_llms:113"
+    ],
+    "added": [
+     "facts_llms:54",
+     "facts_llms:163",
+     "facts_llms:98",
+     "facts_llms:142",
+     "facts_llms:67"
+    ]
+   },
+   "groups": [
+    {
+     "key": "target",
+     "value": "A",
+     "before": 132,
+     "after": 123,
+     "delta": -9
+    },
+    {
+     "key": "target",
+     "value": "B",
+     "before": 117,
+     "after": 126,
+     "delta": 9
+    }
+   ],
+   "skipped_group_keys": [
+    "sad_id"
+   ],
+   "empty": false
+  },
+  "sad_facts_human_defaults": {
+   "kind": "dataset_diff",
+   "before_task": "sad_facts_human_defaults",
+   "after_task": "sad_facts_human_defaults",
+   "samples": {
+    "before": 1200,
+    "after": 1200,
+    "removed": 515,
+    "added": 515,
+    "unchanged": 685,
+    "id_changed": 68,
+    "metadata_changed": 0
+   },
+   "examples": {
+    "added": [
+     "facts_human_defaults:425",
+     "facts_human_defaults:430",
+     "facts_human_defaults:1014",
+     "facts_human_defaults:393",
+     "facts_human_defaults:931"
+    ],
+    "removed": [
+     "facts_human_defaults:410",
+     "facts_human_defaults:1076",
+     "facts_human_defaults:388",
+     "facts_human_defaults:569",
+     "facts_human_defaults:831"
+    ],
+    "id_changed": [
+     "facts_human_defaults:254 -> facts_human_defaults:578",
+     "facts_human_defaults:211 -> facts_human_defaults:392",
+     "facts_human_defaults:368 -> facts_human_defaults:25",
+     "facts_human_defaults:123 -> facts_human_defaults:788",
+     "facts_human_defaults:265 -> facts_human_defaults:802"
+    ]
+   },
+   "groups": [
+    {
+     "key": "target",
+     "value": "A",
+     "before": 582,
+     "after": 581,
+     "delta": -1
+    },
+    {
+     "key": "target",
+     "value": "B",
+     "before": 618,
+     "after": 619,
+     "delta": 1
+    }
+   ],
+   "skipped_group_keys": [
+    "sad_id"
+   ],
+   "empty": false
+  }
+ },
+ "flake": {
+  "sad_stages_full": true,
+  "sad_stages_oversight": true,
+  "sad_influence": true,
+  "sad_facts_llms": true,
+  "sad_facts_human_defaults": true
+ }
+}

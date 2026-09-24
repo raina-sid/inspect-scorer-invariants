@@ -1,0 +1,39 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "instrumentaleval",
+ "label": "none",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "2-A",
+ "tasks": [
+  "instrumentaleval"
+ ],
+ "secs": {
+  "before": 14.4,
+  "after": 12.5,
+  "again": 11.8
+ },
+ "build": {
+  "before": {
+   "instrumentaleval": {
+    "error": "PrerequisiteError: ERROR: Unable to initialise OpenAI client\n\nNo [bold][blue]OPENAI_API_KEY[/blue][/bold], [bold][blue]AZUREAI_OPENAI_API_KEY[/blue][/bold], or [bold][blue]managed identity (Entra ID)[/blue][/bold] defin"
+   },
+   "_full_checkout": true
+  },
+  "after": {
+   "instrumentaleval": {
+    "error": "PrerequisiteError: ERROR: Unable to initialise OpenAI client\n\nNo [bold][blue]OPENAI_API_KEY[/blue][/bold], [bold][blue]AZUREAI_OPENAI_API_KEY[/blue][/bold], or [bold][blue]managed identity (Entra ID)[/blue][/bold] defin"
+   },
+   "_full_checkout": true
+  },
+  "again": {
+   "instrumentaleval": {
+    "error": "PrerequisiteError: ERROR: Unable to initialise OpenAI client\n\nNo [bold][blue]OPENAI_API_KEY[/blue][/bold], [bold][blue]AZUREAI_OPENAI_API_KEY[/blue][/bold], or [bold][blue]managed identity (Entra ID)[/blue][/bold] defin"
+   },
+   "_full_checkout": true
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

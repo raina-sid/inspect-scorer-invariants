@@ -1,0 +1,63 @@
+{
+ "commit": "d3c0496685",
+ "date": "2026-09-22",
+ "eval": "paperbench",
+ "label": "X",
+ "py_changed": 1,
+ "before": "3-B",
+ "after": "3-C",
+ "tasks": [
+  "paperbench"
+ ],
+ "secs": {
+  "before": 4.0,
+  "after": 3.8,
+  "again": 3.7
+ },
+ "build": {
+  "before": {
+   "paperbench": {
+    "n": 23,
+    "path": "/tmp/stress/out/snaps/d3c0496685_paperbench_before/paperbench.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "paperbench": {
+    "n": 23,
+    "path": "/tmp/stress/out/snaps/d3c0496685_paperbench_after/paperbench.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "paperbench": {
+    "n": 23,
+    "path": "/tmp/stress/out/snaps/d3c0496685_paperbench_again/paperbench.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "paperbench": {
+   "kind": "dataset_diff",
+   "before_task": "paperbench",
+   "after_task": "paperbench",
+   "samples": {
+    "before": 23,
+    "after": 23,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 23,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  }
+ },
+ "flake": {
+  "paperbench": false
+ }
+}

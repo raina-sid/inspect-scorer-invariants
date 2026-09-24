@@ -1,0 +1,36 @@
+{
+ "commit": "35c88015d5",
+ "date": "2026-09-10",
+ "eval": "moru",
+ "label": "N",
+ "py_changed": 2,
+ "before": "2-A",
+ "after": "3-A",
+ "tasks": [
+  "moru"
+ ],
+ "secs": {
+  "before": 4.0,
+  "after": 4.0,
+  "again": 4.0
+ },
+ "build": {
+  "before": {
+   "moru": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  },
+  "after": {
+   "moru": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  },
+  "again": {
+   "moru": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

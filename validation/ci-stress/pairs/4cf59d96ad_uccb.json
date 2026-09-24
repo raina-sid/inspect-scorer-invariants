@@ -1,0 +1,66 @@
+{
+ "commit": "4cf59d96ad",
+ "date": "2026-08-21",
+ "eval": "uccb",
+ "label": "N",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "3-A",
+ "tasks": [
+  "uccb"
+ ],
+ "secs": {
+  "before": 3.7,
+  "after": 4.6,
+  "again": 3.6
+ },
+ "build": {
+  "before": {
+   "uccb": {
+    "n": 1039,
+    "path": "/tmp/stress/out/snaps/4cf59d96ad_uccb_before/uccb.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "after": {
+   "uccb": {
+    "n": 1039,
+    "path": "/tmp/stress/out/snaps/4cf59d96ad_uccb_after/uccb.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "again": {
+   "uccb": {
+    "n": 1039,
+    "path": "/tmp/stress/out/snaps/4cf59d96ad_uccb_again/uccb.jsonl",
+    "shuffle_disabled": true
+   }
+  }
+ },
+ "diffs": {
+  "uccb": {
+   "kind": "dataset_diff",
+   "before_task": "uccb",
+   "after_task": "uccb",
+   "samples": {
+    "before": 1039,
+    "after": 1039,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 1039,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "expected_answer",
+    "target"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "uccb": false
+ }
+}

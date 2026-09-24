@@ -1,0 +1,66 @@
+{
+ "commit": "281c50153d",
+ "date": "2026-08-19",
+ "eval": "ape",
+ "label": "N",
+ "py_changed": 1,
+ "before": "1-A",
+ "after": "2-A",
+ "tasks": [
+  "ape_eval"
+ ],
+ "secs": {
+  "before": 2.5,
+  "after": 1.9,
+  "again": 2.2
+ },
+ "build": {
+  "before": {
+   "ape_eval": {
+    "n": 600,
+    "path": "/tmp/stress/out/snaps/281c50153d_ape_before/ape_eval.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "ape_eval": {
+    "n": 600,
+    "path": "/tmp/stress/out/snaps/281c50153d_ape_after/ape_eval.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "ape_eval": {
+    "n": 600,
+    "path": "/tmp/stress/out/snaps/281c50153d_ape_again/ape_eval.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "ape_eval": {
+   "kind": "dataset_diff",
+   "before_task": "ape_eval",
+   "after_task": "ape_eval",
+   "samples": {
+    "before": 600,
+    "after": 600,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 600,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "short_title",
+    "subject"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "ape_eval": false
+ }
+}

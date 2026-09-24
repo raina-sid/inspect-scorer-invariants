@@ -1,0 +1,66 @@
+{
+ "commit": "ee8972f44d",
+ "date": "2026-09-10",
+ "eval": "ifevalcode",
+ "label": "none",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "2-A",
+ "tasks": [
+  "ifevalcode"
+ ],
+ "secs": {
+  "before": 3.7,
+  "after": 3.7,
+  "again": 4.3
+ },
+ "build": {
+  "before": {
+   "ifevalcode": {
+    "n": 810,
+    "path": "/tmp/stress/out/snaps/ee8972f44d_ifevalcode_before/ifevalcode.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "ifevalcode": {
+    "n": 810,
+    "path": "/tmp/stress/out/snaps/ee8972f44d_ifevalcode_after/ifevalcode.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "ifevalcode": {
+    "n": 810,
+    "path": "/tmp/stress/out/snaps/ee8972f44d_ifevalcode_again/ifevalcode.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "ifevalcode": {
+   "kind": "dataset_diff",
+   "before_task": "ifevalcode",
+   "after_task": "ifevalcode",
+   "samples": {
+    "before": 810,
+    "after": 810,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 810,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "check_correctness",
+    "check_instruction"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "ifevalcode": false
+ }
+}

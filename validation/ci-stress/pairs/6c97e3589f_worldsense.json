@@ -1,0 +1,68 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "worldsense",
+ "label": "none",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "2-A",
+ "tasks": [
+  "worldsense"
+ ],
+ "secs": {
+  "before": 5.1,
+  "after": 3.8,
+  "again": 3.7
+ },
+ "build": {
+  "before": {
+   "worldsense": {
+    "n": 40176,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_worldsense_before/worldsense.jsonl",
+    "shuffle_disabled": true
+   },
+   "_full_checkout": false
+  },
+  "after": {
+   "worldsense": {
+    "n": 40176,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_worldsense_after/worldsense.jsonl",
+    "shuffle_disabled": true
+   },
+   "_full_checkout": false
+  },
+  "again": {
+   "worldsense": {
+    "n": 40176,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_worldsense_again/worldsense.jsonl",
+    "shuffle_disabled": true
+   },
+   "_full_checkout": false
+  }
+ },
+ "diffs": {
+  "worldsense": {
+   "kind": "dataset_diff",
+   "before_task": "worldsense",
+   "after_task": "worldsense",
+   "samples": {
+    "before": 40176,
+    "after": 40176,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 40176,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "tuple_ID"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "worldsense": false
+ }
+}

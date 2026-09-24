@@ -1,0 +1,66 @@
+{
+ "commit": "72cbcf9a89",
+ "date": "2026-08-19",
+ "eval": "swe_lancer",
+ "label": "none",
+ "py_changed": 1,
+ "before": "1-B",
+ "after": "1-B",
+ "tasks": [
+  "swe_lancer"
+ ],
+ "secs": {
+  "before": 5.0,
+  "after": 4.7,
+  "again": 4.1
+ },
+ "build": {
+  "before": {
+   "swe_lancer": {
+    "n": 460,
+    "path": "/tmp/stress/out/snaps/72cbcf9a89_swe_lancer_before/swe_lancer.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "swe_lancer": {
+    "n": 460,
+    "path": "/tmp/stress/out/snaps/72cbcf9a89_swe_lancer_after/swe_lancer.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "swe_lancer": {
+    "n": 460,
+    "path": "/tmp/stress/out/snaps/72cbcf9a89_swe_lancer_again/swe_lancer.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "swe_lancer": {
+   "kind": "dataset_diff",
+   "before_task": "swe_lancer",
+   "after_task": "swe_lancer",
+   "samples": {
+    "before": 460,
+    "after": 460,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 460,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "issue_id",
+    "manager_commit"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "swe_lancer": false
+ }
+}

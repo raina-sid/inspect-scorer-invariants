@@ -1,0 +1,67 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "gdm_intercode_ctf",
+ "label": "none",
+ "py_changed": 1,
+ "before": "4-B",
+ "after": "4-B",
+ "tasks": [
+  "gdm_intercode_ctf"
+ ],
+ "secs": {
+  "before": 2.4,
+  "after": 1.4,
+  "again": 1.5
+ },
+ "build": {
+  "before": {
+   "gdm_intercode_ctf": {
+    "n": 78,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_gdm_intercode_ctf_before/gdm_intercode_ctf.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "after": {
+   "gdm_intercode_ctf": {
+    "n": 78,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_gdm_intercode_ctf_after/gdm_intercode_ctf.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "again": {
+   "gdm_intercode_ctf": {
+    "n": 78,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_gdm_intercode_ctf_again/gdm_intercode_ctf.jsonl",
+    "shuffle_disabled": true
+   }
+  }
+ },
+ "diffs": {
+  "gdm_intercode_ctf": {
+   "kind": "dataset_diff",
+   "before_task": "gdm_intercode_ctf",
+   "after_task": "gdm_intercode_ctf",
+   "samples": {
+    "before": 78,
+    "after": 78,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 78,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "solution",
+    "source",
+    "target"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "gdm_intercode_ctf": false
+ }
+}

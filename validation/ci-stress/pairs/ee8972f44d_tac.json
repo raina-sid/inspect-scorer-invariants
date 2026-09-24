@@ -1,0 +1,46 @@
+{
+ "commit": "ee8972f44d",
+ "date": "2026-09-10",
+ "eval": "tac",
+ "label": "none",
+ "py_changed": 1,
+ "before": "7-C",
+ "after": "7-C",
+ "tasks": [
+  "tac",
+  "tac_welfare"
+ ],
+ "secs": {
+  "before": 3.0,
+  "after": 2.4,
+  "again": 2.7
+ },
+ "build": {
+  "before": {
+   "tac": {
+    "error": "GatedRepoError: 401 Client Error. (Request ID: Root=1-6ab4a54f-430c63b23e63d6ee67fd9eab;ad1862cf-4380-4c7d-bac3-ad5625692c86)\n\nCannot access gated repo for url https://huggingface.co/datasets/CompassioninMachineLearn"
+   },
+   "tac_welfare": {
+    "error": "GatedRepoError: 401 Client Error. (Request ID: Root=1-6ab4a550-3951361e3e7e42312fa41279;28805a79-5dc1-42b5-aadf-6c071f981dc5)\n\nCannot access gated repo for url https://huggingface.co/datasets/CompassioninMachineLearn"
+   }
+  },
+  "after": {
+   "tac": {
+    "error": "GatedRepoError: 401 Client Error. (Request ID: Root=1-6ab4a552-71cae12468ebdd681eef850e;a3615e41-c640-4f4a-a9f9-11fe46f58439)\n\nCannot access gated repo for url https://huggingface.co/datasets/CompassioninMachineLearn"
+   },
+   "tac_welfare": {
+    "error": "GatedRepoError: 401 Client Error. (Request ID: Root=1-6ab4a552-084e43d557fcdcec3478b822;855285fd-706e-4391-9a8c-d018f2cda4e7)\n\nCannot access gated repo for url https://huggingface.co/datasets/CompassioninMachineLearn"
+   }
+  },
+  "again": {
+   "tac": {
+    "error": "GatedRepoError: 401 Client Error. (Request ID: Root=1-6ab4a555-1a0df8933fa120801ce958cc;a5bbf75c-5458-4a9a-a1a5-c918c0f88803)\n\nCannot access gated repo for url https://huggingface.co/datasets/CompassioninMachineLearn"
+   },
+   "tac_welfare": {
+    "error": "GatedRepoError: 401 Client Error. (Request ID: Root=1-6ab4a555-6ec4896e1c3ee6bf16cb41b0;29812409-0a91-4b2b-877b-f8e6566e4d71)\n\nCannot access gated repo for url https://huggingface.co/datasets/CompassioninMachineLearn"
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

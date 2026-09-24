@@ -1,0 +1,107 @@
+{
+ "commit": "700904ddee",
+ "date": "2026-09-10",
+ "eval": "gpqa",
+ "label": "N",
+ "py_changed": 2,
+ "before": "2-B",
+ "after": "3-C",
+ "tasks": [
+  "gpqa_diamond"
+ ],
+ "secs": {
+  "before": 1.4,
+  "after": 1.5,
+  "again": 1.5
+ },
+ "build": {
+  "before": {
+   "gpqa_diamond": {
+    "n": 198,
+    "path": "/tmp/stress/out/snaps/700904ddee_gpqa_before/gpqa_diamond.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "gpqa_diamond": {
+    "n": 198,
+    "path": "/tmp/stress/out/snaps/700904ddee_gpqa_after/gpqa_diamond.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "gpqa_diamond": {
+    "n": 198,
+    "path": "/tmp/stress/out/snaps/700904ddee_gpqa_again/gpqa_diamond.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "gpqa_diamond": {
+   "kind": "dataset_diff",
+   "before_task": "gpqa_diamond",
+   "after_task": "gpqa_diamond",
+   "samples": {
+    "before": 198,
+    "after": 198,
+    "removed": 185,
+    "added": 185,
+    "unchanged": 13,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {
+    "removed": [
+     "recA1i5ZAh0Uzclxp",
+     "recb2M22zaD3tL6Qc",
+     "rec527dNeEtWJrYNl",
+     "recwW1A85nfyQpReG",
+     "recNuT2oSnO86bxOx"
+    ],
+    "added": [
+     "recDj2Y2BbtV02Wv5",
+     "recNu3MXkvWUzHZr9",
+     "rechgQucGlrnt8KRV",
+     "recJJcOHhFeSaRpl4",
+     "reca44yABeO2fx7UB"
+    ]
+   },
+   "groups": [
+    {
+     "key": "target",
+     "value": "A",
+     "before": 50,
+     "after": 45,
+     "delta": -5
+    },
+    {
+     "key": "target",
+     "value": "C",
+     "before": 50,
+     "after": 49,
+     "delta": -1
+    },
+    {
+     "key": "target",
+     "value": "D",
+     "before": 52,
+     "after": 55,
+     "delta": 3
+    },
+    {
+     "key": "target",
+     "value": "B",
+     "before": 46,
+     "after": 49,
+     "delta": 3
+    }
+   ],
+   "skipped_group_keys": [],
+   "empty": false
+  }
+ },
+ "flake": {
+  "gpqa_diamond": false
+ }
+}

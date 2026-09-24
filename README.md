@@ -115,6 +115,21 @@ replayed produced a transition. The replay also found two bugs in the tool itsel
 regression tests. Nothing here measures demand: it shows the tool would have surfaced two real
 defects at review time, on one PR, from one bug family.
 
+### Is it a CI check? Tested: not as a gate
+
+We replayed 119 real (commit, eval) pairs from `inspect_evals` history, June to September 2026, against
+the authors' own version declarations
+([`validation/ci-stress/RESULT.md`](validation/ci-stress/RESULT.md)):
+
+- **It found 0 undeclared changes.** Every real change it saw had already been declared with an N bump.
+- **Builds succeeded for 54% of pairs.** The failures are mostly agentic, model-graded or sandboxed
+  evals, which are where comparability risk is most likely.
+- **6% of tasks flake.** Their datasets differ on every build of identical code.
+
+Use it for **one-shot audits**: a dataset diff across a known change, or building the same code twice
+to check that an eval is the same exam every run. At HEAD, `sad` and `cyse2_vulnerability_exploit`
+are not.
+
 ---
 
 # Explicit contracts: metamorphic scorer probes

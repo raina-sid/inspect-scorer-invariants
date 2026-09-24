@@ -1,0 +1,66 @@
+{
+ "commit": "7ed2906a64",
+ "date": "2026-07-31",
+ "eval": "frontierscience",
+ "label": "none",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "2-A",
+ "tasks": [
+  "frontierscience"
+ ],
+ "secs": {
+  "before": 4.7,
+  "after": 5.0,
+  "again": 4.0
+ },
+ "build": {
+  "before": {
+   "frontierscience": {
+    "n": 160,
+    "path": "/tmp/stress/out/snaps/7ed2906a64_frontierscience_before/frontierscience.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "after": {
+   "frontierscience": {
+    "n": 160,
+    "path": "/tmp/stress/out/snaps/7ed2906a64_frontierscience_after/frontierscience.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "again": {
+   "frontierscience": {
+    "n": 160,
+    "path": "/tmp/stress/out/snaps/7ed2906a64_frontierscience_again/frontierscience.jsonl",
+    "shuffle_disabled": true
+   }
+  }
+ },
+ "diffs": {
+  "frontierscience": {
+   "kind": "dataset_diff",
+   "before_task": "frontierscience",
+   "after_task": "frontierscience",
+   "samples": {
+    "before": 160,
+    "after": 160,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 160,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "target",
+    "task_group_id"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "frontierscience": false
+ }
+}

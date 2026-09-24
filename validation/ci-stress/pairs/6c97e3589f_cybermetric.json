@@ -1,0 +1,168 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "cybermetric",
+ "label": "none",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "2-A",
+ "tasks": [
+  "cybermetric_80",
+  "cybermetric_500",
+  "cybermetric_2000",
+  "cybermetric_10000"
+ ],
+ "secs": {
+  "before": 3.0,
+  "after": 1.8,
+  "again": 1.6
+ },
+ "build": {
+  "before": {
+   "cybermetric_80": {
+    "n": 80,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_cybermetric_before/cybermetric_80.jsonl",
+    "shuffle_disabled": false
+   },
+   "cybermetric_500": {
+    "n": 500,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_cybermetric_before/cybermetric_500.jsonl",
+    "shuffle_disabled": false
+   },
+   "cybermetric_2000": {
+    "n": 2000,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_cybermetric_before/cybermetric_2000.jsonl",
+    "shuffle_disabled": false
+   },
+   "cybermetric_10000": {
+    "n": 10180,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_cybermetric_before/cybermetric_10000.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "cybermetric_80": {
+    "n": 80,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_cybermetric_after/cybermetric_80.jsonl",
+    "shuffle_disabled": false
+   },
+   "cybermetric_500": {
+    "n": 500,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_cybermetric_after/cybermetric_500.jsonl",
+    "shuffle_disabled": false
+   },
+   "cybermetric_2000": {
+    "n": 2000,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_cybermetric_after/cybermetric_2000.jsonl",
+    "shuffle_disabled": false
+   },
+   "cybermetric_10000": {
+    "n": 10180,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_cybermetric_after/cybermetric_10000.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "cybermetric_80": {
+    "n": 80,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_cybermetric_again/cybermetric_80.jsonl",
+    "shuffle_disabled": false
+   },
+   "cybermetric_500": {
+    "n": 500,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_cybermetric_again/cybermetric_500.jsonl",
+    "shuffle_disabled": false
+   },
+   "cybermetric_2000": {
+    "n": 2000,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_cybermetric_again/cybermetric_2000.jsonl",
+    "shuffle_disabled": false
+   },
+   "cybermetric_10000": {
+    "n": 10180,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_cybermetric_again/cybermetric_10000.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "cybermetric_80": {
+   "kind": "dataset_diff",
+   "before_task": "cybermetric_80",
+   "after_task": "cybermetric_80",
+   "samples": {
+    "before": 80,
+    "after": 80,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 80,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "cybermetric_500": {
+   "kind": "dataset_diff",
+   "before_task": "cybermetric_500",
+   "after_task": "cybermetric_500",
+   "samples": {
+    "before": 500,
+    "after": 500,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 500,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "cybermetric_2000": {
+   "kind": "dataset_diff",
+   "before_task": "cybermetric_2000",
+   "after_task": "cybermetric_2000",
+   "samples": {
+    "before": 2000,
+    "after": 2000,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 2000,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "cybermetric_10000": {
+   "kind": "dataset_diff",
+   "before_task": "cybermetric_10000",
+   "after_task": "cybermetric_10000",
+   "samples": {
+    "before": 10180,
+    "after": 10180,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 10180,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  }
+ },
+ "flake": {
+  "cybermetric_80": false,
+  "cybermetric_500": false,
+  "cybermetric_2000": false,
+  "cybermetric_10000": false
+ }
+}

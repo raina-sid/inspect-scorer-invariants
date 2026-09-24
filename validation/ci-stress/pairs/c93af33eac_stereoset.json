@@ -1,0 +1,65 @@
+{
+ "commit": "c93af33eac",
+ "date": "2026-08-19",
+ "eval": "stereoset",
+ "label": "N",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "3-A",
+ "tasks": [
+  "stereoset"
+ ],
+ "secs": {
+  "before": 4.4,
+  "after": 4.5,
+  "again": 5.4
+ },
+ "build": {
+  "before": {
+   "stereoset": {
+    "n": 2115,
+    "path": "/tmp/stress/out/snaps/c93af33eac_stereoset_before/stereoset.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "after": {
+   "stereoset": {
+    "n": 2115,
+    "path": "/tmp/stress/out/snaps/c93af33eac_stereoset_after/stereoset.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "again": {
+   "stereoset": {
+    "n": 2115,
+    "path": "/tmp/stress/out/snaps/c93af33eac_stereoset_again/stereoset.jsonl",
+    "shuffle_disabled": true
+   }
+  }
+ },
+ "diffs": {
+  "stereoset": {
+   "kind": "dataset_diff",
+   "before_task": "stereoset",
+   "after_task": "stereoset",
+   "samples": {
+    "before": 2115,
+    "after": 2115,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 2115,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "target"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "stereoset": false
+ }
+}

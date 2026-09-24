@@ -1,0 +1,69 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "cti_realm",
+ "label": "none",
+ "py_changed": 1,
+ "before": "4-A",
+ "after": "4-A",
+ "tasks": [
+  "cti_realm_25",
+  "cti_realm_50",
+  "cti_realm_25_minimal",
+  "cti_realm_25_seeded"
+ ],
+ "secs": {
+  "before": 28.2,
+  "after": 31.0,
+  "again": 45.5
+ },
+ "build": {
+  "before": {
+   "cti_realm_25": {
+    "error": "RuntimeError: Command failed: docker compose -p inspect-cti-realm-shared -f /tmp/stress/work/tmplskwwd9a/src/inspect_evals/cti_realm/docker/shared_services.yaml up -d --build kusto-emulator kusto-init"
+   },
+   "cti_realm_50": {
+    "error": "RuntimeError: Command failed: docker compose -p inspect-cti-realm-shared -f /tmp/stress/work/tmplskwwd9a/src/inspect_evals/cti_realm/docker/shared_services.yaml up -d --build kusto-emulator kusto-init"
+   },
+   "cti_realm_25_minimal": {
+    "error": "RuntimeError: Command failed: docker compose -p inspect-cti-realm-shared -f /tmp/stress/work/tmplskwwd9a/src/inspect_evals/cti_realm/docker/shared_services.yaml up -d --build kusto-emulator kusto-init"
+   },
+   "cti_realm_25_seeded": {
+    "error": "RuntimeError: Command failed: docker compose -p inspect-cti-realm-shared -f /tmp/stress/work/tmplskwwd9a/src/inspect_evals/cti_realm/docker/shared_services.yaml up -d --build kusto-emulator kusto-init"
+   },
+   "_full_checkout": false
+  },
+  "after": {
+   "cti_realm_25": {
+    "error": "RuntimeError: Command failed: docker compose -p inspect-cti-realm-shared -f /tmp/stress/work/tmp1unbn9zy/src/inspect_evals/cti_realm/docker/shared_services.yaml up -d --build kusto-emulator kusto-init"
+   },
+   "cti_realm_50": {
+    "error": "RuntimeError: Command failed: docker compose -p inspect-cti-realm-shared -f /tmp/stress/work/tmp1unbn9zy/src/inspect_evals/cti_realm/docker/shared_services.yaml up -d --build kusto-emulator kusto-init"
+   },
+   "cti_realm_25_minimal": {
+    "error": "RuntimeError: Command failed: docker compose -p inspect-cti-realm-shared -f /tmp/stress/work/tmp1unbn9zy/src/inspect_evals/cti_realm/docker/shared_services.yaml up -d --build kusto-emulator kusto-init"
+   },
+   "cti_realm_25_seeded": {
+    "error": "RuntimeError: Command failed: docker compose -p inspect-cti-realm-shared -f /tmp/stress/work/tmp1unbn9zy/src/inspect_evals/cti_realm/docker/shared_services.yaml up -d --build kusto-emulator kusto-init"
+   },
+   "_full_checkout": false
+  },
+  "again": {
+   "cti_realm_25": {
+    "error": "RuntimeError: Command failed: docker compose -p inspect-cti-realm-shared -f /tmp/stress/work/tmpow_j5a_8/src/inspect_evals/cti_realm/docker/shared_services.yaml up -d --build kusto-emulator kusto-init"
+   },
+   "cti_realm_50": {
+    "error": "RuntimeError: Command failed: docker compose -p inspect-cti-realm-shared -f /tmp/stress/work/tmpow_j5a_8/src/inspect_evals/cti_realm/docker/shared_services.yaml up -d --build kusto-emulator kusto-init"
+   },
+   "cti_realm_25_minimal": {
+    "error": "RuntimeError: Command failed: docker compose -p inspect-cti-realm-shared -f /tmp/stress/work/tmpow_j5a_8/src/inspect_evals/cti_realm/docker/shared_services.yaml up -d --build kusto-emulator kusto-init"
+   },
+   "cti_realm_25_seeded": {
+    "error": "RuntimeError: Command failed: docker compose -p inspect-cti-realm-shared -f /tmp/stress/work/tmpow_j5a_8/src/inspect_evals/cti_realm/docker/shared_services.yaml up -d --build kusto-emulator kusto-init"
+   },
+   "_full_checkout": false
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

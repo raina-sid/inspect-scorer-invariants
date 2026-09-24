@@ -1,0 +1,36 @@
+{
+ "commit": "9f62d68672",
+ "date": "2026-08-18",
+ "eval": "sycophancy",
+ "label": "N",
+ "py_changed": 1,
+ "before": "3-A",
+ "after": "4-A",
+ "tasks": [
+  "sycophancy"
+ ],
+ "secs": {
+  "before": 2.1,
+  "after": 2.0,
+  "again": 2.6
+ },
+ "build": {
+  "before": {
+   "sycophancy": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  },
+  "after": {
+   "sycophancy": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  },
+  "again": {
+   "sycophancy": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

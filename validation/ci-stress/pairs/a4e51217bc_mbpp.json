@@ -1,0 +1,69 @@
+{
+ "commit": "a4e51217bc",
+ "date": "2026-09-16",
+ "eval": "mbpp",
+ "label": "N",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "3-A",
+ "tasks": [
+  "mbpp"
+ ],
+ "secs": {
+  "before": 3.8,
+  "after": 3.9,
+  "again": 5.9
+ },
+ "build": {
+  "before": {
+   "mbpp": {
+    "n": 257,
+    "path": "/tmp/stress/out/snaps/a4e51217bc_mbpp_before/mbpp.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "mbpp": {
+    "n": 257,
+    "path": "/tmp/stress/out/snaps/a4e51217bc_mbpp_after/mbpp.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "mbpp": {
+    "n": 257,
+    "path": "/tmp/stress/out/snaps/a4e51217bc_mbpp_again/mbpp.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "mbpp": {
+   "kind": "dataset_diff",
+   "before_task": "mbpp",
+   "after_task": "mbpp",
+   "samples": {
+    "before": 257,
+    "after": 257,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 257,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "code",
+    "prompt",
+    "target",
+    "task_id",
+    "test_list_str"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "mbpp": false
+ }
+}

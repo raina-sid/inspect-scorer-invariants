@@ -1,0 +1,76 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "personality",
+ "label": "none",
+ "py_changed": 1,
+ "before": "3-A",
+ "after": "3-A",
+ "tasks": [
+  "personality_BFI",
+  "personality_TRAIT"
+ ],
+ "secs": {
+  "before": 3.3,
+  "after": 3.1,
+  "again": 2.0
+ },
+ "build": {
+  "before": {
+   "personality_BFI": {
+    "n": 44,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_personality_before/personality_BFI.jsonl",
+    "shuffle_disabled": false
+   },
+   "personality_TRAIT": {
+    "error": "DatasetNotFoundError: Dataset 'mirlab/TRAIT' is a gated dataset on the Hub. You must be authenticated to access it."
+   },
+   "_full_checkout": false
+  },
+  "after": {
+   "personality_BFI": {
+    "n": 44,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_personality_after/personality_BFI.jsonl",
+    "shuffle_disabled": false
+   },
+   "personality_TRAIT": {
+    "error": "DatasetNotFoundError: Dataset 'mirlab/TRAIT' is a gated dataset on the Hub. You must be authenticated to access it."
+   },
+   "_full_checkout": false
+  },
+  "again": {
+   "personality_BFI": {
+    "n": 44,
+    "path": "/tmp/stress/out/snaps/6c97e3589f_personality_again/personality_BFI.jsonl",
+    "shuffle_disabled": false
+   },
+   "personality_TRAIT": {
+    "error": "DatasetNotFoundError: Dataset 'mirlab/TRAIT' is a gated dataset on the Hub. You must be authenticated to access it."
+   },
+   "_full_checkout": false
+  }
+ },
+ "diffs": {
+  "personality_BFI": {
+   "kind": "dataset_diff",
+   "before_task": "personality_BFI",
+   "after_task": "personality_BFI",
+   "samples": {
+    "before": 44,
+    "after": 44,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 44,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  }
+ },
+ "flake": {
+  "personality_BFI": false
+ }
+}

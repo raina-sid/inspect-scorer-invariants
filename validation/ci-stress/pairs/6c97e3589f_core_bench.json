@@ -1,0 +1,36 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "core_bench",
+ "label": "none",
+ "py_changed": 1,
+ "before": "3-A",
+ "after": "3-A",
+ "tasks": [
+  "core_bench"
+ ],
+ "secs": {
+  "before": 2.3,
+  "after": 2.2,
+  "again": 2.4
+ },
+ "build": {
+  "before": {
+   "core_bench": {
+    "error": "FileNotFoundError: [Errno 2] No such file or directory: 'gpg'"
+   }
+  },
+  "after": {
+   "core_bench": {
+    "error": "FileNotFoundError: [Errno 2] No such file or directory: 'gpg'"
+   }
+  },
+  "again": {
+   "core_bench": {
+    "error": "FileNotFoundError: [Errno 2] No such file or directory: 'gpg'"
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

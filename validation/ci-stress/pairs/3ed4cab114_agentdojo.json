@@ -1,0 +1,36 @@
+{
+ "commit": "3ed4cab114",
+ "date": "2026-09-17",
+ "eval": "agentdojo",
+ "label": "none",
+ "py_changed": 2,
+ "before": "2-A",
+ "after": "2-A",
+ "tasks": [
+  "agentdojo"
+ ],
+ "secs": {
+  "before": 1.4,
+  "after": 1.4,
+  "again": 1.5
+ },
+ "build": {
+  "before": {
+   "agentdojo": {
+    "error": "ImportError: email-validator is not installed, run `pip install 'pydantic[email]'`"
+   }
+  },
+  "after": {
+   "agentdojo": {
+    "error": "ImportError: email-validator is not installed, run `pip install 'pydantic[email]'`"
+   }
+  },
+  "again": {
+   "agentdojo": {
+    "error": "ImportError: email-validator is not installed, run `pip install 'pydantic[email]'`"
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

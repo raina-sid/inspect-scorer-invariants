@@ -1,0 +1,39 @@
+{
+ "commit": "6c97e3589f",
+ "date": "2026-08-13",
+ "eval": "usaco",
+ "label": "none",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "2-A",
+ "tasks": [
+  "usaco"
+ ],
+ "secs": {
+  "before": 1.3,
+  "after": 1.2,
+  "again": 1.2
+ },
+ "build": {
+  "before": {
+   "usaco": {
+    "error": "ModuleNotFoundError: No module named 'gdown'"
+   },
+   "_full_checkout": false
+  },
+  "after": {
+   "usaco": {
+    "error": "PrerequisiteError: [bold]ERROR[/bold]: Google Drive download requires optional dependencies. Install with:\n\n[bold]pip install gdown[/bold]"
+   },
+   "_full_checkout": false
+  },
+  "again": {
+   "usaco": {
+    "error": "PrerequisiteError: [bold]ERROR[/bold]: Google Drive download requires optional dependencies. Install with:\n\n[bold]pip install gdown[/bold]"
+   },
+   "_full_checkout": false
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

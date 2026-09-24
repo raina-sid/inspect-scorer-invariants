@@ -1,0 +1,49 @@
+{
+ "commit": "38bf05d46e",
+ "date": "2026-08-24",
+ "eval": "agentharm",
+ "label": "N",
+ "py_changed": 1,
+ "before": "6-B",
+ "after": "7-B",
+ "tasks": [
+  "agentharm",
+  "agentharm_benign"
+ ],
+ "secs": {
+  "before": 17.7,
+  "after": 16.6,
+  "again": 16.8
+ },
+ "build": {
+  "before": {
+   "agentharm": {
+    "error": "PrerequisiteError: ERROR: Unable to initialise OpenAI client\n\nNo [bold][blue]OPENAI_API_KEY[/blue][/bold], [bold][blue]AZUREAI_OPENAI_API_KEY[/blue][/bold], or [bold][blue]managed identity (Entra ID)[/blue][/bold] defin"
+   },
+   "agentharm_benign": {
+    "error": "PrerequisiteError: ERROR: Unable to initialise OpenAI client\n\nNo [bold][blue]OPENAI_API_KEY[/blue][/bold], [bold][blue]AZUREAI_OPENAI_API_KEY[/blue][/bold], or [bold][blue]managed identity (Entra ID)[/blue][/bold] defin"
+   },
+   "_full_checkout": true
+  },
+  "after": {
+   "agentharm": {
+    "error": "PrerequisiteError: ERROR: Unable to initialise OpenAI client\n\nNo [bold][blue]OPENAI_API_KEY[/blue][/bold], [bold][blue]AZUREAI_OPENAI_API_KEY[/blue][/bold], or [bold][blue]managed identity (Entra ID)[/blue][/bold] defin"
+   },
+   "agentharm_benign": {
+    "error": "PrerequisiteError: ERROR: Unable to initialise OpenAI client\n\nNo [bold][blue]OPENAI_API_KEY[/blue][/bold], [bold][blue]AZUREAI_OPENAI_API_KEY[/blue][/bold], or [bold][blue]managed identity (Entra ID)[/blue][/bold] defin"
+   },
+   "_full_checkout": true
+  },
+  "again": {
+   "agentharm": {
+    "error": "PrerequisiteError: ERROR: Unable to initialise OpenAI client\n\nNo [bold][blue]OPENAI_API_KEY[/blue][/bold], [bold][blue]AZUREAI_OPENAI_API_KEY[/blue][/bold], or [bold][blue]managed identity (Entra ID)[/blue][/bold] defin"
+   },
+   "agentharm_benign": {
+    "error": "PrerequisiteError: ERROR: Unable to initialise OpenAI client\n\nNo [bold][blue]OPENAI_API_KEY[/blue][/bold], [bold][blue]AZUREAI_OPENAI_API_KEY[/blue][/bold], or [bold][blue]managed identity (Entra ID)[/blue][/bold] defin"
+   },
+   "_full_checkout": true
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

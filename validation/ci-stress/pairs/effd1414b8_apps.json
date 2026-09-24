@@ -1,0 +1,68 @@
+{
+ "commit": "effd1414b8",
+ "date": "2026-09-17",
+ "eval": "apps",
+ "label": "N",
+ "py_changed": 1,
+ "before": "2-B",
+ "after": "3-B",
+ "tasks": [
+  "apps"
+ ],
+ "secs": {
+  "before": 15.1,
+  "after": 14.0,
+  "again": 14.0
+ },
+ "build": {
+  "before": {
+   "apps": {
+    "n": 3000,
+    "path": "/tmp/stress/out/snaps/effd1414b8_apps_before/apps.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "apps": {
+    "n": 3000,
+    "path": "/tmp/stress/out/snaps/effd1414b8_apps_after/apps.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "apps": {
+    "n": 3000,
+    "path": "/tmp/stress/out/snaps/effd1414b8_apps_again/apps.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "apps": {
+   "kind": "dataset_diff",
+   "before_task": "apps",
+   "after_task": "apps",
+   "samples": {
+    "before": 3000,
+    "after": 3000,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 3000,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "problem_id",
+    "question",
+    "target",
+    "test_list_str"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "apps": false
+ }
+}

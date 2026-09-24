@@ -1,0 +1,75 @@
+{
+ "commit": "acad4cace1",
+ "date": "2026-09-11",
+ "eval": "mask",
+ "label": "none",
+ "py_changed": 1,
+ "before": "5-E",
+ "after": "5-E",
+ "tasks": [
+  "mask"
+ ],
+ "secs": {
+  "before": 8.3,
+  "after": 6.5,
+  "again": 6.6
+ },
+ "build": {
+  "before": {
+   "mask": {
+    "n": 1000,
+    "path": "/tmp/stress/out/snaps/acad4cace1_mask_before/mask.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "mask": {
+    "n": 1000,
+    "path": "/tmp/stress/out/snaps/acad4cace1_mask_after/mask.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "mask": {
+    "n": 1000,
+    "path": "/tmp/stress/out/snaps/acad4cace1_mask_again/mask.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "mask": {
+   "kind": "dataset_diff",
+   "before_task": "mask",
+   "after_task": "mask",
+   "samples": {
+    "before": 1000,
+    "after": 1000,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 1000,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "belief_elicit_1",
+    "belief_elicit_2",
+    "belief_elicit_3",
+    "dd_turn_1_prompt",
+    "dd_turn_1_response",
+    "formatted_ground_truth",
+    "ground_truth",
+    "pressured_system_prompt",
+    "pressured_user_prompt",
+    "proposition",
+    "task_id"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "mask": false
+ }
+}

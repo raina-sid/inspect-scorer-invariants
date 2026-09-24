@@ -1,0 +1,203 @@
+{
+ "commit": "152d4971a4",
+ "date": "2026-09-15",
+ "eval": "gdm_self_reasoning",
+ "label": "X",
+ "py_changed": 1,
+ "before": "4-B",
+ "after": "4-C",
+ "tasks": [
+  "gdm_self_reasoning_approved_directories",
+  "gdm_self_reasoning_calculator_improvement",
+  "gdm_self_reasoning_context_length_mod_instrumental_only",
+  "gdm_self_reasoning_context_length_mod_irreversibility_only",
+  "gdm_self_reasoning_database_tool"
+ ],
+ "secs": {
+  "before": 1.3,
+  "after": 1.3,
+  "again": 1.3
+ },
+ "build": {
+  "before": {
+   "gdm_self_reasoning_approved_directories": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_before/gdm_self_reasoning_approved_directories.jsonl",
+    "shuffle_disabled": false
+   },
+   "gdm_self_reasoning_calculator_improvement": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_before/gdm_self_reasoning_calculator_improvement.jsonl",
+    "shuffle_disabled": false
+   },
+   "gdm_self_reasoning_context_length_mod_instrumental_only": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_before/gdm_self_reasoning_context_length_mod_instrumental_only.jsonl",
+    "shuffle_disabled": false
+   },
+   "gdm_self_reasoning_context_length_mod_irreversibility_only": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_before/gdm_self_reasoning_context_length_mod_irreversibility_only.jsonl",
+    "shuffle_disabled": false
+   },
+   "gdm_self_reasoning_database_tool": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_before/gdm_self_reasoning_database_tool.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "gdm_self_reasoning_approved_directories": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_after/gdm_self_reasoning_approved_directories.jsonl",
+    "shuffle_disabled": false
+   },
+   "gdm_self_reasoning_calculator_improvement": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_after/gdm_self_reasoning_calculator_improvement.jsonl",
+    "shuffle_disabled": false
+   },
+   "gdm_self_reasoning_context_length_mod_instrumental_only": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_after/gdm_self_reasoning_context_length_mod_instrumental_only.jsonl",
+    "shuffle_disabled": false
+   },
+   "gdm_self_reasoning_context_length_mod_irreversibility_only": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_after/gdm_self_reasoning_context_length_mod_irreversibility_only.jsonl",
+    "shuffle_disabled": false
+   },
+   "gdm_self_reasoning_database_tool": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_after/gdm_self_reasoning_database_tool.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "gdm_self_reasoning_approved_directories": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_again/gdm_self_reasoning_approved_directories.jsonl",
+    "shuffle_disabled": false
+   },
+   "gdm_self_reasoning_calculator_improvement": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_again/gdm_self_reasoning_calculator_improvement.jsonl",
+    "shuffle_disabled": false
+   },
+   "gdm_self_reasoning_context_length_mod_instrumental_only": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_again/gdm_self_reasoning_context_length_mod_instrumental_only.jsonl",
+    "shuffle_disabled": false
+   },
+   "gdm_self_reasoning_context_length_mod_irreversibility_only": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_again/gdm_self_reasoning_context_length_mod_irreversibility_only.jsonl",
+    "shuffle_disabled": false
+   },
+   "gdm_self_reasoning_database_tool": {
+    "n": 2,
+    "path": "/tmp/stress/out/snaps/152d4971a4_gdm_self_reasoning_again/gdm_self_reasoning_database_tool.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "gdm_self_reasoning_approved_directories": {
+   "kind": "dataset_diff",
+   "before_task": "gdm_self_reasoning_approved_directories",
+   "after_task": "gdm_self_reasoning_approved_directories",
+   "samples": {
+    "before": 2,
+    "after": 2,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 2,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "gdm_self_reasoning_calculator_improvement": {
+   "kind": "dataset_diff",
+   "before_task": "gdm_self_reasoning_calculator_improvement",
+   "after_task": "gdm_self_reasoning_calculator_improvement",
+   "samples": {
+    "before": 2,
+    "after": 2,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 2,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "gdm_self_reasoning_context_length_mod_instrumental_only": {
+   "kind": "dataset_diff",
+   "before_task": "gdm_self_reasoning_context_length_mod_instrumental_only",
+   "after_task": "gdm_self_reasoning_context_length_mod_instrumental_only",
+   "samples": {
+    "before": 2,
+    "after": 2,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 2,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "gdm_self_reasoning_context_length_mod_irreversibility_only": {
+   "kind": "dataset_diff",
+   "before_task": "gdm_self_reasoning_context_length_mod_irreversibility_only",
+   "after_task": "gdm_self_reasoning_context_length_mod_irreversibility_only",
+   "samples": {
+    "before": 2,
+    "after": 2,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 2,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "gdm_self_reasoning_database_tool": {
+   "kind": "dataset_diff",
+   "before_task": "gdm_self_reasoning_database_tool",
+   "after_task": "gdm_self_reasoning_database_tool",
+   "samples": {
+    "before": 2,
+    "after": 2,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 2,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  }
+ },
+ "flake": {
+  "gdm_self_reasoning_approved_directories": false,
+  "gdm_self_reasoning_calculator_improvement": false,
+  "gdm_self_reasoning_context_length_mod_instrumental_only": false,
+  "gdm_self_reasoning_context_length_mod_irreversibility_only": false,
+  "gdm_self_reasoning_database_tool": false
+ }
+}

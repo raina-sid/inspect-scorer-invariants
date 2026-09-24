@@ -1,0 +1,63 @@
+{
+ "commit": "d26e7df849",
+ "date": "2026-09-19",
+ "eval": "make_me_pay",
+ "label": "none",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "2-A",
+ "tasks": [
+  "make_me_pay"
+ ],
+ "secs": {
+  "before": 1.3,
+  "after": 1.2,
+  "again": 1.3
+ },
+ "build": {
+  "before": {
+   "make_me_pay": {
+    "n": 20,
+    "path": "/tmp/stress/out/snaps/d26e7df849_make_me_pay_before/make_me_pay.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "make_me_pay": {
+    "n": 20,
+    "path": "/tmp/stress/out/snaps/d26e7df849_make_me_pay_after/make_me_pay.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "make_me_pay": {
+    "n": 20,
+    "path": "/tmp/stress/out/snaps/d26e7df849_make_me_pay_again/make_me_pay.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "make_me_pay": {
+   "kind": "dataset_diff",
+   "before_task": "make_me_pay",
+   "after_task": "make_me_pay",
+   "samples": {
+    "before": 20,
+    "after": 20,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 20,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  }
+ },
+ "flake": {
+  "make_me_pay": false
+ }
+}

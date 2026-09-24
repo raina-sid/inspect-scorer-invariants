@@ -1,0 +1,65 @@
+{
+ "commit": "1dbe0a060c",
+ "date": "2026-07-31",
+ "eval": "bfcl",
+ "label": "N",
+ "py_changed": 1,
+ "before": "5-B",
+ "after": "6-B",
+ "tasks": [
+  "bfcl"
+ ],
+ "secs": {
+  "before": 3.9,
+  "after": 4.4,
+  "again": 3.8
+ },
+ "build": {
+  "before": {
+   "bfcl": {
+    "n": 4981,
+    "path": "/tmp/stress/out/snaps/1dbe0a060c_bfcl_before/bfcl.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "bfcl": {
+    "n": 4981,
+    "path": "/tmp/stress/out/snaps/1dbe0a060c_bfcl_after/bfcl.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "bfcl": {
+    "n": 4981,
+    "path": "/tmp/stress/out/snaps/1dbe0a060c_bfcl_again/bfcl.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "bfcl": {
+   "kind": "dataset_diff",
+   "before_task": "bfcl",
+   "after_task": "bfcl",
+   "samples": {
+    "before": 4981,
+    "after": 4981,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 4981,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "target"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "bfcl": false
+ }
+}

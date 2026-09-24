@@ -1,0 +1,203 @@
+{
+ "commit": "d26e7df849",
+ "date": "2026-09-19",
+ "eval": "assistant_bench",
+ "label": "none",
+ "py_changed": 1,
+ "before": "5-B",
+ "after": "5-B",
+ "tasks": [
+  "assistant_bench_closed_book_zero_shot",
+  "assistant_bench_closed_book_one_shot",
+  "assistant_bench_web_search_zero_shot",
+  "assistant_bench_web_search_one_shot",
+  "assistant_bench_web_browser"
+ ],
+ "secs": {
+  "before": 5.9,
+  "after": 5.9,
+  "again": 5.8
+ },
+ "build": {
+  "before": {
+   "assistant_bench_closed_book_zero_shot": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_before/assistant_bench_closed_book_zero_shot.jsonl",
+    "shuffle_disabled": false
+   },
+   "assistant_bench_closed_book_one_shot": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_before/assistant_bench_closed_book_one_shot.jsonl",
+    "shuffle_disabled": false
+   },
+   "assistant_bench_web_search_zero_shot": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_before/assistant_bench_web_search_zero_shot.jsonl",
+    "shuffle_disabled": true
+   },
+   "assistant_bench_web_search_one_shot": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_before/assistant_bench_web_search_one_shot.jsonl",
+    "shuffle_disabled": true
+   },
+   "assistant_bench_web_browser": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_before/assistant_bench_web_browser.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "after": {
+   "assistant_bench_closed_book_zero_shot": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_after/assistant_bench_closed_book_zero_shot.jsonl",
+    "shuffle_disabled": false
+   },
+   "assistant_bench_closed_book_one_shot": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_after/assistant_bench_closed_book_one_shot.jsonl",
+    "shuffle_disabled": false
+   },
+   "assistant_bench_web_search_zero_shot": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_after/assistant_bench_web_search_zero_shot.jsonl",
+    "shuffle_disabled": true
+   },
+   "assistant_bench_web_search_one_shot": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_after/assistant_bench_web_search_one_shot.jsonl",
+    "shuffle_disabled": true
+   },
+   "assistant_bench_web_browser": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_after/assistant_bench_web_browser.jsonl",
+    "shuffle_disabled": true
+   }
+  },
+  "again": {
+   "assistant_bench_closed_book_zero_shot": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_again/assistant_bench_closed_book_zero_shot.jsonl",
+    "shuffle_disabled": false
+   },
+   "assistant_bench_closed_book_one_shot": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_again/assistant_bench_closed_book_one_shot.jsonl",
+    "shuffle_disabled": false
+   },
+   "assistant_bench_web_search_zero_shot": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_again/assistant_bench_web_search_zero_shot.jsonl",
+    "shuffle_disabled": true
+   },
+   "assistant_bench_web_search_one_shot": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_again/assistant_bench_web_search_one_shot.jsonl",
+    "shuffle_disabled": true
+   },
+   "assistant_bench_web_browser": {
+    "n": 33,
+    "path": "/tmp/stress/out/snaps/d26e7df849_assistant_bench_again/assistant_bench_web_browser.jsonl",
+    "shuffle_disabled": true
+   }
+  }
+ },
+ "diffs": {
+  "assistant_bench_closed_book_zero_shot": {
+   "kind": "dataset_diff",
+   "before_task": "assistant_bench_closed_book_zero_shot",
+   "after_task": "assistant_bench_closed_book_zero_shot",
+   "samples": {
+    "before": 33,
+    "after": 33,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 33,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "assistant_bench_closed_book_one_shot": {
+   "kind": "dataset_diff",
+   "before_task": "assistant_bench_closed_book_one_shot",
+   "after_task": "assistant_bench_closed_book_one_shot",
+   "samples": {
+    "before": 33,
+    "after": 33,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 33,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "assistant_bench_web_search_zero_shot": {
+   "kind": "dataset_diff",
+   "before_task": "assistant_bench_web_search_zero_shot",
+   "after_task": "assistant_bench_web_search_zero_shot",
+   "samples": {
+    "before": 33,
+    "after": 33,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 33,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "assistant_bench_web_search_one_shot": {
+   "kind": "dataset_diff",
+   "before_task": "assistant_bench_web_search_one_shot",
+   "after_task": "assistant_bench_web_search_one_shot",
+   "samples": {
+    "before": 33,
+    "after": 33,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 33,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "assistant_bench_web_browser": {
+   "kind": "dataset_diff",
+   "before_task": "assistant_bench_web_browser",
+   "after_task": "assistant_bench_web_browser",
+   "samples": {
+    "before": 33,
+    "after": 33,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 33,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  }
+ },
+ "flake": {
+  "assistant_bench_closed_book_zero_shot": false,
+  "assistant_bench_closed_book_one_shot": false,
+  "assistant_bench_web_search_zero_shot": false,
+  "assistant_bench_web_search_one_shot": false,
+  "assistant_bench_web_browser": false
+ }
+}

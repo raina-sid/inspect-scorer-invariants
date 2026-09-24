@@ -1,0 +1,36 @@
+{
+ "commit": "43b35aeed8",
+ "date": "2026-08-18",
+ "eval": "anima",
+ "label": "N",
+ "py_changed": 1,
+ "before": "5-C",
+ "after": "6-C",
+ "tasks": [
+  "anima"
+ ],
+ "secs": {
+  "before": 6.1,
+  "after": 5.8,
+  "again": 4.3
+ },
+ "build": {
+  "before": {
+   "anima": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  },
+  "after": {
+   "anima": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  },
+  "again": {
+   "anima": {
+    "error": "ValueError: No model specified (and no model environment variable defined)"
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

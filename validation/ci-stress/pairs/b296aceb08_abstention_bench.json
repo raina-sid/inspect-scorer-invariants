@@ -1,0 +1,36 @@
+{
+ "commit": "b296aceb08",
+ "date": "2026-08-18",
+ "eval": "abstention_bench",
+ "label": "none",
+ "py_changed": 1,
+ "before": "3-A",
+ "after": "3-A",
+ "tasks": [
+  "abstention_bench"
+ ],
+ "secs": {
+  "before": 2.0,
+  "after": 1.8,
+  "again": 1.9
+ },
+ "build": {
+  "before": {
+   "abstention_bench": {
+    "error": "ModuleNotFoundError: No module named 'hydra'"
+   }
+  },
+  "after": {
+   "abstention_bench": {
+    "error": "ModuleNotFoundError: No module named 'hydra'"
+   }
+  },
+  "again": {
+   "abstention_bench": {
+    "error": "ModuleNotFoundError: No module named 'hydra'"
+   }
+  }
+ },
+ "diffs": {},
+ "flake": {}
+}

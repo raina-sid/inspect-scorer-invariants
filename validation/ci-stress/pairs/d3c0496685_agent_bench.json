@@ -1,0 +1,63 @@
+{
+ "commit": "d3c0496685",
+ "date": "2026-09-22",
+ "eval": "agent_bench",
+ "label": "X",
+ "py_changed": 1,
+ "before": "4-A",
+ "after": "4-B",
+ "tasks": [
+  "agent_bench_os"
+ ],
+ "secs": {
+  "before": 1.7,
+  "after": 1.5,
+  "again": 1.7
+ },
+ "build": {
+  "before": {
+   "agent_bench_os": {
+    "n": 119,
+    "path": "/tmp/stress/out/snaps/d3c0496685_agent_bench_before/agent_bench_os.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "agent_bench_os": {
+    "n": 119,
+    "path": "/tmp/stress/out/snaps/d3c0496685_agent_bench_after/agent_bench_os.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "agent_bench_os": {
+    "n": 119,
+    "path": "/tmp/stress/out/snaps/d3c0496685_agent_bench_again/agent_bench_os.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "agent_bench_os": {
+   "kind": "dataset_diff",
+   "before_task": "agent_bench_os",
+   "after_task": "agent_bench_os",
+   "samples": {
+    "before": 119,
+    "after": 119,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 119,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  }
+ },
+ "flake": {
+  "agent_bench_os": false
+ }
+}

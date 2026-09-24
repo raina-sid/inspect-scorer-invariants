@@ -1,0 +1,205 @@
+{
+ "commit": "c5879b31dc",
+ "date": "2026-09-09",
+ "eval": "agieval",
+ "label": "N",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "3-A",
+ "tasks": [
+  "agie_aqua_rat",
+  "agie_logiqa_en",
+  "agie_lsat_ar",
+  "agie_lsat_lr",
+  "agie_lsat_rc"
+ ],
+ "secs": {
+  "before": 1.5,
+  "after": 1.4,
+  "again": 1.4
+ },
+ "build": {
+  "before": {
+   "agie_aqua_rat": {
+    "n": 254,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_before/agie_aqua_rat.jsonl",
+    "shuffle_disabled": false
+   },
+   "agie_logiqa_en": {
+    "n": 651,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_before/agie_logiqa_en.jsonl",
+    "shuffle_disabled": false
+   },
+   "agie_lsat_ar": {
+    "n": 230,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_before/agie_lsat_ar.jsonl",
+    "shuffle_disabled": false
+   },
+   "agie_lsat_lr": {
+    "n": 510,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_before/agie_lsat_lr.jsonl",
+    "shuffle_disabled": false
+   },
+   "agie_lsat_rc": {
+    "n": 269,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_before/agie_lsat_rc.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "agie_aqua_rat": {
+    "n": 254,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_after/agie_aqua_rat.jsonl",
+    "shuffle_disabled": false
+   },
+   "agie_logiqa_en": {
+    "n": 651,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_after/agie_logiqa_en.jsonl",
+    "shuffle_disabled": false
+   },
+   "agie_lsat_ar": {
+    "n": 230,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_after/agie_lsat_ar.jsonl",
+    "shuffle_disabled": false
+   },
+   "agie_lsat_lr": {
+    "n": 510,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_after/agie_lsat_lr.jsonl",
+    "shuffle_disabled": false
+   },
+   "agie_lsat_rc": {
+    "n": 269,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_after/agie_lsat_rc.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "agie_aqua_rat": {
+    "n": 254,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_again/agie_aqua_rat.jsonl",
+    "shuffle_disabled": false
+   },
+   "agie_logiqa_en": {
+    "n": 651,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_again/agie_logiqa_en.jsonl",
+    "shuffle_disabled": false
+   },
+   "agie_lsat_ar": {
+    "n": 230,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_again/agie_lsat_ar.jsonl",
+    "shuffle_disabled": false
+   },
+   "agie_lsat_lr": {
+    "n": 510,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_again/agie_lsat_lr.jsonl",
+    "shuffle_disabled": false
+   },
+   "agie_lsat_rc": {
+    "n": 269,
+    "path": "/tmp/stress/out/snaps/c5879b31dc_agieval_again/agie_lsat_rc.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "agie_aqua_rat": {
+   "kind": "dataset_diff",
+   "before_task": "agie_aqua_rat",
+   "after_task": "agie_aqua_rat",
+   "samples": {
+    "before": 254,
+    "after": 254,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 254,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "solution"
+   ],
+   "empty": true
+  },
+  "agie_logiqa_en": {
+   "kind": "dataset_diff",
+   "before_task": "agie_logiqa_en",
+   "after_task": "agie_logiqa_en",
+   "samples": {
+    "before": 651,
+    "after": 651,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 651,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "agie_lsat_ar": {
+   "kind": "dataset_diff",
+   "before_task": "agie_lsat_ar",
+   "after_task": "agie_lsat_ar",
+   "samples": {
+    "before": 230,
+    "after": 230,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 230,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "agie_lsat_lr": {
+   "kind": "dataset_diff",
+   "before_task": "agie_lsat_lr",
+   "after_task": "agie_lsat_lr",
+   "samples": {
+    "before": 510,
+    "after": 510,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 510,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "agie_lsat_rc": {
+   "kind": "dataset_diff",
+   "before_task": "agie_lsat_rc",
+   "after_task": "agie_lsat_rc",
+   "samples": {
+    "before": 269,
+    "after": 269,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 269,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  }
+ },
+ "flake": {
+  "agie_aqua_rat": false,
+  "agie_logiqa_en": false,
+  "agie_lsat_ar": false,
+  "agie_lsat_lr": false,
+  "agie_lsat_rc": false
+ }
+}

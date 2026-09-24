@@ -1,0 +1,83 @@
+{
+ "commit": "ae814a7a46",
+ "date": "2026-08-27",
+ "eval": "bfcl",
+ "label": "N",
+ "py_changed": 11,
+ "before": "6-B",
+ "after": "7-B",
+ "tasks": [
+  "bfcl",
+  "bfcl_prereqs"
+ ],
+ "secs": {
+  "before": 22.8,
+  "after": 2.8,
+  "again": 2.8
+ },
+ "build": {
+  "before": {
+   "bfcl": {
+    "n": 4981,
+    "path": "/tmp/stress/out/snaps/ae814a7a46_bfcl_before/bfcl.jsonl",
+    "shuffle_disabled": false
+   },
+   "bfcl_prereqs": {
+    "error": "task not registered"
+   },
+   "_full_checkout": true
+  },
+  "after": {
+   "bfcl": {
+    "n": 4981,
+    "path": "/tmp/stress/out/snaps/ae814a7a46_bfcl_after/bfcl.jsonl",
+    "shuffle_disabled": false
+   },
+   "bfcl_prereqs": {
+    "n": 111,
+    "path": "/tmp/stress/out/snaps/ae814a7a46_bfcl_after/bfcl_prereqs.jsonl",
+    "shuffle_disabled": false
+   },
+   "_full_checkout": false
+  },
+  "again": {
+   "bfcl": {
+    "n": 4981,
+    "path": "/tmp/stress/out/snaps/ae814a7a46_bfcl_again/bfcl.jsonl",
+    "shuffle_disabled": false
+   },
+   "bfcl_prereqs": {
+    "n": 111,
+    "path": "/tmp/stress/out/snaps/ae814a7a46_bfcl_again/bfcl_prereqs.jsonl",
+    "shuffle_disabled": false
+   },
+   "_full_checkout": false
+  }
+ },
+ "diffs": {
+  "bfcl": {
+   "kind": "dataset_diff",
+   "before_task": "bfcl",
+   "after_task": "bfcl",
+   "samples": {
+    "before": 4981,
+    "after": 4981,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 4981,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "target"
+   ],
+   "empty": true
+  }
+ },
+ "flake": {
+  "bfcl": false,
+  "bfcl_prereqs": true
+ }
+}

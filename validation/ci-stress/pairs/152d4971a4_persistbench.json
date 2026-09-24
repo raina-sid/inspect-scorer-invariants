@@ -1,0 +1,133 @@
+{
+ "commit": "152d4971a4",
+ "date": "2026-09-15",
+ "eval": "persistbench",
+ "label": "X",
+ "py_changed": 1,
+ "before": "2-A",
+ "after": "2-B",
+ "tasks": [
+  "persistbench_cross_domain",
+  "persistbench_sycophancy",
+  "persistbench_beneficial_memory"
+ ],
+ "secs": {
+  "before": 4.2,
+  "after": 2.9,
+  "again": 1.3
+ },
+ "build": {
+  "before": {
+   "persistbench_cross_domain": {
+    "n": 200,
+    "path": "/tmp/stress/out/snaps/152d4971a4_persistbench_before/persistbench_cross_domain.jsonl",
+    "shuffle_disabled": false
+   },
+   "persistbench_sycophancy": {
+    "n": 200,
+    "path": "/tmp/stress/out/snaps/152d4971a4_persistbench_before/persistbench_sycophancy.jsonl",
+    "shuffle_disabled": false
+   },
+   "persistbench_beneficial_memory": {
+    "n": 100,
+    "path": "/tmp/stress/out/snaps/152d4971a4_persistbench_before/persistbench_beneficial_memory.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "persistbench_cross_domain": {
+    "n": 200,
+    "path": "/tmp/stress/out/snaps/152d4971a4_persistbench_after/persistbench_cross_domain.jsonl",
+    "shuffle_disabled": false
+   },
+   "persistbench_sycophancy": {
+    "n": 200,
+    "path": "/tmp/stress/out/snaps/152d4971a4_persistbench_after/persistbench_sycophancy.jsonl",
+    "shuffle_disabled": false
+   },
+   "persistbench_beneficial_memory": {
+    "n": 100,
+    "path": "/tmp/stress/out/snaps/152d4971a4_persistbench_after/persistbench_beneficial_memory.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "persistbench_cross_domain": {
+    "n": 200,
+    "path": "/tmp/stress/out/snaps/152d4971a4_persistbench_again/persistbench_cross_domain.jsonl",
+    "shuffle_disabled": false
+   },
+   "persistbench_sycophancy": {
+    "n": 200,
+    "path": "/tmp/stress/out/snaps/152d4971a4_persistbench_again/persistbench_sycophancy.jsonl",
+    "shuffle_disabled": false
+   },
+   "persistbench_beneficial_memory": {
+    "n": 100,
+    "path": "/tmp/stress/out/snaps/152d4971a4_persistbench_again/persistbench_beneficial_memory.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "persistbench_cross_domain": {
+   "kind": "dataset_diff",
+   "before_task": "persistbench_cross_domain",
+   "after_task": "persistbench_cross_domain",
+   "samples": {
+    "before": 200,
+    "after": 200,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 200,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "persistbench_sycophancy": {
+   "kind": "dataset_diff",
+   "before_task": "persistbench_sycophancy",
+   "after_task": "persistbench_sycophancy",
+   "samples": {
+    "before": 200,
+    "after": 200,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 200,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  },
+  "persistbench_beneficial_memory": {
+   "kind": "dataset_diff",
+   "before_task": "persistbench_beneficial_memory",
+   "after_task": "persistbench_beneficial_memory",
+   "samples": {
+    "before": 100,
+    "after": 100,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 100,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  }
+ },
+ "flake": {
+  "persistbench_cross_domain": false,
+  "persistbench_sycophancy": false,
+  "persistbench_beneficial_memory": false
+ }
+}

@@ -1,0 +1,100 @@
+{
+ "commit": "7423bd3b52",
+ "date": "2026-07-20",
+ "eval": "osworld",
+ "label": "none",
+ "py_changed": 1,
+ "before": "5-A",
+ "after": "5-A",
+ "tasks": [
+  "osworld",
+  "osworld_small"
+ ],
+ "secs": {
+  "before": 1.6,
+  "after": 2.2,
+  "again": 1.4
+ },
+ "build": {
+  "before": {
+   "osworld": {
+    "n": 240,
+    "path": "/tmp/stress/out/snaps/7423bd3b52_osworld_before/osworld.jsonl",
+    "shuffle_disabled": false
+   },
+   "osworld_small": {
+    "n": 21,
+    "path": "/tmp/stress/out/snaps/7423bd3b52_osworld_before/osworld_small.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "osworld": {
+    "n": 240,
+    "path": "/tmp/stress/out/snaps/7423bd3b52_osworld_after/osworld.jsonl",
+    "shuffle_disabled": false
+   },
+   "osworld_small": {
+    "n": 21,
+    "path": "/tmp/stress/out/snaps/7423bd3b52_osworld_after/osworld_small.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "osworld": {
+    "n": 240,
+    "path": "/tmp/stress/out/snaps/7423bd3b52_osworld_again/osworld.jsonl",
+    "shuffle_disabled": false
+   },
+   "osworld_small": {
+    "n": 21,
+    "path": "/tmp/stress/out/snaps/7423bd3b52_osworld_again/osworld_small.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "osworld": {
+   "kind": "dataset_diff",
+   "before_task": "osworld",
+   "after_task": "osworld",
+   "samples": {
+    "before": 240,
+    "after": 240,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 240,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [
+    "source"
+   ],
+   "empty": true
+  },
+  "osworld_small": {
+   "kind": "dataset_diff",
+   "before_task": "osworld_small",
+   "after_task": "osworld_small",
+   "samples": {
+    "before": 21,
+    "after": 21,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 21,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  }
+ },
+ "flake": {
+  "osworld": false,
+  "osworld_small": false
+ }
+}

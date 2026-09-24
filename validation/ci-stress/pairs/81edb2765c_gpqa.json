@@ -1,0 +1,63 @@
+{
+ "commit": "81edb2765c",
+ "date": "2026-09-15",
+ "eval": "gpqa",
+ "label": "X",
+ "py_changed": 1,
+ "before": "3-C",
+ "after": "3-D",
+ "tasks": [
+  "gpqa_diamond"
+ ],
+ "secs": {
+  "before": 3.5,
+  "after": 1.3,
+  "again": 1.3
+ },
+ "build": {
+  "before": {
+   "gpqa_diamond": {
+    "n": 198,
+    "path": "/tmp/stress/out/snaps/81edb2765c_gpqa_before/gpqa_diamond.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "after": {
+   "gpqa_diamond": {
+    "n": 198,
+    "path": "/tmp/stress/out/snaps/81edb2765c_gpqa_after/gpqa_diamond.jsonl",
+    "shuffle_disabled": false
+   }
+  },
+  "again": {
+   "gpqa_diamond": {
+    "n": 198,
+    "path": "/tmp/stress/out/snaps/81edb2765c_gpqa_again/gpqa_diamond.jsonl",
+    "shuffle_disabled": false
+   }
+  }
+ },
+ "diffs": {
+  "gpqa_diamond": {
+   "kind": "dataset_diff",
+   "before_task": "gpqa_diamond",
+   "after_task": "gpqa_diamond",
+   "samples": {
+    "before": 198,
+    "after": 198,
+    "removed": 0,
+    "added": 0,
+    "unchanged": 198,
+    "id_changed": 0,
+    "metadata_changed": 0
+   },
+   "examples": {},
+   "groups": [],
+   "skipped_group_keys": [],
+   "empty": true
+  }
+ },
+ "flake": {
+  "gpqa_diamond": false
+ }
+}
