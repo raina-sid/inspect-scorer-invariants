@@ -1,0 +1,6509 @@
+[
+ {
+  "commit": "2b9c003b35",
+  "date": "2026-09-23",
+  "eval": "gdm_self_proliferation",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-B",
+  "after": "6-B"
+ },
+ {
+  "commit": "2b9c003b35",
+  "date": "2026-09-23",
+  "eval": "mask",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-E",
+  "after": "5-E"
+ },
+ {
+  "commit": "2b9c003b35",
+  "date": "2026-09-23",
+  "eval": "mmlu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "a4373efd3d",
+  "date": "2026-09-22",
+  "eval": "fortress",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "350d6377e9",
+  "date": "2026-09-22",
+  "eval": "paperbench",
+  "label": "N",
+  "py_changed": 1,
+  "before": "3-C",
+  "after": "4-C"
+ },
+ {
+  "commit": "d3c0496685",
+  "date": "2026-09-22",
+  "eval": "agent_bench",
+  "label": "X",
+  "py_changed": 1,
+  "before": "4-A",
+  "after": "4-B"
+ },
+ {
+  "commit": "d3c0496685",
+  "date": "2026-09-22",
+  "eval": "paperbench",
+  "label": "X",
+  "py_changed": 1,
+  "before": "3-B",
+  "after": "3-C"
+ },
+ {
+  "commit": "788f5a2f4f",
+  "date": "2026-09-21",
+  "eval": "apps",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "abstention_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "agentdojo",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "agentharm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "8-B",
+  "after": "8-B"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "assistant_bench",
+  "label": "none",
+  "py_changed": 1,
+  "before": "5-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "cti_realm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "cybench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-C",
+  "after": "4-C"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "cybergym",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "cyberseceval_2",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "cyberseceval_3",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "cyberseceval_4",
+  "label": "none",
+  "py_changed": 1,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "ds1000",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "gdm_in_house_ctf",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-B",
+  "after": "6-B"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "gdm_self_proliferation",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-B",
+  "after": "6-B"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "gdm_self_reasoning",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-C",
+  "after": "4-C"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "healthbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "hle",
+  "label": "none",
+  "py_changed": 1,
+  "before": "6-D",
+  "after": "6-D"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "ifevalcode",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "ipi_coding_agent",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "kernelbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "make_me_pay",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "mlrc_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-C",
+  "after": "1-C"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "moru",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "osworld",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-A",
+  "after": "5-A"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "paperbench",
+  "label": "none",
+  "py_changed": 1,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "swe_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "tau2",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "theagentcompany",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "threecb",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "d26e7df849",
+  "date": "2026-09-19",
+  "eval": "vimgolf_challenges",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "b91aa24648",
+  "date": "2026-09-18",
+  "eval": "mind2web_sc",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "8ddfea18ea",
+  "date": "2026-09-18",
+  "eval": "ds1000",
+  "label": "none",
+  "py_changed": 4,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "8ddfea18ea",
+  "date": "2026-09-18",
+  "eval": "kernelbench",
+  "label": "none",
+  "py_changed": 1,
+  "before": "6-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "8b9b97aa0d",
+  "date": "2026-09-18",
+  "eval": "kernelbench",
+  "label": "none",
+  "py_changed": 6,
+  "before": "6-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "ape",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "assistant_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "browse_comp",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "compute_eval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-B",
+  "after": "1-B"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "cti_realm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "cve_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "cybench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-C",
+  "after": "4-C"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "cybergym",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "gaia",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "gdm_self_proliferation",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-B",
+  "after": "6-B"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "healthbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "instrumentaleval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "kernelbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "osworld",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-A",
+  "after": "5-A"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "swe_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "swe_lancer",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-B",
+  "after": "1-B"
+ },
+ {
+  "commit": "7bd01361eb",
+  "date": "2026-09-18",
+  "eval": "worldsense",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "5d818f65f3",
+  "date": "2026-09-18",
+  "eval": "kernelbench",
+  "label": "none",
+  "py_changed": 1,
+  "before": "6-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "effd1414b8",
+  "date": "2026-09-17",
+  "eval": "apps",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "3ed4cab114",
+  "date": "2026-09-17",
+  "eval": "agentdojo",
+  "label": "none",
+  "py_changed": 2,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "3ed4cab114",
+  "date": "2026-09-17",
+  "eval": "cybergym",
+  "label": "none",
+  "py_changed": 2,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "3ed4cab114",
+  "date": "2026-09-17",
+  "eval": "gdm_stealth",
+  "label": "none",
+  "py_changed": 2,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "3ed4cab114",
+  "date": "2026-09-17",
+  "eval": "novelty_bench",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "3ed4cab114",
+  "date": "2026-09-17",
+  "eval": "theagentcompany",
+  "label": "none",
+  "py_changed": 1,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "2999eaadad",
+  "date": "2026-09-16",
+  "eval": "boolq",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "2999eaadad",
+  "date": "2026-09-16",
+  "eval": "paws",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "f414bc34d6",
+  "date": "2026-09-16",
+  "eval": "kernelbench",
+  "label": "N",
+  "py_changed": 5,
+  "before": "5-B",
+  "after": "6-C"
+ },
+ {
+  "commit": "a4e51217bc",
+  "date": "2026-09-16",
+  "eval": "mbpp",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "c83aa32c23",
+  "date": "2026-09-16",
+  "eval": "paperbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "152d4971a4",
+  "date": "2026-09-15",
+  "eval": "gdm_in_house_ctf",
+  "label": "X",
+  "py_changed": 1,
+  "before": "6-A",
+  "after": "6-B"
+ },
+ {
+  "commit": "152d4971a4",
+  "date": "2026-09-15",
+  "eval": "gdm_self_reasoning",
+  "label": "X",
+  "py_changed": 1,
+  "before": "4-B",
+  "after": "4-C"
+ },
+ {
+  "commit": "152d4971a4",
+  "date": "2026-09-15",
+  "eval": "gdm_stealth",
+  "label": "X",
+  "py_changed": 1,
+  "before": "4-A",
+  "after": "4-B"
+ },
+ {
+  "commit": "152d4971a4",
+  "date": "2026-09-15",
+  "eval": "persistbench",
+  "label": "X",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-B"
+ },
+ {
+  "commit": "81edb2765c",
+  "date": "2026-09-15",
+  "eval": "anima",
+  "label": "X",
+  "py_changed": 1,
+  "before": "6-C",
+  "after": "6-D"
+ },
+ {
+  "commit": "81edb2765c",
+  "date": "2026-09-15",
+  "eval": "apps",
+  "label": "X",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-B"
+ },
+ {
+  "commit": "81edb2765c",
+  "date": "2026-09-15",
+  "eval": "compute_eval",
+  "label": "X",
+  "py_changed": 1,
+  "before": "1-A",
+  "after": "1-B"
+ },
+ {
+  "commit": "81edb2765c",
+  "date": "2026-09-15",
+  "eval": "cyberseceval_2",
+  "label": "X",
+  "py_changed": 3,
+  "before": "4-A",
+  "after": "4-B"
+ },
+ {
+  "commit": "81edb2765c",
+  "date": "2026-09-15",
+  "eval": "cyberseceval_3",
+  "label": "X",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "3-B"
+ },
+ {
+  "commit": "81edb2765c",
+  "date": "2026-09-15",
+  "eval": "cyberseceval_4",
+  "label": "X",
+  "py_changed": 7,
+  "before": "5-B",
+  "after": "5-C"
+ },
+ {
+  "commit": "81edb2765c",
+  "date": "2026-09-15",
+  "eval": "gpqa",
+  "label": "X",
+  "py_changed": 1,
+  "before": "3-C",
+  "after": "3-D"
+ },
+ {
+  "commit": "81edb2765c",
+  "date": "2026-09-15",
+  "eval": "mle_bench",
+  "label": "X",
+  "py_changed": 1,
+  "before": "7-F",
+  "after": "7-G"
+ },
+ {
+  "commit": "81edb2765c",
+  "date": "2026-09-15",
+  "eval": "moru",
+  "label": "X",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "3-B"
+ },
+ {
+  "commit": "81edb2765c",
+  "date": "2026-09-15",
+  "eval": "strong_reject",
+  "label": "X",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "3-B"
+ },
+ {
+  "commit": "facd8e2879",
+  "date": "2026-09-15",
+  "eval": "healthbench",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "a89ec03183",
+  "date": "2026-09-14",
+  "eval": "agent_bench",
+  "label": "N",
+  "py_changed": 7,
+  "before": "3-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "acad4cace1",
+  "date": "2026-09-11",
+  "eval": "mask",
+  "label": "none",
+  "py_changed": 1,
+  "before": "5-E",
+  "after": "5-E"
+ },
+ {
+  "commit": "35c88015d5",
+  "date": "2026-09-10",
+  "eval": "moru",
+  "label": "N",
+  "py_changed": 2,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ee8972f44d",
+  "date": "2026-09-10",
+  "eval": "assistant_bench",
+  "label": "none",
+  "py_changed": 1,
+  "before": "5-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "ee8972f44d",
+  "date": "2026-09-10",
+  "eval": "browse_comp",
+  "label": "none",
+  "py_changed": 1,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "ee8972f44d",
+  "date": "2026-09-10",
+  "eval": "cti_realm",
+  "label": "none",
+  "py_changed": 1,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "ee8972f44d",
+  "date": "2026-09-10",
+  "eval": "cyberseceval_4",
+  "label": "none",
+  "py_changed": 7,
+  "before": "5-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "ee8972f44d",
+  "date": "2026-09-10",
+  "eval": "ifevalcode",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ee8972f44d",
+  "date": "2026-09-10",
+  "eval": "mind2web",
+  "label": "none",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ee8972f44d",
+  "date": "2026-09-10",
+  "eval": "tac",
+  "label": "none",
+  "py_changed": 1,
+  "before": "7-C",
+  "after": "7-C"
+ },
+ {
+  "commit": "fccf6bf813",
+  "date": "2026-09-10",
+  "eval": "ifeval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "700904ddee",
+  "date": "2026-09-10",
+  "eval": "gpqa",
+  "label": "N",
+  "py_changed": 2,
+  "before": "2-B",
+  "after": "3-C"
+ },
+ {
+  "commit": "1e01108797",
+  "date": "2026-09-09",
+  "eval": "hle",
+  "label": "N",
+  "py_changed": 7,
+  "before": "5-C",
+  "after": "6-D"
+ },
+ {
+  "commit": "2cde7dfa5b",
+  "date": "2026-09-09",
+  "eval": "cybergym",
+  "label": "none",
+  "py_changed": 1,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "c5879b31dc",
+  "date": "2026-09-09",
+  "eval": "agieval",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "23160b854b",
+  "date": "2026-09-08",
+  "eval": "livecodebench_pro",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "8f5d56b8cd",
+  "date": "2026-09-08",
+  "eval": "anima",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "abstention_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "agent_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "agent_threat_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "agentdojo",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "agentharm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "8-B",
+  "after": "8-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "agentic_misalignment",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "agieval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "aime2024",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-A",
+  "after": "5-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "air_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "anima",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "ape",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "apps",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "arc",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "b3",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "bbh",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "bbq",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "bigcodebench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "bold",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "boolq",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "browse_comp",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "chembench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "class_eval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-C",
+  "after": "3-C"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "coconot",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "commonsense_qa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "compute_eval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "core_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "cve_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "cybench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-C",
+  "after": "4-C"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "cybermetric",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "cyberseceval_2",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "cyberseceval_3",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "docvqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "drop",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "ds1000",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "frontier_cs",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "gaia",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "gdm_in_house_ctf",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-A",
+  "after": "6-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "gdm_intercode_ctf",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "gdm_self_reasoning",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "gdm_stealth",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "gdpval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "gpqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "gsm8k",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "healthbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "hellaswag",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "hle",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "humaneval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "ifeval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "ifevalcode",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "infinite_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "instrumentaleval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "kernelbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "lab_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "lingoly",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "livebench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "livecodebench_pro",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "macbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "mask",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-E",
+  "after": "5-E"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "math",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "mathvista",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "mbpp",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "medqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "mle_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "7-F",
+  "after": "7-F"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "mlrc_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-C",
+  "after": "1-C"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "mmiu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "mmlu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "mmlu_pro",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "mmmu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "musr",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "niah",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "novelty_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "osworld",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-A",
+  "after": "5-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "paws",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "persistbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "personality",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "piqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "pre_flight",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "pubmedqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "race_h",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "sad",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "scbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "scicode",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "sec_qa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "sevenllm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "simpleqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "sosbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "squad",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "stereoset",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "strong_reject",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "swe_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "swe_lancer",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-B",
+  "after": "1-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "sycophancy",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "tac",
+  "label": "none",
+  "py_changed": 0,
+  "before": "7-C",
+  "after": "7-C"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "tau2",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "theagentcompany",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "threecb",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "truthfulqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "usaco",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "vimgolf_challenges",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "vqa_rad",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "vstar_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "winogrande",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "wmdp",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "writingbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ac481c7a7b",
+  "date": "2026-09-01",
+  "eval": "xstest",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "5c8626ed2c",
+  "date": "2026-09-01",
+  "eval": "aime2024",
+  "label": "N",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "5-A"
+ },
+ {
+  "commit": "5c8626ed2c",
+  "date": "2026-09-01",
+  "eval": "aime2025",
+  "label": "N",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "5-A"
+ },
+ {
+  "commit": "5c8626ed2c",
+  "date": "2026-09-01",
+  "eval": "aime2026",
+  "label": "N",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ae814a7a46",
+  "date": "2026-08-27",
+  "eval": "bfcl",
+  "label": "N",
+  "py_changed": 11,
+  "before": "6-B",
+  "after": "7-B"
+ },
+ {
+  "commit": "7b1115e99f",
+  "date": "2026-08-25",
+  "eval": "agentharm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "8-B",
+  "after": "8-B"
+ },
+ {
+  "commit": "b943de6895",
+  "date": "2026-08-24",
+  "eval": "agentharm",
+  "label": "N",
+  "py_changed": 1,
+  "before": "7-B",
+  "after": "8-B"
+ },
+ {
+  "commit": "38bf05d46e",
+  "date": "2026-08-24",
+  "eval": "agentharm",
+  "label": "N",
+  "py_changed": 1,
+  "before": "6-B",
+  "after": "7-B"
+ },
+ {
+  "commit": "2fcd53db41",
+  "date": "2026-08-24",
+  "eval": "agentharm",
+  "label": "N",
+  "py_changed": 1,
+  "before": "5-B",
+  "after": "6-B"
+ },
+ {
+  "commit": "4f8f1c1b1f",
+  "date": "2026-08-24",
+  "eval": "agentharm",
+  "label": "N",
+  "py_changed": 1,
+  "before": "4-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "83ef02e57b",
+  "date": "2026-08-24",
+  "eval": "assistant_bench",
+  "label": "N",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "83ef02e57b",
+  "date": "2026-08-24",
+  "eval": "browse_comp",
+  "label": "N",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "83ef02e57b",
+  "date": "2026-08-24",
+  "eval": "cyberseceval_4",
+  "label": "N",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "83ef02e57b",
+  "date": "2026-08-24",
+  "eval": "mind2web",
+  "label": "N",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "83ef02e57b",
+  "date": "2026-08-24",
+  "eval": "tac",
+  "label": "N",
+  "py_changed": 0,
+  "before": "6-C",
+  "after": "7-C"
+ },
+ {
+  "commit": "8705a993e7",
+  "date": "2026-08-24",
+  "eval": "ipi_coding_agent",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "5f6f0e13f0",
+  "date": "2026-08-24",
+  "eval": "cyberseceval_4",
+  "label": "N",
+  "py_changed": 1,
+  "before": "5-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "1988aaf076",
+  "date": "2026-08-24",
+  "eval": "cyberseceval_4",
+  "label": "N",
+  "py_changed": 1,
+  "before": "4-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "5b83b154aa",
+  "date": "2026-08-21",
+  "eval": "cyberseceval_2",
+  "label": "N",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "5b83b154aa",
+  "date": "2026-08-21",
+  "eval": "cyberseceval_3",
+  "label": "N",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "5b83b154aa",
+  "date": "2026-08-21",
+  "eval": "cyberseceval_4",
+  "label": "N",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "928e3dd92a",
+  "date": "2026-08-21",
+  "eval": "anima",
+  "label": "none",
+  "py_changed": 1,
+  "before": "6-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "928e3dd92a",
+  "date": "2026-08-21",
+  "eval": "hle",
+  "label": "none",
+  "py_changed": 2,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "928e3dd92a",
+  "date": "2026-08-21",
+  "eval": "moru",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d07c76cfe2",
+  "date": "2026-08-21",
+  "eval": "fortress",
+  "label": "none",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "c17432746b",
+  "date": "2026-08-21",
+  "eval": "fortress",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "1f2a1b9358",
+  "date": "2026-08-21",
+  "eval": "niah",
+  "label": "N",
+  "py_changed": 2,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d1ffc74ce7",
+  "date": "2026-08-21",
+  "eval": "livecodebench_pro",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "4cf59d96ad",
+  "date": "2026-08-21",
+  "eval": "uccb",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "bc2596837b",
+  "date": "2026-08-21",
+  "eval": "agentharm",
+  "label": "N",
+  "py_changed": 1,
+  "before": "3-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "79a8ff566f",
+  "date": "2026-08-20",
+  "eval": "agentharm",
+  "label": "N",
+  "py_changed": 3,
+  "before": "2-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "d20ea530b2",
+  "date": "2026-08-20",
+  "eval": "xstest",
+  "label": "N",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "710ee9ff88",
+  "date": "2026-08-20",
+  "eval": "writingbench",
+  "label": "N",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "a975e318a4",
+  "date": "2026-08-20",
+  "eval": "coconot",
+  "label": "N",
+  "py_changed": 1,
+  "before": "3-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "29388da6dd",
+  "date": "2026-08-20",
+  "eval": "squad",
+  "label": "N",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "273a0cccd0",
+  "date": "2026-08-20",
+  "eval": "cyberseceval_4",
+  "label": "none",
+  "py_changed": 2,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "3961f77dd0",
+  "date": "2026-08-20",
+  "eval": "cyberseceval_4",
+  "label": "none",
+  "py_changed": 4,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "1d30a6b611",
+  "date": "2026-08-20",
+  "eval": "b3",
+  "label": "N",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "c47d5e4678",
+  "date": "2026-08-20",
+  "eval": "abstention_bench",
+  "label": "N",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "5416e0d198",
+  "date": "2026-08-19",
+  "eval": "hle",
+  "label": "N",
+  "py_changed": 5,
+  "before": "4-B",
+  "after": "5-C"
+ },
+ {
+  "commit": "d49e7da0d7",
+  "date": "2026-08-19",
+  "eval": "hle",
+  "label": "N",
+  "py_changed": 3,
+  "before": "3-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "c93af33eac",
+  "date": "2026-08-19",
+  "eval": "stereoset",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "281c50153d",
+  "date": "2026-08-19",
+  "eval": "ape",
+  "label": "N",
+  "py_changed": 1,
+  "before": "1-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "00b485d913",
+  "date": "2026-08-19",
+  "eval": "strong_reject",
+  "label": "N",
+  "py_changed": 3,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "72cbcf9a89",
+  "date": "2026-08-19",
+  "eval": "swe_lancer",
+  "label": "none",
+  "py_changed": 1,
+  "before": "1-B",
+  "after": "1-B"
+ },
+ {
+  "commit": "431504d002",
+  "date": "2026-08-19",
+  "eval": "air_bench",
+  "label": "N",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "431504d002",
+  "date": "2026-08-19",
+  "eval": "livecodebench_pro",
+  "label": "N",
+  "py_changed": 1,
+  "before": "1-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "0ad3486c7a",
+  "date": "2026-08-19",
+  "eval": "class_eval",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-C",
+  "after": "3-C"
+ },
+ {
+  "commit": "c8a70cd5e5",
+  "date": "2026-08-19",
+  "eval": "cybench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-C",
+  "after": "4-C"
+ },
+ {
+  "commit": "b296aceb08",
+  "date": "2026-08-18",
+  "eval": "abstention_bench",
+  "label": "none",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "b296aceb08",
+  "date": "2026-08-18",
+  "eval": "anima",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "b296aceb08",
+  "date": "2026-08-18",
+  "eval": "moru",
+  "label": "N",
+  "py_changed": 1,
+  "before": "1-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "43b35aeed8",
+  "date": "2026-08-18",
+  "eval": "anima",
+  "label": "N",
+  "py_changed": 1,
+  "before": "5-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "9f62d68672",
+  "date": "2026-08-18",
+  "eval": "sycophancy",
+  "label": "N",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "cd8828394d",
+  "date": "2026-08-18",
+  "eval": "assistant_bench",
+  "label": "X",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-B"
+ },
+ {
+  "commit": "cd8828394d",
+  "date": "2026-08-18",
+  "eval": "bigcodebench",
+  "label": "X",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-B"
+ },
+ {
+  "commit": "cd8828394d",
+  "date": "2026-08-18",
+  "eval": "browse_comp",
+  "label": "X",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-B"
+ },
+ {
+  "commit": "cd8828394d",
+  "date": "2026-08-18",
+  "eval": "class_eval",
+  "label": "X",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-C"
+ },
+ {
+  "commit": "cd8828394d",
+  "date": "2026-08-18",
+  "eval": "cybergym",
+  "label": "X",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-B"
+ },
+ {
+  "commit": "cd8828394d",
+  "date": "2026-08-18",
+  "eval": "ds1000",
+  "label": "X",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-B"
+ },
+ {
+  "commit": "cd8828394d",
+  "date": "2026-08-18",
+  "eval": "gaia",
+  "label": "X",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-B"
+ },
+ {
+  "commit": "cd8828394d",
+  "date": "2026-08-18",
+  "eval": "gdm_self_proliferation",
+  "label": "X",
+  "py_changed": 0,
+  "before": "6-A",
+  "after": "6-B"
+ },
+ {
+  "commit": "cd8828394d",
+  "date": "2026-08-18",
+  "eval": "gdm_self_reasoning",
+  "label": "X",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-B"
+ },
+ {
+  "commit": "b988e7f548",
+  "date": "2026-08-18",
+  "eval": "kernelbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "c4bdb1191d",
+  "date": "2026-08-17",
+  "eval": "gdm_stealth",
+  "label": "N",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "abstention_bench",
+  "label": "none",
+  "py_changed": 11,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "browse_comp",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "core_bench",
+  "label": "none",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "cti_realm",
+  "label": "none",
+  "py_changed": 1,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "cybench",
+  "label": "none",
+  "py_changed": 1,
+  "before": "4-C",
+  "after": "4-C"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "cybermetric",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "cyberseceval_4",
+  "label": "none",
+  "py_changed": 2,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "frontier_cs",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "gdm_intercode_ctf",
+  "label": "none",
+  "py_changed": 1,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "gpqa",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "instrumentaleval",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "makemesay",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "mgsm",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "mind2web",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "mlrc_bench",
+  "label": "none",
+  "py_changed": 1,
+  "before": "1-C",
+  "after": "1-C"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "mmiu",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "personality",
+  "label": "none",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "sad",
+  "label": "none",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "scicode",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "sciknoweval",
+  "label": "none",
+  "py_changed": 1,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "simpleqa",
+  "label": "none",
+  "py_changed": 1,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "usaco",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "6c97e3589f",
+  "date": "2026-08-13",
+  "eval": "worldsense",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "8a8ecec0cc",
+  "date": "2026-08-12",
+  "eval": "anima",
+  "label": "none",
+  "py_changed": 1,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "8a8ecec0cc",
+  "date": "2026-08-12",
+  "eval": "moru",
+  "label": "none",
+  "py_changed": 1,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "8a8ecec0cc",
+  "date": "2026-08-12",
+  "eval": "tac",
+  "label": "none",
+  "py_changed": 1,
+  "before": "6-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "88313e0211",
+  "date": "2026-08-07",
+  "eval": "livebench",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "b4f2154858",
+  "date": "2026-08-05",
+  "eval": "gdm_self_proliferation",
+  "label": "N",
+  "py_changed": 1,
+  "before": "5-A",
+  "after": "6-A"
+ },
+ {
+  "commit": "191596d636",
+  "date": "2026-08-05",
+  "eval": "gdm_self_proliferation",
+  "label": "N",
+  "py_changed": 1,
+  "before": "4-A",
+  "after": "5-A"
+ },
+ {
+  "commit": "ce97adb483",
+  "date": "2026-08-05",
+  "eval": "swe_lancer",
+  "label": "none",
+  "py_changed": 1,
+  "before": "1-B",
+  "after": "1-B"
+ },
+ {
+  "commit": "ccecac351b",
+  "date": "2026-08-04",
+  "eval": "sciknoweval",
+  "label": "X",
+  "py_changed": 3,
+  "before": "3-A",
+  "after": "3-B"
+ },
+ {
+  "commit": "fe9c6a437f",
+  "date": "2026-08-04",
+  "eval": "agentdojo",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "7f0b76ffc4",
+  "date": "2026-08-04",
+  "eval": "cybench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-C",
+  "after": "4-C"
+ },
+ {
+  "commit": "918b34ea0e",
+  "date": "2026-08-04",
+  "eval": "cyberseceval_4",
+  "label": "none",
+  "py_changed": 2,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "agent_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "agent_threat_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "agentharm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "agentic_misalignment",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "agieval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "aime2024",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "air_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "anima",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "apps",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "arc",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "b3",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "bbh",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "bbq",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "bigcodebench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "bold",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "boolq",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "browse_comp",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "chembench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "class_eval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "coconot",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "commonsense_qa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "compute_eval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "core_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "cve_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "cybench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-C",
+  "after": "4-C"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "cybermetric",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "cyberseceval_2",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "cyberseceval_3",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "docvqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "drop",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "ds1000",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "frontier_cs",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "gaia",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "gdm_in_house_ctf",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-A",
+  "after": "6-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "gdm_intercode_ctf",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "gdm_self_reasoning",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "gdm_stealth",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "gpqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "gsm8k",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "hellaswag",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "humaneval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "ifeval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "ifevalcode",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "infinite_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "instrumentaleval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "kernelbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "lab_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "lingoly",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "livebench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "livecodebench_pro",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "macbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "mask",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-E",
+  "after": "5-E"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "math",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "mathvista",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "mbpp",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "medqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "mle_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "7-F",
+  "after": "7-F"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "mlrc_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-C",
+  "after": "1-C"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "mmiu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "mmlu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "mmlu_pro",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "mmmu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "moru",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "musr",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "niah",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "novelty_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "osworld",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-A",
+  "after": "5-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "paws",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "persistbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "personality",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "piqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "pre_flight",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "pubmedqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "race_h",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "sad",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "scbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "sec_qa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "simpleqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "sosbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "squad",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "stereoset",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "swe_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "swe_lancer",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-B",
+  "after": "1-B"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "sycophancy",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "tac",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "tau2",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "theagentcompany",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "threecb",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "truthfulqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "vimgolf_challenges",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "vqa_rad",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "vstar_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "winogrande",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "wmdp",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "writingbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "913f703444",
+  "date": "2026-08-04",
+  "eval": "xstest",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "7bcd6a14b1",
+  "date": "2026-08-03",
+  "eval": "cybench",
+  "label": "N",
+  "py_changed": 2,
+  "before": "3-C",
+  "after": "4-C"
+ },
+ {
+  "commit": "f3e0a0a2ec",
+  "date": "2026-08-03",
+  "eval": "cybench",
+  "label": "X",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-C"
+ },
+ {
+  "commit": "bb08ba6857",
+  "date": "2026-07-31",
+  "eval": "docvqa",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "932bf385d8",
+  "date": "2026-07-31",
+  "eval": "sycophancy",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "7ed2906a64",
+  "date": "2026-07-31",
+  "eval": "frontierscience",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "1dbe0a060c",
+  "date": "2026-07-31",
+  "eval": "bfcl",
+  "label": "N",
+  "py_changed": 1,
+  "before": "5-B",
+  "after": "6-B"
+ },
+ {
+  "commit": "ebd2054c7d",
+  "date": "2026-07-28",
+  "eval": "bigcodebench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "ebd2054c7d",
+  "date": "2026-07-28",
+  "eval": "class_eval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "ebd2054c7d",
+  "date": "2026-07-28",
+  "eval": "ds1000",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "54e7b3a65b",
+  "date": "2026-07-23",
+  "eval": "usaco",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "c538359ea9",
+  "date": "2026-07-22",
+  "eval": "cti_realm",
+  "label": "none",
+  "py_changed": 1,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "064b404c92",
+  "date": "2026-07-20",
+  "eval": "cybergym",
+  "label": "N",
+  "py_changed": 2,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "7423bd3b52",
+  "date": "2026-07-20",
+  "eval": "kernelbench",
+  "label": "N",
+  "py_changed": 2,
+  "before": "4-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "7423bd3b52",
+  "date": "2026-07-20",
+  "eval": "osworld",
+  "label": "none",
+  "py_changed": 1,
+  "before": "5-A",
+  "after": "5-A"
+ },
+ {
+  "commit": "ccc3c22b73",
+  "date": "2026-07-20",
+  "eval": "simpleqa",
+  "label": "N",
+  "py_changed": 0,
+  "before": "4-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "ccc3c22b73",
+  "date": "2026-07-20",
+  "eval": "vqa_rad",
+  "label": "N",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "403ef774cd",
+  "date": "2026-07-14",
+  "eval": "gdm_self_proliferation",
+  "label": "none",
+  "py_changed": 1,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "1065fbd32a",
+  "date": "2026-07-13",
+  "eval": "b3",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "66c90af97b",
+  "date": "2026-07-13",
+  "eval": "stereoset",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "5f244678d3",
+  "date": "2026-07-13",
+  "eval": "sciknoweval",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "fadc161a06",
+  "date": "2026-07-13",
+  "eval": "abstention_bench",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d94a04822a",
+  "date": "2026-07-08",
+  "eval": "tac",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "4fd61ee3df",
+  "date": "2026-07-06",
+  "eval": "assistant_bench",
+  "label": "N",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "6e9de9e92a",
+  "date": "2026-07-06",
+  "eval": "gdm_self_reasoning",
+  "label": "N",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "50bb0ea878",
+  "date": "2026-07-05",
+  "eval": "pre_flight",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "abstention_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "agent_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "agentdojo",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "agentharm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "agentic_misalignment",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "agieval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "anima",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "ape",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "apps",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "assistant_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "b3",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "bbeh",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "bbh",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "bbq",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "bfcl",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "bigcodebench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "bold",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "boolq",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "browse_comp",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "chembench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "class_eval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "coconot",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "commonsense_qa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "compute_eval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "core_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "cve_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "cybench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "cyberseceval_2",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "cyberseceval_3",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "docvqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "drop",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "ds1000",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "fortress",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "frontier_cs",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "frontierscience",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "gaia",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "gdm_in_house_ctf",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-A",
+  "after": "6-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "gdm_intercode_ctf",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "gdm_self_proliferation",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "gdm_self_reasoning",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "gdm_stealth",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "gdpval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "gpqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "gsm8k",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "healthbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "hellaswag",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "hle",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "humaneval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "ifevalcode",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "instrumentaleval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "kernelbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "livebench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "livecodebench_pro",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "macbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "make_me_pay",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "makemesay",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "mask",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-E",
+  "after": "5-E"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "math",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "mathvista",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "mbpp",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "mgsm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "mind2web",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "mind2web_sc",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "mle_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "7-F",
+  "after": "7-F"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "mlrc_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-C",
+  "after": "1-C"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "mmiu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "mmlu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "mmlu_pro",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "mmmu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "moru",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "musr",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "niah",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "novelty_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "onet",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "osworld",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-A",
+  "after": "5-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "paperbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "paws",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "persistbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "personality",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "race_h",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "sad",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "scbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "scicode",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "sciknoweval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "simpleqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-C",
+  "after": "4-C"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "sosbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "squad",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "stereoset",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "strong_reject",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "swe_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "swe_lancer",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-B",
+  "after": "1-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "sycophancy",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "tac",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "tau2",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "theagentcompany",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "threecb",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "truthfulqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "uccb",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "usaco",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "vqa_rad",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "winogrande",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "worldsense",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "writingbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "xstest",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "d229c0898a",
+  "date": "2026-07-03",
+  "eval": "zerobench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "562daf3ca2",
+  "date": "2026-07-02",
+  "eval": "xstest",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "a004f404c9",
+  "date": "2026-07-02",
+  "eval": "agentharm",
+  "label": "X",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-B"
+ },
+ {
+  "commit": "d5fe66bed5",
+  "date": "2026-07-01",
+  "eval": "threecb",
+  "label": "X",
+  "py_changed": 2,
+  "before": "4-A",
+  "after": "4-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "abstention_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "agent_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "agent_threat_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "agentdojo",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "agentharm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "agentic_misalignment",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "agieval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "aime2024",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "aime2025",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "aime2026",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "air_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "anima",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "ape",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "apps",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "arc",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "assistant_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "b3",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "bbeh",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "bbh",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "bbq",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "bfcl",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "bigcodebench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "bold",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "boolq",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "browse_comp",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "chembench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "class_eval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "coconot",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "commonsense_qa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "compute_eval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "core_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "cti_realm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "cve_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "cybench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "cybergym",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "cybermetric",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "cyberseceval_2",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "cyberseceval_3",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "cyberseceval_4",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "docvqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "drop",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "ds1000",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "fortress",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "frontier_cs",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "frontierscience",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "gaia",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "gdm_in_house_ctf",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-A",
+  "after": "6-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "gdm_intercode_ctf",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "gdm_self_proliferation",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "gdm_self_reasoning",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "gdm_stealth",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "gdpval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "gpqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "gsm8k",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "healthbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "hellaswag",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "hle",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "humaneval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "ifeval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "ifevalcode",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "infinite_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "instrumentaleval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "ipi_coding_agent",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "kernelbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "lab_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "lingoly",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "livebench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "livecodebench_pro",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "macbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "make_me_pay",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "makemesay",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "mask",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-E",
+  "after": "5-E"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "math",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "mathvista",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "mbpp",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "medqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "mgsm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "mind2web",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "mind2web_sc",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "mle_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "7-F",
+  "after": "7-F"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "mlrc_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-C",
+  "after": "1-C"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "mmiu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "mmlu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "mmlu_pro",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "mmmu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "moru",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "musr",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "niah",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "novelty_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "onet",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "osworld",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-A",
+  "after": "5-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "paperbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "paws",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "persistbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "personality",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "piqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "pre_flight",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "pubmedqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "race_h",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "sad",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "scbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "scicode",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "sciknoweval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "sec_qa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "sevenllm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "simpleqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-C",
+  "after": "4-C"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "sosbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "squad",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "stereoset",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "strong_reject",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "swe_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "swe_lancer",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-B",
+  "after": "1-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "sycophancy",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "tac",
+  "label": "none",
+  "py_changed": 0,
+  "before": "6-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "tau2",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "theagentcompany",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "threecb",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "truthfulqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "uccb",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "usaco",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "vimgolf_challenges",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "vqa_rad",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "vstar_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "winogrande",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "wmdp",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "worldsense",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "writingbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "xstest",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "be78f6c173",
+  "date": "2026-07-02",
+  "eval": "zerobench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "d9136c45b0",
+  "date": "2026-07-01",
+  "eval": "tac",
+  "label": "N",
+  "py_changed": 4,
+  "before": "5-C",
+  "after": "6-C"
+ },
+ {
+  "commit": "31e4336206",
+  "date": "2026-06-30",
+  "eval": "coconot",
+  "label": "N",
+  "py_changed": 2,
+  "before": "2-A",
+  "after": "3-B"
+ },
+ {
+  "commit": "f140958771",
+  "date": "2026-06-30",
+  "eval": "tac",
+  "label": "N",
+  "py_changed": 1,
+  "before": "4-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "427d4c805e",
+  "date": "2026-06-25",
+  "eval": "swe_bench",
+  "label": "N",
+  "py_changed": 1,
+  "before": "4-C",
+  "after": "5-C"
+ },
+ {
+  "commit": "5989445b8a",
+  "date": "2026-06-25",
+  "eval": "swe_bench",
+  "label": "none",
+  "py_changed": 5,
+  "before": "4-C",
+  "after": "4-C"
+ },
+ {
+  "commit": "150fe2b418",
+  "date": "2026-06-24",
+  "eval": "simpleqa",
+  "label": "N",
+  "py_changed": 2,
+  "before": "3-B",
+  "after": "4-C"
+ },
+ {
+  "commit": "3c9000d805",
+  "date": "2026-06-22",
+  "eval": "gdm_intercode_ctf",
+  "label": "X",
+  "py_changed": 1,
+  "before": "4-A",
+  "after": "4-B"
+ },
+ {
+  "commit": "ab5641e0e8",
+  "date": "2026-06-22",
+  "eval": "frontierscience",
+  "label": "N",
+  "py_changed": 1,
+  "before": "1-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "ddfc3fc2f5",
+  "date": "2026-06-19",
+  "eval": "tau2",
+  "label": "N",
+  "py_changed": 4,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "a8d4380d70",
+  "date": "2026-06-17",
+  "eval": "cybench",
+  "label": "X",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "3-B"
+ },
+ {
+  "commit": "a8d4380d70",
+  "date": "2026-06-17",
+  "eval": "mle_bench",
+  "label": "X",
+  "py_changed": 1,
+  "before": "7-E",
+  "after": "7-F"
+ },
+ {
+  "commit": "a8d4380d70",
+  "date": "2026-06-17",
+  "eval": "swe_lancer",
+  "label": "X",
+  "py_changed": 2,
+  "before": "1-A",
+  "after": "1-B"
+ },
+ {
+  "commit": "63c45adb48",
+  "date": "2026-06-15",
+  "eval": "theagentcompany",
+  "label": "none",
+  "py_changed": 1,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "650840ac5f",
+  "date": "2026-06-14",
+  "eval": "cti_realm",
+  "label": "N",
+  "py_changed": 17,
+  "before": "3-A",
+  "after": "4-A"
+ },
+ {
+  "commit": "d97ddde00a",
+  "date": "2026-06-12",
+  "eval": "tac",
+  "label": "N",
+  "py_changed": 3,
+  "before": "3-B",
+  "after": "4-C"
+ },
+ {
+  "commit": "e1472d20b2",
+  "date": "2026-06-12",
+  "eval": "tau2",
+  "label": "none",
+  "py_changed": 16,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "9ac3333b75",
+  "date": "2026-06-10",
+  "eval": "cti_realm",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "f5f1224e87",
+  "date": "2026-06-08",
+  "eval": "agentharm",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "19a624916d",
+  "date": "2026-06-05",
+  "eval": "bfcl",
+  "label": "none",
+  "py_changed": 1,
+  "before": "5-B",
+  "after": "5-B"
+ },
+ {
+  "commit": "19a624916d",
+  "date": "2026-06-05",
+  "eval": "healthbench",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "19a624916d",
+  "date": "2026-06-05",
+  "eval": "mmlu",
+  "label": "none",
+  "py_changed": 1,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "abstention_bench",
+  "label": "none",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "agent_threat_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "agentharm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "agieval",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "arc",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "bold",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "cve_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "cybermetric",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "cyberseceval_2",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "frontier_cs",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "gaia",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "gdm_self_reasoning",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "gdm_stealth",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "healthbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-B",
+  "after": "2-B"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "infinite_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "kernelbench",
+  "label": "none",
+  "py_changed": 1,
+  "before": "4-B",
+  "after": "4-B"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "lab_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "lingoly",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "livebench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "mle_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "7-E",
+  "after": "7-E"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "mmlu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "mmmu",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "novelty_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "osworld",
+  "label": "none",
+  "py_changed": 0,
+  "before": "5-A",
+  "after": "5-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "persistbench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "personality",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "sad",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "sec_qa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "sevenllm",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "simpleqa",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "swe_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "4-C",
+  "after": "4-C"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "tac",
+  "label": "none",
+  "py_changed": 0,
+  "before": "3-B",
+  "after": "3-B"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "tau2",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "theagentcompany",
+  "label": "none",
+  "py_changed": 0,
+  "before": "1-A",
+  "after": "1-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "vstar_bench",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "444e6db903",
+  "date": "2026-06-04",
+  "eval": "wmdp",
+  "label": "none",
+  "py_changed": 0,
+  "before": "2-A",
+  "after": "2-A"
+ },
+ {
+  "commit": "111ab5dfe8",
+  "date": "2026-06-04",
+  "eval": "osworld",
+  "label": "none",
+  "py_changed": 1,
+  "before": "5-A",
+  "after": "5-A"
+ },
+ {
+  "commit": "2652a4afe3",
+  "date": "2026-06-03",
+  "eval": "onet",
+  "label": "N",
+  "py_changed": 1,
+  "before": "2-A",
+  "after": "3-A"
+ },
+ {
+  "commit": "54f59b9db2",
+  "date": "2026-06-01",
+  "eval": "simpleqa",
+  "label": "none",
+  "py_changed": 1,
+  "before": "3-B",
+  "after": "3-B"
+ }
+]
